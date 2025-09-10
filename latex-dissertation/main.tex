@@ -1,0 +1,118 @@
+% =============================================================================
+% DISSERTAÇÃO DE MESTRADO
+% Diagnóstico de Falhas em Máquinas Rotativas por Meio de Simulações Numéricas 
+% e Análise de Espectros de Ordem Superior
+% =============================================================================
+
+\documentclass[12pt,a4paper,oneside]{memoir}
+
+% =============================================================================
+% PACOTES E CONFIGURAÇÕES
+% =============================================================================
+
+% Pacotes básicos
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[portuguese]{babel}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Configurações específicas
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor=red,
+    pdfauthor={Cristofer Antoni Souza Costa},
+    pdftitle={Diagnóstico de Falhas em Máquinas Rotativas},
+    pdfsubject={Dissertação de Mestrado},
+    pdfkeywords={máquinas rotativas, diagnóstico de falhas, HOS, simulação numérica}
+}
+
+% Configurações de código
+\lstset{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color{gray!10},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    frame=single,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=false,
+    escapeinside={\%*}{*)}
+}
+
+% =============================================================================
+% CONFIGURAÇÕES DO DOCUMENTO
+% =============================================================================
+
+% Margens (conforme ABNT)
+\setlrmarginsandblock{3cm}{2cm}{*}
+\setulmarginsandblock{3cm}{2cm}{*}
+\checkandfixthelayout
+
+% Espaçamento entre linhas
+\OnehalfSpacing
+
+% Numeração de páginas
+\makepagestyle{plain}
+\makeevenfoot{plain}{}{}{\thepage}
+\makeoddfoot{plain}{}{}{\thepage}
+
+% =============================================================================
+% INFORMAÇÕES DO DOCUMENTO
+% =============================================================================
+
+\title{Diagnóstico de Falhas em Máquinas Rotativas por Meio de Simulações Numéricas e Análise de Espectros de Ordem Superior}
+\author{Cristofer Antoni Souza Costa}
+\date{\today}
+
+% =============================================================================
+% INÍCIO DO DOCUMENTO
+% =============================================================================
+
+\begin{document}
+
+% Elementos pré-textuais
+\frontmatter
+\input{frontmatter/capa}
+\input{frontmatter/folha-rosto}
+\input{frontmatter/resumo}
+\input{frontmatter/abstract}
+\input{frontmatter/listas}
+\tableofcontents*
+
+% Elementos textuais
+\mainmatter
+\input{chapters/introducao}
+\input{chapters/revisao-literatura}
+\input{chapters/metodologia}
+\input{chapters/resultados-discussao}
+\input{chapters/conclusao}
+
+% Elementos pós-textuais
+\backmatter
+\input{backmatter/referencias}
+\input{backmatter/apendices}
+
+\end{document}
