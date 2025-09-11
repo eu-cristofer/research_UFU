@@ -1,0 +1,105 @@
+% =============================================================================
+% CAPÍTULO 2: REVISÃO DE LITERATURA
+% =============================================================================
+
+\chapter{Revisão de Literatura}
+
+\section{Dinâmica de Rotores}
+
+A dinâmica de rotores é uma área fundamental da engenharia mecânica que estuda o comportamento dinâmico de sistemas rotativos. Segundo Friswell et al. \cite{friswell2010}, os sistemas rotativos apresentam características dinâmicas únicas que os distinguem de outros sistemas mecânicos, incluindo efeitos giroscópicos, forças centrífugas e acoplamentos entre movimentos translacionais e rotacionais.
+
+\subsection{Fundamentos Teóricos}
+
+A modelagem matemática de sistemas rotativos baseia-se nas equações de movimento de Lagrange ou Hamilton, considerando as forças inerciais, de amortecimento e de rigidez. Para um rotor simples, a equação de movimento pode ser expressa como:
+
+\begin{equation}
+\mathbf{M}\ddot{\mathbf{q}} + (\mathbf{C} + \mathbf{G})\dot{\mathbf{q}} + \mathbf{K}\mathbf{q} = \mathbf{F}(t)
+\end{equation}
+
+onde $\mathbf{M}$ é a matriz de massa, $\mathbf{C}$ é a matriz de amortecimento, $\mathbf{G}$ é a matriz giroscópica, $\mathbf{K}$ é a matriz de rigidez, $\mathbf{q}$ é o vetor de coordenadas generalizadas e $\mathbf{F}(t)$ é o vetor de forças externas.
+
+\subsection{Modelagem por Elementos Finitos}
+
+A modelagem por elementos finitos tem se mostrado uma ferramenta eficaz para a análise de sistemas rotativos complexos. Lalanne e Ferraris \cite{lalanne1998} apresentam uma abordagem sistemática para a modelagem de rotores utilizando elementos finitos, incluindo a consideração de efeitos não lineares e acoplamentos entre diferentes componentes.
+
+\section{Análise de Vibrações}
+
+A análise de vibrações constitui a base para o diagnóstico de falhas em máquinas rotativas. Randall \cite{randall2011} apresenta uma abordagem abrangente para a análise de vibrações em aplicações industriais, incluindo técnicas de processamento de sinais e interpretação de espectros.
+
+\subsection{Análise no Domínio da Frequência}
+
+A análise no domínio da frequência é fundamental para o diagnóstico de falhas, permitindo a identificação de componentes espectrais características de diferentes tipos de falhas. A transformada de Fourier é a ferramenta mais utilizada para esta análise:
+
+\begin{equation}
+X(f) = \int_{-\infty}^{\infty} x(t) e^{-j2\pi ft} dt
+\end{equation}
+
+\subsection{Limitações da Análise Linear}
+
+A análise espectral convencional baseada na transformada de Fourier apresenta limitações quando aplicada a sinais não lineares ou não estacionários. Estas limitações motivaram o desenvolvimento de técnicas mais avançadas, como os espectros de ordem superior.
+
+\section{Espectros de Ordem Superior}
+
+Os espectros de ordem superior (HOS) constituem uma extensão da análise espectral convencional, sendo capazes de capturar informações sobre não linearidades e acoplamentos de fase que não são visíveis nos espectros de segunda ordem.
+
+\subsection{Fundamentos Teóricos}
+
+Segundo Nikias e Petropulu \cite{nikias1993}, os espectros de ordem superior são definidos como momentos estatísticos de ordem superior de sinais estocásticos. O bi-espectro, que é o espectro de terceira ordem, é definido como:
+
+\begin{equation}
+B(f_1, f_2) = E[X(f_1)X(f_2)X^*(f_1 + f_2)]
+\end{equation}
+
+onde $X(f)$ é a transformada de Fourier do sinal $x(t)$ e $E[\cdot]$ denota o valor esperado.
+
+\subsection{Aplicações em Diagnóstico de Falhas}
+
+Fackrell et al. \cite{fackrell1995} demonstraram a eficácia dos bi-espectros para a análise de sinais de vibração, mostrando que estas técnicas são capazes de identificar não linearidades características de diferentes tipos de falhas em sistemas rotativos.
+
+\section{Diagnóstico de Falhas em Máquinas Rotativas}
+
+O diagnóstico de falhas em máquinas rotativas tem evoluído significativamente com o desenvolvimento de técnicas avançadas de análise de sinais e aprendizado de máquina.
+
+\subsection{Tipos de Falhas}
+
+As falhas mais comuns em máquinas rotativas incluem:
+
+\begin{itemize}
+    \item \textbf{Trincas:} Podem ocorrer devido a fadiga, corrosão ou sobrecarga, alterando significativamente a rigidez do rotor.
+    \item \textbf{Desalinhamentos:} Resultam em forças desbalanceadas e podem causar vibrações excessivas.
+    \item \textbf{Desbalanceamento:} Causa vibrações síncronas com a velocidade de rotação.
+    \item \textbf{Falhas em rolamentos:} Podem resultar em vibrações com frequências características.
+\end{itemize}
+
+\subsection{Modelagem de Falhas}
+
+A modelagem de falhas em sistemas rotativos requer a consideração de efeitos não lineares. Wensing \cite{wensing1997} apresenta uma revisão abrangente sobre a dinâmica de rotores com trincas, incluindo modelos para o comportamento de "respiração" das trincas.
+
+\section{Aprendizado de Máquina Aplicado ao Diagnóstico}
+
+O uso de técnicas de aprendizado de máquina tem se mostrado promissor para a automação do processo de diagnóstico de falhas. Lei et al. \cite{lei2020} apresentam uma revisão sistemática das aplicações de aprendizado de máquina em prognóstico de saúde de máquinas.
+
+\subsection{Classificadores Supervisionados}
+
+Widodo e Yang \cite{widodo2007} demonstram a eficácia de Support Vector Machines (SVM) para o diagnóstico de falhas, enquanto Kankar et al. \cite{kankar2011} aplicam diferentes algoritmos de aprendizado de máquina para o diagnóstico de falhas em rolamentos.
+
+\section{Lacunas na Literatura}
+
+Apesar dos avanços significativos na área, algumas lacunas permanecem:
+
+\begin{itemize}
+    \item Falta de metodologias integradas que combinem simulação numérica, análise HOS e aprendizado de máquina.
+    \item Necessidade de validação de técnicas HOS com dados simulados de alta fidelidade.
+    \item Desenvolvimento de frameworks automatizados para diagnóstico de falhas.
+\end{itemize}
+
+\section{Contribuições Propostas}
+
+Este trabalho propõe contribuir para o preenchimento dessas lacunas através do desenvolvimento de uma metodologia integrada que combine:
+
+\begin{enumerate}
+    \item Simulação numérica de alta fidelidade utilizando a biblioteca ROSS.
+    \item Análise de espectros de ordem superior para extração de características.
+    \item Validação física através de comparação com literatura.
+    \item Aplicação de aprendizado de máquina para classificação automática.
+\end{enumerate}

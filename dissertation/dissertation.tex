@@ -1,0 +1,54 @@
+% The Preamble is where you define the document type and load packages.
+
+\documentclass{report}
+
+% Load packages that add new features
+\usepackage[utf8]{inputenc} % Allows you to use characters like á, ç, ñ directly
+\usepackage{amsmath}        % For advanced math environments
+\usepackage{graphicx}       % To include images
+
+% Document Metadata
+\title{Diagnóstico de Falhas em Máquinas Rotativas por Meio de Simulações Numéricas e Análise de Espectros de Ordem Superior}
+
+\author{Cristofer Antoni Souza Costa}
+
+\date{\today}
+
+% --- This is the Document Body ---
+% The content of your document goes between \begin{document} and \end{document}.
+
+\begin{document}
+
+\maketitle % This command displays the title, author, and date
+
+\section{Introduction} % Creates a numbered section heading
+
+\input{chapters/introducao}
+
+\input{chapters/revisao-literatura}
+
+\label{sec:intro} % A label to reference this section later
+
+Hello, world! This is my first document created with \LaTeX. 
+You write text just like this, and LaTeX handles all the formatting. 
+It automatically indents new paragraphs.
+
+You can easily add text formatting like \textbf{bold text} or \textit{italic text}.
+
+\section{Why LaTeX is Useful} % Creates a second section
+
+One of the main strengths of LaTeX is typesetting mathematics. You can write simple inline equations like Einstein's famous $E = mc^2$, or more complex displayed equations like Euler's identity:
+\[
+e^{i\pi} + 1 = 0
+\]
+
+It's also great for creating structured lists:
+\begin{itemize}
+    \item Item one is for organization.
+    \item Item two is for beautiful math.
+    \item Item three is for automated references. As we saw in section~\ref{sec:intro}, cross-referencing is simple!
+\end{itemize}
+
+This is just the beginning of what is possible.
+
+\end{document}

@@ -1,0 +1,60 @@
+{
+  "name": "dissertacao-apresentacoes",
+  "version": "1.0.0",
+  "description": "Apresentações em JavaScript para dissertação sobre diagnóstico de falhas em máquinas rotativas",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development",
+    "watch": "webpack --mode development --watch",
+    "serve": "http-server public -p 8080 -o",
+    "presentation:defesa": "node scripts/generate-presentation.js defesa",
+    "presentation:qualificacao": "node scripts/generate-presentation.js qualificacao",
+    "presentation:progresso": "node scripts/generate-presentation.js progresso"
+  },
+  "keywords": [
+    "apresentacao",
+    "dissertacao",
+    "diagnostico-falhas",
+    "maquinas-rotativas",
+    "HOS",
+    "simulacao-numerica"
+  ],
+  "author": "Cristofer Antoni Souza Costa",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "reveal.js": "^4.3.1",
+    "socket.io": "^4.7.2",
+    "chart.js": "^4.4.0",
+    "d3": "^7.8.5",
+    "mathjax": "^3.2.2",
+    "highlight.js": "^11.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3",
+    "html-webpack-plugin": "^5.5.3",
+    "http-server": "^14.1.1",
+    "babel-loader": "^9.1.3",
+    "@babel/core": "^7.22.10",
+    "@babel/preset-env": "^7.22.10"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seu-usuario/dissertacao-apresentacoes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/seu-usuario/dissertacao-apresentacoes/issues"
+  },
+  "homepage": "https://github.com/seu-usuario/dissertacao-apresentacoes#readme"
+}

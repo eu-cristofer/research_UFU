@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progresso - Dissertação de Mestrado</title>
+    <link rel="stylesheet" href="/reveal/dist/reveal.css">
+    <link rel="stylesheet" href="/reveal/dist/theme/white.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .reveal .slides section {
+            text-align: left;
+        }
+        
+        .reveal .slides section[data-background] {
+            text-align: center;
+        }
+        
+        .reveal h1, .reveal h2, .reveal h3 {
+            color: #2c3e50;
+        }
+        
+        .reveal .title-slide {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .reveal .title-slide h1,
+        .reveal .title-slide h2,
+        .reveal .title-slide p {
+            color: white;
+        }
+        
+        .reveal .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .reveal .back-button:hover {
+            background: #5a6fd8;
+            transform: scale(1.1);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+        }
+        
+        .status-completed { color: #28a745; }
+        .status-in-progress { color: #ffc107; }
+        .status-planned { color: #6c757d; }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.location.href='/'">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <div class="reveal">
+        <div class="slides">
+            <!-- Slide 1: Título -->
+            <section data-background="linear-gradient(135deg, #667eea 0%, #764ba2 100%)" class="title-slide">
+                <h1>Relatório de Progresso</h1>
+                <h2>Dissertação de Mestrado</h2>
+                <br>
+                <p><strong>Cristofer Antoni Souza Costa</strong></p>
+                <p>Orientador: Prof. Dr. Aldemir Cavallini Jr.</p>
+                <p>Programa de Pós-Graduação em Engenharia Mecânica - UFU</p>
+                <br>
+                <p><i class="fas fa-calendar"></i> Data do Relatório</p>
+            </section>
+
+            <!-- Slide 2: Visão Geral do Progresso -->
+            <section>
+                <h2><i class="fas fa-chart-pie"></i> Visão Geral do Progresso</h2>
+                <h3>Progresso Geral do Projeto</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 35%;"></div>
+                </div>
+                <p><strong>35% Concluído</strong></p>
+                
+                <h3>Status por Fase</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle status-completed"></i> <strong>Fase I:</strong> Revisão bibliográfica (100%)</li>
+                    <li><i class="fas fa-spinner status-in-progress"></i> <strong>Fase II:</strong> Modelagem numérica (60%)</li>
+                    <li><i class="fas fa-clock status-planned"></i> <strong>Fase III:</strong> Simulações sistemáticas (0%)</li>
+                    <li><i class="fas fa-clock status-planned"></i> <strong>Fase IV:</strong> Análise HOS (0%)</li>
+                    <li><i class="fas fa-clock status-planned"></i> <strong>Fase V:</strong> Validação (0%)</li>
+                    <li><i class="fas fa-clock status-planned"></i> <strong>Fase VI:</strong> Redação final (0%)</li>
+                </ul>
+            </section>
+
+            <!-- Slide 3: Atividades Concluídas -->
+            <section>
+                <h2><i class="fas fa-check-circle"></i> Atividades Concluídas</h2>
+                <h3>Fase I - Revisão Bibliográfica (100%)</h3>
+                <ul>
+                    <li>✅ Revisão abrangente da literatura</li>
+                    <li>✅ Análise de fundamentos teóricos</li>
+                    <li>✅ Identificação de lacunas de pesquisa</li>
+                    <li>✅ Definição do problema de pesquisa</li>
+                    <li>✅ Estabelecimento de objetivos</li>
+                </ul>
+                
+                <h3>Fase II - Modelagem Numérica (60%)</h3>
+                <ul>
+                    <li>✅ Familiarização com ROSS</li>
+                    <li>✅ Configuração do ambiente de desenvolvimento</li>
+                    <li>✅ Implementação do modelo básico</li>
+                    <li>🔄 Desenvolvimento de modelos de falhas</li>
+                    <li>⏳ Validação inicial</li>
+                </ul>
+            </section>
+
+            <!-- Slide 4: Resultados Obtidos -->
+            <section>
+                <h2><i class="fas fa-trophy"></i> Resultados Obtidos</h2>
+                <h3>Resultados da Revisão Bibliográfica</h3>
+                <ul>
+                    <li><strong>150+ artigos</strong> analisados</li>
+                    <li><strong>5 livros</strong> de referência estudados</li>
+                    <li><strong>3 lacunas</strong> principais identificadas</li>
+                    <li><strong>Metodologia integrada</strong> proposta</li>
+                </ul>
+                
+                <h3>Resultados da Modelagem</h3>
+                <ul>
+                    <li>Modelo numérico básico implementado</li>
+                    <li>Primeiras simulações realizadas</li>
+                    <li>Validação inicial com dados da literatura</li>
+                    <li>Erro de validação < 5%</li>
+                </ul>
+            </section>
+
+            <!-- Slide 5: Desafios Encontrados -->
+            <section>
+                <h2><i class="fas fa-exclamation-triangle"></i> Desafios Encontrados</h2>
+                <h3>Desafios Técnicos</h3>
+                <ul>
+                    <li><strong>Complexidade do ROSS:</strong> Curva de aprendizado íngreme</li>
+                    <li><strong>Modelagem de falhas:</strong> Implementação de não linearidades</li>
+                    <li><strong>Processamento de dados:</strong> Volume de dados gerados</li>
+                    <li><strong>Validação:</strong> Dados experimentais limitados</li>
+                </ul>
+                
+                <h3>Soluções Implementadas</h3>
+                <ul>
+                    <li>Treinamento intensivo com ROSS</li>
+                    <li>Desenvolvimento de scripts automatizados</li>
+                    <li>Implementação de pipeline de processamento</li>
+                    <li>Foco em validação com literatura</li>
+                </ul>
+            </section>
+
+            <!-- Slide 6: Próximas Atividades -->
+            <section>
+                <h2><i class="fas fa-road"></i> Próximas Atividades</h2>
+                <h3>Curto Prazo (1-2 meses)</h3>
+                <ul>
+                    <li>Finalizar modelos de falhas</li>
+                    <li>Completar validação inicial</li>
+                    <li>Iniciar simulações sistemáticas</li>
+                </ul>
+                
+                <h3>Médio Prazo (3-6 meses)</h3>
+                <ul>
+                    <li>Executar campanha de simulações</li>
+                    <li>Desenvolver algoritmos HOS</li>
+                    <li>Extrair características dos sinais</li>
+                </ul>
+                
+                <h3>Longo Prazo (6-12 meses)</h3>
+                <ul>
+                    <li>Implementar classificadores ML</li>
+                    <li>Validar resultados finais</li>
+                    <li>Redação da dissertação</li>
+                </ul>
+            </section>
+
+            <!-- Slide 7: Cronograma Atualizado -->
+            <section>
+                <h2><i class="fas fa-calendar-alt"></i> Cronograma Atualizado</h2>
+                <table style="font-size: 0.7em;">
+                    <thead>
+                        <tr>
+                            <th>Fase</th>
+                            <th>Atividade</th>
+                            <th>Duração</th>
+                            <th>Status</th>
+                            <th>Progresso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>I</td>
+                            <td>Revisão bibliográfica</td>
+                            <td>4 meses</td>
+                            <td class="status-completed">✅ Concluída</td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td>II</td>
+                            <td>Modelagem numérica</td>
+                            <td>5 meses</td>
+                            <td class="status-in-progress">🔄 Em andamento</td>
+                            <td>60%</td>
+                        </tr>
+                        <tr>
+                            <td>III</td>
+                            <td>Simulações sistemáticas</td>
+                            <td>5 meses</td>
+                            <td class="status-planned">⏳ Planejada</td>
+                            <td>0%</td>
+                        </tr>
+                        <tr>
+                            <td>IV</td>
+                            <td>Análise HOS</td>
+                            <td>4 meses</td>
+                            <td class="status-planned">⏳ Planejada</td>
+                            <td>0%</td>
+                        </tr>
+                        <tr>
+                            <td>V</td>
+                            <td>Validação</td>
+                            <td>3 meses</td>
+                            <td class="status-planned">⏳ Planejada</td>
+                            <td>0%</td>
+                        </tr>
+                        <tr>
+                            <td>VI</td>
+                            <td>Redação final</td>
+                            <td>3 meses</td>
+                            <td class="status-planned">⏳ Planejada</td>
+                            <td>0%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Slide 8: Produtos Gerados -->
+            <section>
+                <h2><i class="fas fa-folder-open"></i> Produtos Gerados</h2>
+                <h3>Documentos</h3>
+                <ul>
+                    <li>Proposta de dissertação</li>
+                    <li>Plano de trabalho detalhado</li>
+                    <li>Revisão bibliográfica (capítulo 2)</li>
+                    <li>Estrutura da dissertação</li>
+                </ul>
+                
+                <h3>Código e Modelos</h3>
+                <ul>
+                    <li>Modelo numérico básico em ROSS</li>
+                    <li>Scripts de simulação</li>
+                    <li>Pipeline de processamento de dados</li>
+                    <li>Estrutura de apresentações</li>
+                </ul>
+                
+                <h3>Apresentações</h3>
+                <ul>
+                    <li>Apresentação de qualificação</li>
+                    <li>Relatório de progresso</li>
+                    <li>Estrutura para defesa final</li>
+                </ul>
+            </section>
+
+            <!-- Slide 9: Indicadores de Qualidade -->
+            <section>
+                <h2><i class="fas fa-chart-bar"></i> Indicadores de Qualidade</h2>
+                <h3>Qualidade da Pesquisa</h3>
+                <ul>
+                    <li><strong>Revisão bibliográfica:</strong> 150+ fontes analisadas</li>
+                    <li><strong>Metodologia:</strong> Rigorosamente definida</li>
+                    <li><strong>Validação:</strong> Erro < 5% com dados da literatura</li>
+                    <li><strong>Reprodutibilidade:</strong> Código documentado</li>
+                </ul>
+                
+                <h3>Produtividade</h3>
+                <ul>
+                    <li><strong>Documentos:</strong> 4 documentos principais</li>
+                    <li><strong>Código:</strong> 1000+ linhas implementadas</li>
+                    <li><strong>Apresentações:</strong> 3 apresentações criadas</li>
+                    <li><strong>Progresso:</strong> 35% do projeto concluído</li>
+                </ul>
+            </section>
+
+            <!-- Slide 10: Considerações Finais -->
+            <section>
+                <h2><i class="fas fa-comments"></i> Considerações Finais</h2>
+                <h3>Pontos Positivos</h3>
+                <ul>
+                    <li>Progresso dentro do cronograma</li>
+                    <li>Qualidade dos resultados obtidos</li>
+                    <li>Metodologia bem definida</li>
+                    <li>Suporte adequado do orientador</li>
+                </ul>
+                
+                <h3>Pontos de Atenção</h3>
+                <ul>
+                    <li>Complexidade técnica maior que esperada</li>
+                    <li>Necessidade de mais tempo para modelagem</li>
+                    <li>Importância de manter cronograma</li>
+                    <li>Foco na qualidade dos resultados</li>
+                </ul>
+                
+                <h3>Perspectivas</h3>
+                <p>O projeto está progredindo bem e os resultados preliminares são promissores. A metodologia proposta está sendo validada e os próximos passos estão claramente definidos.</p>
+            </section>
+
+            <!-- Slide 11: Perguntas -->
+            <section data-background="linear-gradient(135deg, #28a745 0%, #20c997 100%)" class="title-slide">
+                <h1><i class="fas fa-question-circle"></i> Perguntas?</h1>
+                <br>
+                <h2>Estou à disposição para esclarecimentos</h2>
+                <br>
+                <p><i class="fas fa-envelope"></i> cristofer.costa@ufu.br</p>
+                <p><i class="fas fa-phone"></i> (34) 99999-9999</p>
+                <br>
+                <p><strong>Contato:</strong> Cristofer Antoni Souza Costa</p>
+            </section>
+        </div>
+    </div>
+
+    <script src="/reveal/dist/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'slide',
+            controls: true,
+            progress: true,
+            center: true,
+            touch: true
+        });
+    </script>
+</body>
+</html>

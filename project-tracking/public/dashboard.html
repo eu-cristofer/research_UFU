@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Acompanhamento do Projeto</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .metric-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .metric-card .value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-card .label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .metric-card.completed .icon { color: #28a745; }
+        .metric-card.in-progress .icon { color: #ffc107; }
+        .metric-card.pending .icon { color: #6c757d; }
+        .metric-card.overall .icon { color: #667eea; }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            height: 400px;
+        }
+
+        .chart-container canvas {
+            max-height: 300px !important;
+            width: 100% !important;
+        }
+
+        .chart-container h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .phases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .phase-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .phase-card h4 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .phase-card .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .phase-card .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+        }
+
+        .phase-card .status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .phase-card .status.completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .phase-card .status.in-progress {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .phase-card .status.pending {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .milestones-section {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .milestones-section h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .milestone-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .milestone-item:last-child {
+            border-bottom: none;
+        }
+
+        .milestone-info {
+            flex: 1;
+        }
+
+        .milestone-name {
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+
+        .milestone-phase {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .milestone-date {
+            font-size: 0.9rem;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .risks-section {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .risks-section h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .risk-item {
+            padding: 1rem;
+            border-left: 4px solid #dc3545;
+            background: #f8f9fa;
+            border-radius: 0 5px 5px 0;
+            margin-bottom: 1rem;
+        }
+
+        .risk-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .risk-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .risk-description {
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .risk-mitigation {
+            font-size: 0.9rem;
+            color: #28a745;
+        }
+
+        @media (max-width: 768px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1><i class="fas fa-chart-line"></i> Dashboard do Projeto</h1>
+        <p>Diagnóstico de Falhas em Máquinas Rotativas - Acompanhamento em Tempo Real</p>
+    </div>
+
+    <div class="container">
+        <!-- Métricas Principais -->
+        <div class="metrics-grid">
+            <div class="metric-card overall">
+                <div class="icon"><i class="fas fa-percentage"></i></div>
+                <div class="value" id="overall-progress">0%</div>
+                <div class="label">Progresso Geral</div>
+            </div>
+            <div class="metric-card completed">
+                <div class="icon"><i class="fas fa-check-circle"></i></div>
+                <div class="value" id="completed-phases">0</div>
+                <div class="label">Fases Concluídas</div>
+            </div>
+            <div class="metric-card in-progress">
+                <div class="icon"><i class="fas fa-spinner"></i></div>
+                <div class="value" id="in-progress-phases">0</div>
+                <div class="label">Fases em Andamento</div>
+            </div>
+            <div class="metric-card pending">
+                <div class="icon"><i class="fas fa-clock"></i></div>
+                <div class="value" id="pending-phases">0</div>
+                <div class="label">Fases Pendentes</div>
+            </div>
+        </div>
+
+        <!-- Gráficos -->
+        <div class="charts-grid">
+            <div class="chart-container">
+                <h3><i class="fas fa-chart-bar"></i> Progresso por Fase</h3>
+                <canvas id="progressChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3><i class="fas fa-clock"></i> Tempo Gasto por Atividade</h3>
+                <canvas id="timeChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Fases do Projeto -->
+        <div class="phases-grid" id="phases-container">
+            <!-- Fases serão carregadas dinamicamente -->
+        </div>
+
+        <!-- Marcos Importantes -->
+        <div class="milestones-section">
+            <h3><i class="fas fa-flag"></i> Próximos Marcos</h3>
+            <div id="milestones-container">
+                <!-- Marcos serão carregados dinamicamente -->
+            </div>
+        </div>
+
+        <!-- Riscos -->
+        <div class="risks-section">
+            <h3><i class="fas fa-exclamation-triangle"></i> Riscos Identificados</h3>
+            <div id="risks-container">
+                <!-- Riscos serão carregados dinamicamente -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let dashboardData = {};
+        let progressChart, timeChart;
+
+        // Carregar dados do dashboard
+        async function loadDashboardData() {
+            try {
+                const response = await fetch('/api/dashboard-data');
+                dashboardData = await response.json();
+                updateDashboard();
+            } catch (error) {
+                console.error('Erro ao carregar dados:', error);
+            }
+        }
+
+        // Atualizar dashboard
+        function updateDashboard() {
+            updateMetrics();
+            updateCharts();
+            updatePhases();
+            updateMilestones();
+            updateRisks();
+        }
+
+        // Atualizar métricas
+        function updateMetrics() {
+            document.getElementById('overall-progress').textContent = dashboardData.metrics.overall_progress + '%';
+            document.getElementById('completed-phases').textContent = dashboardData.metrics.completed_phases;
+            document.getElementById('in-progress-phases').textContent = dashboardData.metrics.in_progress_phases;
+            document.getElementById('pending-phases').textContent = dashboardData.metrics.pending_phases;
+        }
+
+        // Atualizar gráficos
+        function updateCharts() {
+            // Destruir gráficos existentes se houver
+            if (progressChart) {
+                progressChart.destroy();
+                progressChart = null;
+            }
+            if (timeChart) {
+                timeChart.destroy();
+                timeChart = null;
+            }
+
+            // Aguardar um frame para garantir que os elementos foram limpos
+            setTimeout(() => {
+                // Gráfico de progresso
+                const progressCtx = document.getElementById('progressChart').getContext('2d');
+                progressChart = new Chart(progressCtx, {
+                    type: 'bar',
+                    data: dashboardData.progressChart,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        aspectRatio: 2,
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 100,
+                                ticks: {
+                                    stepSize: 20
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    maxRotation: 45,
+                                    minRotation: 0
+                                }
+                            }
+                        }
+                    }
+                });
+
+                // Gráfico de tempo
+                const timeData = {
+                    labels: dashboardData.activities.map(a => a.title.length > 20 ? a.title.substring(0, 20) + '...' : a.title),
+                    datasets: [{
+                        label: 'Tempo Gasto (horas)',
+                        data: dashboardData.activities.map(a => a.time_spent || 0),
+                        backgroundColor: [
+                            '#667eea', '#764ba2', '#f093fb', '#f5576c', 
+                            '#4facfe', '#00f2fe', '#43e97b', '#38f9d7'
+                        ]
+                    }]
+                };
+                
+                const timeCtx = document.getElementById('timeChart').getContext('2d');
+                timeChart = new Chart(timeCtx, {
+                    type: 'doughnut',
+                    data: timeData,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        aspectRatio: 1,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    boxWidth: 12,
+                                    padding: 10
+                                }
+                            }
+                        }
+                    }
+                });
+            }, 100);
+        }
+
+        // Atualizar fases
+        function updatePhases() {
+            const container = document.getElementById('phases-container');
+            container.innerHTML = '';
+            
+            dashboardData.phases.forEach(phase => {
+                const phaseCard = document.createElement('div');
+                phaseCard.className = 'phase-card';
+                phaseCard.innerHTML = `
+                    <h4>${phase.name}</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${phase.progress}%"></div>
+                    </div>
+                    <div class="status ${phase.status}">${phase.status}</div>
+                    <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;">${phase.description}</p>
+                `;
+                container.appendChild(phaseCard);
+            });
+        }
+
+        // Atualizar marcos
+        function updateMilestones() {
+            const container = document.getElementById('milestones-container');
+            container.innerHTML = '';
+            
+            if (dashboardData.milestones.length === 0) {
+                container.innerHTML = '<p style="color: #666; text-align: center;">Nenhum marco pendente</p>';
+                return;
+            }
+            
+            dashboardData.milestones.forEach(milestone => {
+                const milestoneItem = document.createElement('div');
+                milestoneItem.className = 'milestone-item';
+                milestoneItem.innerHTML = `
+                    <div class="milestone-info">
+                        <div class="milestone-name">${milestone.name}</div>
+                        <div class="milestone-phase">${milestone.phase_name}</div>
+                    </div>
+                    <div class="milestone-date">${moment(milestone.date).format('DD/MM/YYYY')}</div>
+                `;
+                container.appendChild(milestoneItem);
+            });
+        }
+
+        // Atualizar riscos
+        function updateRisks() {
+            const container = document.getElementById('risks-container');
+            container.innerHTML = '';
+            
+            if (dashboardData.risks.length === 0) {
+                container.innerHTML = '<p style="color: #666; text-align: center;">Nenhum risco ativo</p>';
+                return;
+            }
+            
+            dashboardData.risks.forEach(risk => {
+                const riskItem = document.createElement('div');
+                riskItem.className = 'risk-item';
+                riskItem.innerHTML = `
+                    <div class="risk-title">${risk.title}</div>
+                    <div class="risk-description">${risk.description}</div>
+                    <div class="risk-mitigation"><strong>Mitigação:</strong> ${risk.mitigation}</div>
+                `;
+                container.appendChild(riskItem);
+            });
+        }
+
+        // Carregar dados ao inicializar
+        document.addEventListener('DOMContentLoaded', loadDashboardData);
+
+        // Auto-refresh desabilitado para evitar problemas com os gráficos
+        // setInterval(loadDashboardData, 120000);
+        
+        // Botão para atualizar manualmente
+        function addRefreshButton() {
+            const header = document.querySelector('.header');
+            const refreshBtn = document.createElement('button');
+            refreshBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Atualizar';
+            refreshBtn.style.cssText = `
+                position: absolute;
+                right: 2rem;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(255,255,255,0.2);
+                border: 1px solid rgba(255,255,255,0.3);
+                color: white;
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 0.9rem;
+            `;
+            refreshBtn.onclick = loadDashboardData;
+            header.style.position = 'relative';
+            header.appendChild(refreshBtn);
+        }
+        
+        // Adicionar botão de atualização
+        document.addEventListener('DOMContentLoaded', addRefreshButton);
+    </script>
+</body>
+</html>

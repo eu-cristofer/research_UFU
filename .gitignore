@@ -1,0 +1,62 @@
+# LaTeX - keep final PDFs but ignore intermediate ones
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+# *.pdf  # Comment this out if you want to track final dissertation PDFs
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# package-lock.json  # Consider keeping this for reproducible builds
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Research specific
+*.csv
+*.xlsx
+*.xls
+data/raw/
+data/processed/
+results/
+outputs/
+*.RData
+*.rds
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Backup files
+*~
+*.bak
+*.backup

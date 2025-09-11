@@ -1,0 +1,282 @@
+{
+  "project": {
+    "title": "Diagnóstico de Falhas em Máquinas Rotativas por Meio de Simulações Numéricas e Análise de Espectros de Ordem Superior",
+    "author": "Cristofer Antoni Souza Costa",
+    "advisor": "Prof. Dr. Aldemir Cavallini Jr.",
+    "program": "Pós-Graduação em Engenharia Mecânica - UFU",
+    "research_line": "Mecânica dos Sólidos e Vibrações",
+    "start_date": "2023-01-01",
+    "expected_end_date": "2025-01-01",
+    "current_date": "2024-09-08"
+  },
+  "phases": [
+    {
+      "id": 1,
+      "name": "Revisão Bibliográfica",
+      "description": "Revisão abrangente da literatura e familiarização com ROSS",
+      "start_date": "2023-01-01",
+      "end_date": "2023-04-30",
+      "status": "completed",
+      "progress": 100,
+      "deliverables": [
+        "Revisão bibliográfica completa",
+        "Familiarização com ROSS",
+        "Definição da metodologia"
+      ],
+      "milestones": [
+        {
+          "name": "Revisão bibliográfica concluída",
+          "date": "2023-03-15",
+          "status": "completed"
+        },
+        {
+          "name": "Familiarização com ROSS",
+          "date": "2023-04-15",
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Modelagem Numérica",
+      "description": "Desenvolvimento de modelos de elementos finitos e validação básica",
+      "start_date": "2023-05-01",
+      "end_date": "2023-09-30",
+      "status": "in_progress",
+      "progress": 60,
+      "deliverables": [
+        "Modelo numérico básico",
+        "Modelos de falhas implementados",
+        "Validação inicial"
+      ],
+      "milestones": [
+        {
+          "name": "Modelo básico implementado",
+          "date": "2023-06-30",
+          "status": "completed"
+        },
+        {
+          "name": "Modelos de falhas",
+          "date": "2023-08-15",
+          "status": "in_progress"
+        },
+        {
+          "name": "Validação inicial",
+          "date": "2023-09-30",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Simulações Sistemáticas",
+      "description": "Execução de campanha de simulações com diferentes parâmetros",
+      "start_date": "2023-10-01",
+      "end_date": "2024-02-28",
+      "status": "pending",
+      "progress": 0,
+      "deliverables": [
+        "Dataset completo de simulações",
+        "Análise de sensibilidade",
+        "Validação com literatura"
+      ],
+      "milestones": [
+        {
+          "name": "Campanha de simulações",
+          "date": "2023-12-31",
+          "status": "pending"
+        },
+        {
+          "name": "Análise de sensibilidade",
+          "date": "2024-01-31",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Análise HOS",
+      "description": "Implementação de algoritmos HOS e extração de características",
+      "start_date": "2024-03-01",
+      "end_date": "2024-06-30",
+      "status": "pending",
+      "progress": 0,
+      "deliverables": [
+        "Algoritmos HOS implementados",
+        "Características extraídas",
+        "Análise de padrões"
+      ],
+      "milestones": [
+        {
+          "name": "Algoritmos HOS",
+          "date": "2024-04-30",
+          "status": "pending"
+        },
+        {
+          "name": "Extração de características",
+          "date": "2024-06-15",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Validação e Classificação",
+      "description": "Validação física e desenvolvimento de classificadores ML",
+      "start_date": "2024-07-01",
+      "end_date": "2024-09-30",
+      "status": "pending",
+      "progress": 0,
+      "deliverables": [
+        "Validação com literatura",
+        "Classificadores ML",
+        "Avaliação de desempenho"
+      ],
+      "milestones": [
+        {
+          "name": "Validação física",
+          "date": "2024-08-15",
+          "status": "pending"
+        },
+        {
+          "name": "Classificadores ML",
+          "date": "2024-09-30",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Redação e Defesa",
+      "description": "Redação final da dissertação e preparação para defesa",
+      "start_date": "2024-10-01",
+      "end_date": "2025-01-01",
+      "status": "pending",
+      "progress": 0,
+      "deliverables": [
+        "Dissertação completa",
+        "Apresentação de defesa",
+        "Defesa final"
+      ],
+      "milestones": [
+        {
+          "name": "Primeira versão",
+          "date": "2024-11-15",
+          "status": "pending"
+        },
+        {
+          "name": "Versão final",
+          "date": "2024-12-15",
+          "status": "pending"
+        },
+        {
+          "name": "Defesa",
+          "date": "2025-01-01",
+          "status": "pending"
+        }
+      ]
+    }
+  ],
+  "activities": [
+    {
+      "id": 1,
+      "phase_id": 1,
+      "title": "Revisão bibliográfica sobre dinâmica de rotores",
+      "description": "Análise de 50+ artigos sobre dinâmica de rotores",
+      "start_date": "2023-01-15",
+      "end_date": "2023-02-28",
+      "status": "completed",
+      "progress": 100,
+      "time_spent": 40,
+      "notes": "Excelente cobertura da literatura, identificadas principais lacunas"
+    },
+    {
+      "id": 2,
+      "phase_id": 1,
+      "title": "Familiarização com ROSS",
+      "description": "Aprendizado da biblioteca ROSS para simulação de rotores",
+      "start_date": "2023-03-01",
+      "end_date": "2023-04-15",
+      "status": "completed",
+      "progress": 100,
+      "time_spent": 35,
+      "notes": "Curva de aprendizado íngreme, mas dominado com sucesso"
+    },
+    {
+      "id": 3,
+      "phase_id": 2,
+      "title": "Implementação do modelo básico",
+      "description": "Desenvolvimento do modelo numérico básico em ROSS",
+      "start_date": "2023-05-01",
+      "end_date": "2023-06-30",
+      "status": "completed",
+      "progress": 100,
+      "time_spent": 45,
+      "notes": "Modelo validado com dados da literatura, erro < 5%"
+    },
+    {
+      "id": 4,
+      "phase_id": 2,
+      "title": "Modelagem de falhas",
+      "description": "Implementação de modelos de trincas e desalinhamentos",
+      "start_date": "2023-07-01",
+      "end_date": "2023-08-15",
+      "status": "in_progress",
+      "progress": 70,
+      "time_spent": 25,
+      "notes": "Modelo de trincas implementado, trabalhando no desalinhamento"
+    }
+  ],
+  "metrics": {
+    "total_phases": 6,
+    "completed_phases": 1,
+    "in_progress_phases": 1,
+    "pending_phases": 4,
+    "overall_progress": 25,
+    "total_activities": 4,
+    "completed_activities": 3,
+    "in_progress_activities": 1,
+    "total_time_spent": 145,
+    "estimated_total_time": 600
+  },
+  "risks": [
+    {
+      "id": 1,
+      "title": "Complexidade do ROSS",
+      "description": "A biblioteca ROSS pode ser mais complexa que esperado",
+      "probability": "medium",
+      "impact": "high",
+      "mitigation": "Treinamento intensivo e consultoria com especialistas",
+      "status": "monitoring"
+    },
+    {
+      "id": 2,
+      "title": "Dados experimentais limitados",
+      "description": "Falta de dados experimentais para validação",
+      "probability": "high",
+      "impact": "medium",
+      "mitigation": "Foco em validação com literatura e simulações",
+      "status": "active"
+    }
+  ],
+  "resources": [
+    {
+      "type": "software",
+      "name": "ROSS",
+      "status": "available",
+      "notes": "Biblioteca Python para simulação de rotores"
+    },
+    {
+      "type": "hardware",
+      "name": "Workstation",
+      "status": "available",
+      "notes": "Computador para simulações intensivas"
+    },
+    {
+      "type": "literature",
+      "name": "Acesso a bases de dados",
+      "status": "available",
+      "notes": "IEEE, Elsevier, ASME através da UFU"
+    }
+  ]
+}
