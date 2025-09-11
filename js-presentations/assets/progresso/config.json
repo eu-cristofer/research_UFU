@@ -1,0 +1,252 @@
+{
+  "title": "Apresentação de Progresso - Dissertação de Mestrado",
+  "subtitle": "Diagnóstico de Falhas em Máquinas Rotativas por Meio de Simulações Numéricas e Análise de Espectros de Ordem Superior",
+  "author": "Cristofer Antoni Souza Costa",
+  "advisor": "Prof. Dr. Aldemir Cavallini Jr.",
+  "program": "Pós-Graduação em Engenharia Mecânica - UFU",
+  "research_line": "Mecânica dos Sólidos e Vibrações",
+  "date": "2024",
+  "slides": [
+    {
+      "id": "title",
+      "type": "title",
+      "title": "Relatório de Progresso",
+      "subtitle": "Diagnóstico de Falhas em Máquinas Rotativas",
+      "content": {
+        "author": "Cristofer Antoni Souza Costa",
+        "advisor": "Prof. Dr. Aldemir Cavallini Jr.",
+        "program": "Programa de Pós-Graduação em Engenharia Mecânica - UFU",
+        "research_line": "Linha de Pesquisa: Mecânica dos Sólidos e Vibrações"
+      }
+    },
+    {
+      "id": "agenda",
+      "type": "content",
+      "title": "Agenda do Relatório",
+      "content": {
+        "items": [
+          {
+            "title": "1. Status Atual do Projeto",
+            "description": "Progresso geral e marcos alcançados"
+          },
+          {
+            "title": "2. Atividades Realizadas",
+            "description": "Desenvolvimentos técnicos e resultados"
+          },
+          {
+            "title": "3. Desafios Encontrados",
+            "description": "Dificuldades e soluções implementadas"
+          },
+          {
+            "title": "4. Próximas Etapas",
+            "description": "Planejamento e cronograma atualizado"
+          },
+          {
+            "title": "5. Acompanhamento",
+            "description": "Discussão e orientações"
+          }
+        ]
+      }
+    },
+    {
+      "id": "status_atual",
+      "type": "content",
+      "title": "Status Atual do Projeto",
+      "content": {
+        "metrics": [
+          {
+            "value": "75%",
+            "label": "Progresso Geral",
+            "description": "Desenvolvimento da dissertação"
+          },
+          {
+            "value": "100%",
+            "label": "Revisão de Literatura",
+            "description": "Concluída"
+          },
+          {
+            "value": "90%",
+            "label": "Modelagem Numérica",
+            "description": "Modelos ROSS implementados"
+          },
+          {
+            "value": "70%",
+            "label": "Análise HOS",
+            "description": "Algoritmos em desenvolvimento"
+          },
+          {
+            "value": "50%",
+            "label": "Validação",
+            "description": "Testes iniciais realizados"
+          }
+        ]
+      }
+    },
+    {
+      "id": "atividades_realizadas",
+      "type": "content",
+      "title": "Principais Atividades Realizadas",
+      "content": {
+        "columns": [
+          {
+            "title": "Desenvolvimento Técnico",
+            "items": [
+              "Implementação completa dos modelos ROSS",
+              "Desenvolvimento de algoritmos HOS",
+              "Criação do pipeline de processamento",
+              "Validação inicial com dados simulados"
+            ]
+          },
+          {
+            "title": "Resultados Obtidos",
+            "items": [
+              "Modelos numéricos funcionais",
+              "Primeiros resultados de classificação",
+              "Validação com erro < 5%",
+              "Framework integrado operacional"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "desafios",
+      "type": "content",
+      "title": "Desafios Encontrados",
+      "content": {
+        "challenges": [
+          {
+            "challenge": "Complexidade computacional dos algoritmos HOS",
+            "solution": "Otimização de código e uso de bibliotecas especializadas"
+          },
+          {
+            "challenge": "Validação com dados experimentais limitados",
+            "solution": "Uso de dados da literatura e simulações mais realistas"
+          },
+          {
+            "challenge": "Integração entre diferentes módulos",
+            "solution": "Desenvolvimento de interface unificada"
+          }
+        ]
+      }
+    },
+    {
+      "id": "resultados_parciais",
+      "type": "content",
+      "title": "Resultados Parciais",
+      "content": {
+        "metrics": [
+          {
+            "value": "85%",
+            "label": "Acurácia Inicial",
+            "description": "Classificação de falhas básicas"
+          },
+          {
+            "value": "<5%",
+            "label": "Erro de Validação",
+            "description": "Comparação com literatura"
+          },
+          {
+            "value": "2x",
+            "label": "Velocidade de Processamento",
+            "description": "Melhoria em relação ao baseline"
+          },
+          {
+            "value": "100%",
+            "label": "Cobertura de Falhas",
+            "description": "Trincas e desalinhamentos"
+          }
+        ]
+      }
+    },
+    {
+      "id": "proximas_etapas",
+      "type": "content",
+      "title": "Próximas Etapas",
+      "content": {
+        "steps": [
+          {
+            "id": 1,
+            "title": "Finalização dos Algoritmos HOS",
+            "description": "Completar implementação e otimização"
+          },
+          {
+            "id": 2,
+            "title": "Validação Experimental",
+            "description": "Testes com dados reais"
+          },
+          {
+            "id": 3,
+            "title": "Desenvolvimento de Classificadores",
+            "description": "Implementação de algoritmos ML"
+          },
+          {
+            "id": 4,
+            "title": "Redação da Dissertação",
+            "description": "Documentação completa dos resultados"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cronograma_atualizado",
+      "type": "content",
+      "title": "Cronograma Atualizado",
+      "content": {
+        "timeline": [
+          {
+            "period": "Próximos 2 meses",
+            "activities": "Finalização dos algoritmos HOS e validação"
+          },
+          {
+            "period": "Meses 3-4",
+            "activities": "Desenvolvimento de classificadores ML"
+          },
+          {
+            "period": "Meses 5-6",
+            "activities": "Redação e revisão da dissertação"
+          },
+          {
+            "period": "Mês 7",
+            "activities": "Defesa da dissertação"
+          }
+        ]
+      }
+    },
+    {
+      "id": "necessidades",
+      "type": "content",
+      "title": "Necessidades e Apoio",
+      "content": {
+        "items": [
+          "Acesso a dados experimentais para validação",
+          "Orientação sobre aspectos de redação científica",
+          "Feedback sobre resultados parciais",
+          "Apoio para publicação de artigos",
+          "Preparação para defesa final"
+        ]
+      }
+    },
+    {
+      "id": "agradecimentos",
+      "type": "title",
+      "title": "Agradecimentos",
+      "content": {
+        "advisor": "Prof. Dr. Aldemir Cavallini Jr.",
+        "program": "Engenharia Mecânica - UFU",
+        "message": "Pelo apoio e orientação contínua"
+      }
+    },
+    {
+      "id": "perguntas",
+      "type": "title",
+      "title": "Perguntas e Discussão",
+      "content": {
+        "message": "Estou à disposição para esclarecimentos e orientações",
+        "contact": {
+          "email": "cristofer.costa@ufu.br"
+        }
+      }
+    }
+  ]
+}

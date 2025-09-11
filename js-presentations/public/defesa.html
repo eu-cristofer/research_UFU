@@ -53,15 +53,6 @@
             margin: 1rem 0;
         }
         
-        .reveal .code-block {
-            background: #f8f9fa;
-            border: 1px solid #e9ecef;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            font-family: 'Courier New', monospace;
-            font-size: 0.8em;
-        }
-        
         .reveal .results-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -150,510 +141,111 @@
 
     <div class="reveal">
         <div class="slides">
-            <!-- Slide 1: Título -->
+            
             <section data-background="linear-gradient(135deg, #667eea 0%, #764ba2 100%)" class="title-slide">
                 <h1>Diagnóstico de Falhas em Máquinas Rotativas</h1>
                 <h2>por Meio de Simulações Numéricas e Análise de Espectros de Ordem Superior</h2>
-                <br>
-                <p><strong>Cristofer Antoni Souza Costa</strong></p>
-                <p>Orientador: Prof. Dr. Aldemir Cavallini Jr.</p>
-                <p>Programa de Pós-Graduação em Engenharia Mecânica - UFU</p>
-                <p>Linha de Pesquisa: Mecânica dos Sólidos e Vibrações</p>
-                <br>
-                <p><i class="fas fa-calendar"></i> Data da Defesa</p>
+                
             </section>
 
-            <!-- Slide 2: Agenda -->
             <section>
                 <h2><i class="fas fa-list"></i> Agenda</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h3>1. Introdução e Contextualização</h3>
-                        <p>Problema, objetivos e justificativa</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>2. Revisão de Literatura</h3>
-                        <p>Fundamentos teóricos e estado da arte</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>3. Metodologia</h3>
-                        <p>Abordagem integrada proposta</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>4. Resultados e Discussão</h3>
-                        <p>Principais achados e validação</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>5. Conclusões e Contribuições</h3>
-                        <p>Síntese e perspectivas futuras</p>
-                    </div>
-                </div>
+                <ul><li><strong>1. Introdução e Contextualização:</strong> Problema, objetivos e justificativa</li><li><strong>2. Revisão de Literatura:</strong> Fundamentos teóricos e estado da arte</li><li><strong>3. Metodologia:</strong> Abordagem integrada proposta</li><li><strong>4. Resultados e Discussão:</strong> Principais achados e validação</li><li><strong>5. Conclusões e Contribuições:</strong> Síntese e perspectivas futuras</li></ul>
             </section>
 
-            <!-- Slide 3: Contextualização -->
             <section>
                 <h2><i class="fas fa-industry"></i> Contextualização</h2>
                 <div class="two-columns">
                     <div class="column">
                         <h3>Importância das Máquinas Rotativas</h3>
                         <ul>
-                            <li>Fundamentais em diversos setores industriais</li>
-                            <li>Operação confiável essencial para eficiência</li>
-                            <li>Falhas podem causar paradas não planejadas</li>
-                            <li>Impacto significativo em custos de manutenção</li>
+                            <li>Fundamentais em diversos setores industriais</li><li>Operação confiável essencial para eficiência</li><li>Falhas podem causar paradas não planejadas</li><li>Impacto significativo em custos de manutenção</li>
                         </ul>
                     </div>
                     <div class="column">
                         <h3>Desafios Atuais</h3>
                         <ul>
-                            <li>Detecção precoce de falhas</li>
-                            <li>Redução de custos de manutenção</li>
-                            <li>Melhoria da confiabilidade</li>
-                            <li>Automação do diagnóstico</li>
+                            <li>Detecção precoce de falhas</li><li>Redução de custos de manutenção</li><li>Melhoria da confiabilidade</li><li>Automação do diagnóstico</li>
                         </ul>
-                    </div>
-                </div>
+                    </div></div>
             </section>
 
-            <!-- Slide 4: Problema de Pesquisa -->
             <section>
                 <h2><i class="fas fa-question-circle"></i> Problema de Pesquisa</h2>
-                <div class="highlight">
-                    <p><strong>Como desenvolver uma metodologia eficaz para diagnóstico de falhas em máquinas rotativas utilizando simulações numéricas e análise de espectros de ordem superior?</strong></p>
-                </div>
                 
-                <h3>Lacunas Identificadas:</h3>
-                <ul>
-                    <li>Falta de metodologias integradas</li>
-                    <li>Dependência excessiva de dados experimentais</li>
-                    <li>Limitações dos métodos convencionais</li>
-                    <li>Necessidade de automação do diagnóstico</li>
-                </ul>
             </section>
 
-            <!-- Slide 5: Objetivos -->
             <section>
                 <h2><i class="fas fa-target"></i> Objetivos</h2>
                 
-                <h3>Objetivo Geral</h3>
-                <p>Desenvolver uma metodologia baseada em simulações numéricas para diagnóstico de falhas em máquinas rotativas utilizando análise de espectros de ordem superior.</p>
-                
-                <h3>Objetivos Específicos</h3>
-                <ol>
-                    <li>Desenvolver modelos numéricos utilizando ROSS</li>
-                    <li>Aplicar técnicas HOS aos dados simulados</li>
-                    <li>Validar resultados com literatura científica</li>
-                    <li>Avaliar eficácia da metodologia proposta</li>
-                </ol>
             </section>
 
-            <!-- Slide 6: Fundamentação Teórica -->
-            <section>
-                <h2><i class="fas fa-book"></i> Fundamentação Teórica</h2>
-                <div class="two-columns">
-                    <div class="column">
-                        <h3>Dinâmica de Rotores</h3>
-                        <ul>
-                            <li>Equações de movimento</li>
-                            <li>Efeitos giroscópicos</li>
-                            <li>Modelagem por elementos finitos</li>
-                        </ul>
-                        
-                        <h3>Análise de Vibrações</h3>
-                        <ul>
-                            <li>Análise espectral</li>
-                            <li>Limitações dos métodos lineares</li>
-                            <li>Processamento de sinais</li>
-                        </ul>
-                    </div>
-                    <div class="column">
-                        <h3>Espectros de Ordem Superior</h3>
-                        <ul>
-                            <li>Bi-espectro e tri-espectro</li>
-                            <li>Captura de não linearidades</li>
-                            <li>Aplicações em diagnóstico</li>
-                        </ul>
-                        
-                        <h3>Aprendizado de Máquina</h3>
-                        <ul>
-                            <li>Classificação supervisionada</li>
-                            <li>Extração de características</li>
-                            <li>Automação do diagnóstico</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Slide 7: Metodologia -->
             <section>
                 <h2><i class="fas fa-cogs"></i> Metodologia Proposta</h2>
-                <div class="chart-container">
-                    <canvas id="methodologyChart"></canvas>
-                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>1. Modelagem Numérica</h3>
+                        <p>Desenvolvimento de modelos de elementos finitos utilizando ROSS</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>2. Análise HOS</h3>
+                        <p>Aplicação de técnicas de espectros de ordem superior</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>3. Validação Física</h3>
+                        <p>Comparação com resultados da literatura científica</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>4. Classificação ML</h3>
+                        <p>Desenvolvimento de classificadores de aprendizado de máquina</p>
+                    </div></div>
+            </section>
+
+            <section>
+                <h2><i class="fas fa-chart-line"></i> Principais Resultados</h2>
                 <div class="results-grid">
                     <div class="result-card">
-                        <div class="metric">1</div>
-                        <div class="label">Modelagem Numérica</div>
-                    </div>
-                    <div class="result-card">
-                        <div class="metric">2</div>
-                        <div class="label">Análise HOS</div>
-                    </div>
-                    <div class="result-card">
-                        <div class="metric">3</div>
-                        <div class="label">Validação Física</div>
-                    </div>
-                    <div class="result-card">
-                        <div class="metric">4</div>
-                        <div class="label">Classificação ML</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Slide 8: Ferramentas Utilizadas -->
-            <section>
-                <h2><i class="fas fa-tools"></i> Ferramentas e Tecnologias</h2>
-                <div class="two-columns">
-                    <div class="column">
-                        <h3>Simulação Numérica</h3>
-                        <ul>
-                            <li><strong>ROSS:</strong> Biblioteca Python para rotores</li>
-                            <li><strong>NumPy/SciPy:</strong> Computação científica</li>
-                            <li><strong>Matplotlib:</strong> Visualização de dados</li>
-                        </ul>
-                        
-                        <h3>Análise de Dados</h3>
-                        <ul>
-                            <li><strong>Pandas:</strong> Manipulação de dados</li>
-                            <li><strong>Scikit-learn:</strong> Aprendizado de máquina</li>
-                            <li><strong>XGBoost:</strong> Classificação avançada</li>
-                        </ul>
-                    </div>
-                    <div class="column">
-                        <h3>Desenvolvimento</h3>
-                        <ul>
-                            <li><strong>Python 3.8+:</strong> Linguagem principal</li>
-                            <li><strong>Jupyter:</strong> Desenvolvimento interativo</li>
-                            <li><strong>Git:</strong> Controle de versão</li>
-                        </ul>
-                        
-                        <h3>Validação</h3>
-                        <ul>
-                            <li><strong>Literatura científica:</strong> Comparação de resultados</li>
-                            <li><strong>Métricas estatísticas:</strong> Validação quantitativa</li>
-                            <li><strong>Análise de sensibilidade:</strong> Robustez</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Slide 9: Modelagem Numérica -->
-            <section>
-                <h2><i class="fas fa-cube"></i> Modelagem Numérica</h2>
-                <div class="two-columns">
-                    <div class="column">
-                        <h3>Geometria do Sistema</h3>
-                        <ul>
-                            <li>Eixo de aço: 1.0m × 0.05m</li>
-                            <li>Propriedades do material</li>
-                            <li>Condições de contorno</li>
-                        </ul>
-                        
-                        <h3>Tipos de Falhas</h3>
-                        <ul>
-                            <li><strong>Trincas:</strong> Modelo de "respiração"</li>
-                            <li><strong>Desalinhamentos:</strong> Forças desbalanceadas</li>
-                            <li><strong>Severidade:</strong> 5% a 20%</li>
-                        </ul>
-                    </div>
-                    <div class="column">
-                        <h3>Parâmetros de Simulação</h3>
-                        <ul>
-                            <li>Velocidades: 1000-5000 RPM</li>
-                            <li>Tempo: 10 segundos</li>
-                            <li>Frequência: 2048 Hz</li>
-                            <li>Segmentação: 1024 pontos</li>
-                        </ul>
-                        
-                        <div class="code-block">
-                            # Exemplo de configuração ROSS
-                            rotor = ross.Rotor.from_geometry(
-                                shaft_length=1.0,
-                                shaft_diameter=0.05,
-                                material=steel
-                            )
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Slide 10: Análise HOS -->
-            <section>
-                <h2><i class="fas fa-chart-area"></i> Análise de Espectros de Ordem Superior</h2>
-                <div class="two-columns">
-                    <div class="column">
-                        <h3>Bi-espectro</h3>
-                        <p>Definido como:</p>
-                        <div class="code-block">
-                            B(f₁, f₂) = E[X(f₁)X(f₂)X*(f₁ + f₂)]
-                        </div>
-                        
-                        <h3>Características Extraídas</h3>
-                        <ul>
-                            <li>Magnitude máxima</li>
-                            <li>Energia total</li>
-                            <li>Entropia</li>
-                            <li>Número de picos</li>
-                        </ul>
-                    </div>
-                    <div class="column">
-                        <h3>Implementação</h3>
-                        <div class="code-block">
-                            def calculate_bispectrum(signal, fs):
-                                segments = segment_signal(signal)
-                                bispectra = []
-                                for segment in segments:
-                                    X = fft(segment)
-                                    bispectrum = np.outer(X, X) * np.conj(X)
-                                    bispectra.append(bispectrum)
-                                return np.mean(bispectra, axis=0)
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Slide 11: Resultados das Simulações -->
-            <section>
-                <h2><i class="fas fa-chart-line"></i> Resultados das Simulações</h2>
-                <div class="chart-container">
-                    <canvas id="simulationResults"></canvas>
-                </div>
-                
-                <div class="results-grid">
-                    <div class="result-card">
-                        <div class="metric">&lt;3%</div>
+                        <div class="metric"><3%</div>
                         <div class="label">Erro de Validação</div>
+                        <div class="description">Comparação com dados experimentais</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="metric">95%</div>
+                        <div class="label">Acurácia do Classificador</div>
+                        <div class="description">XGBoost - melhor desempenho</div>
                     </div>
                     <div class="result-card">
                         <div class="metric">100%</div>
                         <div class="label">Cobertura de Falhas</div>
+                        <div class="description">Trincas e desalinhamentos</div>
                     </div>
                     <div class="result-card">
                         <div class="metric">2048</div>
                         <div class="label">Hz Amostragem</div>
-                    </div>
-                    <div class="result-card">
-                        <div class="metric">5</div>
-                        <div class="label">Velocidades Testadas</div>
-                    </div>
-                </div>
+                        <div class="description">Frequência de aquisição</div>
+                    </div></div>
             </section>
 
-            <!-- Slide 12: Análise HOS - Resultados -->
-            <section>
-                <h2><i class="fas fa-microscope"></i> Análise HOS - Resultados</h2>
-                <div class="two-columns">
-                    <div class="column">
-                        <h3>Padrões Identificados</h3>
-                        <ul>
-                            <li><strong>Normal:</strong> Baixa magnitude, distribuição uniforme</li>
-                            <li><strong>Trinca:</strong> Picos em frequências específicas</li>
-                            <li><strong>Desalinhamento:</strong> Padrões de acoplamento</li>
-                        </ul>
-                        
-                        <h3>Validação Física</h3>
-                        <ul>
-                            <li>Excelente concordância com literatura</li>
-                            <li>Padrões consistentes com física conhecida</li>
-                            <li>Análise de sensibilidade confirmada</li>
-                        </ul>
-                    </div>
-                    <div class="column">
-                        <div class="chart-container">
-                            <canvas id="hosResults"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Slide 13: Classificação ML -->
-            <section>
-                <h2><i class="fas fa-brain"></i> Classificação por Aprendizado de Máquina</h2>
-                <div class="two-columns">
-                    <div class="column">
-                        <h3>Algoritmos Testados</h3>
-                        <ul>
-                            <li><strong>SVM:</strong> 94% acurácia</li>
-                            <li><strong>Random Forest:</strong> 91% acurácia</li>
-                            <li><strong>Neural Network:</strong> 89% acurácia</li>
-                            <li><strong>XGBoost:</strong> 95% acurácia</li>
-                        </ul>
-                        
-                        <h3>Métricas de Avaliação</h3>
-                        <ul>
-                            <li>Acurácia, Precisão, Recall</li>
-                            <li>F1-Score, Matriz de Confusão</li>
-                            <li>Validação cruzada k-fold</li>
-                        </ul>
-                    </div>
-                    <div class="column">
-                        <div class="chart-container">
-                            <canvas id="mlResults"></canvas>
-                        </div>
-                        
-                        <h3>Robustez</h3>
-                        <p>Desempenho mantido até 10% de ruído adicionado</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Slide 14: Contribuições -->
             <section>
                 <h2><i class="fas fa-trophy"></i> Principais Contribuições</h2>
-                <div class="two-columns">
-                    <div class="column">
-                        <h3>Contribuições Metodológicas</h3>
-                        <ul>
-                            <li>Framework integrado inédito</li>
-                            <li>Validação sistemática rigorosa</li>
-                            <li>Automação completa do diagnóstico</li>
-                            <li>Redução da dependência experimental</li>
-                        </ul>
-                    </div>
-                    <div class="column">
-                        <h3>Contribuições Técnicas</h3>
-                        <ul>
-                            <li>Modelos numéricos de alta fidelidade</li>
-                            <li>Algoritmos HOS otimizados</li>
-                            <li>Pipeline automatizado</li>
-                            <li>Métricas quantitativas de validação</li>
-                        </ul>
-                    </div>
-                </div>
                 
-                <h3>Contribuições Práticas</h3>
-                <ul>
-                    <li>Metodologia aplicável industrialmente</li>
-                    <li>Redução de custos de desenvolvimento</li>
-                    <li>Aceleração do treinamento de algoritmos</li>
-                    <li>Facilitação da transferência tecnológica</li>
-                </ul>
             </section>
 
-            <!-- Slide 15: Limitações -->
-            <section>
-                <h2><i class="fas fa-exclamation-triangle"></i> Limitações Identificadas</h2>
-                <div class="two-columns">
-                    <div class="column">
-                        <h3>Limitações Metodológicas</h3>
-                        <ul>
-                            <li>Modelagem simplificada de alguns aspectos</li>
-                            <li>Tipos de falhas limitados</li>
-                            <li>Condições ideais assumidas</li>
-                        </ul>
-                        
-                        <h3>Limitações Experimentais</h3>
-                        <ul>
-                            <li>Falta de validação experimental própria</li>
-                            <li>Dados de literatura limitados</li>
-                            <li>Condições controladas</li>
-                        </ul>
-                    </div>
-                    <div class="column">
-                        <h3>Limitações Computacionais</h3>
-                        <ul>
-                            <li>Tempo de simulação significativo</li>
-                            <li>Recursos de hardware consideráveis</li>
-                            <li>Escalabilidade limitada</li>
-                        </ul>
-                        
-                        <h3>Recomendações Futuras</h3>
-                        <ul>
-                            <li>Validação experimental</li>
-                            <li>Mais tipos de falhas</li>
-                            <li>Modelagem mais sofisticada</li>
-                            <li>Análise de incertezas</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Slide 16: Impacto Esperado -->
-            <section>
-                <h2><i class="fas fa-rocket"></i> Impacto Esperado</h2>
-                <div class="results-grid">
-                    <div class="result-card">
-                        <i class="fas fa-flask" style="font-size: 2em; color: #667eea; margin-bottom: 0.5rem;"></i>
-                        <h3>Impacto Científico</h3>
-                        <p>Avanço no conhecimento sobre HOS em diagnóstico de falhas</p>
-                    </div>
-                    <div class="result-card">
-                        <i class="fas fa-cogs" style="font-size: 2em; color: #667eea; margin-bottom: 0.5rem;"></i>
-                        <h3>Impacto Tecnológico</h3>
-                        <p>Ferramentas mais eficazes para diagnóstico industrial</p>
-                    </div>
-                    <div class="result-card">
-                        <i class="fas fa-users" style="font-size: 2em; color: #667eea; margin-bottom: 0.5rem;"></i>
-                        <h3>Impacto Social</h3>
-                        <p>Melhoria da segurança e redução de impactos ambientais</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Slide 17: Conclusões -->
             <section>
                 <h2><i class="fas fa-check-circle"></i> Conclusões</h2>
-                <div class="highlight">
-                    <p><strong>A metodologia proposta foi desenvolvida com sucesso, demonstrando viabilidade técnica, rigor científico e aplicabilidade prática.</strong></p>
-                </div>
                 
-                <h3>Principais Conquistas:</h3>
-                <ul>
-                    <li>✅ Framework integrado funcional</li>
-                    <li>✅ Validação com erro &lt; 3%</li>
-                    <li>✅ Classificação com 95% de acurácia</li>
-                    <li>✅ Metodologia robusta e aplicável</li>
-                </ul>
-                
-                <h3>Contribuição Final:</h3>
-                <p>Estabelecimento de uma base sólida para futuras pesquisas e aplicações práticas na área de diagnóstico de falhas em máquinas rotativas.</p>
             </section>
 
-            <!-- Slide 18: Agradecimentos -->
-            <section data-background="linear-gradient(135deg, #667eea 0%, #764ba2 100%)" class="title-slide">
-                <h1><i class="fas fa-heart"></i> Agradecimentos</h1>
-                <br>
-                <div class="two-columns">
-                    <div class="column">
-                        <h3>Orientador</h3>
-                        <p>Prof. Dr. Aldemir Cavallini Jr.</p>
-                        
-                        <h3>Banca Examinadora</h3>
-                        <p>Prof. Dr. [Nome do Examinador 1]</p>
-                        <p>Prof. Dr. [Nome do Examinador 2]</p>
-                    </div>
-                    <div class="column">
-                        <h3>Programa de Pós-Graduação</h3>
-                        <p>Engenharia Mecânica - UFU</p>
-                        
-                        <h3>Família e Amigos</h3>
-                        <p>Pelo apoio incondicional</p>
-                    </div>
-                </div>
-                <br>
-                <h2>Obrigado!</h2>
+            <section >
+                <h1>Agradecimentos</h1>
+                
+                
             </section>
 
-            <!-- Slide 19: Perguntas -->
-            <section data-background="linear-gradient(135deg, #28a745 0%, #20c997 100%)" class="title-slide">
-                <h1><i class="fas fa-question-circle"></i> Perguntas?</h1>
-                <br>
-                <h2>Estou à disposição para esclarecimentos</h2>
-                <br>
-                <p><i class="fas fa-envelope"></i> cristofer.costa@ufu.br</p>
-                <p><i class="fas fa-phone"></i> (34) 99999-9999</p>
-                <br>
-                <p><strong>Contato:</strong> Cristofer Antoni Souza Costa</p>
+            <section >
+                <h1>Perguntas?</h1>
+                
+                
             </section>
         </div>
     </div>
@@ -704,117 +296,6 @@
         // Destacar código
         hljs.highlightAll();
 
-        // Configurar gráficos
-        document.addEventListener('DOMContentLoaded', function() {
-            // Gráfico da metodologia
-            const methodologyCtx = document.getElementById('methodologyChart');
-            if (methodologyCtx) {
-                new Chart(methodologyCtx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['Modelagem', 'Análise HOS', 'Validação', 'Classificação'],
-                        datasets: [{
-                            data: [25, 25, 25, 25],
-                            backgroundColor: ['#667eea', '#764ba2', '#f093fb', '#f5576c']
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: {
-                                position: 'bottom'
-                            }
-                        }
-                    }
-                });
-            }
-
-            // Gráfico dos resultados de simulação
-            const simulationCtx = document.getElementById('simulationResults');
-            if (simulationCtx) {
-                new Chart(simulationCtx, {
-                    type: 'line',
-                    data: {
-                        labels: ['Normal', 'Trinca 5%', 'Trinca 10%', 'Trinca 15%', 'Trinca 20%', 'Desalinhamento'],
-                        datasets: [{
-                            label: 'Magnitude Bi-espectro',
-                            data: [0.12, 0.25, 0.35, 0.42, 0.48, 0.26],
-                            borderColor: '#667eea',
-                            backgroundColor: 'rgba(102, 126, 234, 0.1)',
-                            tension: 0.4
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
-            }
-
-            // Gráfico dos resultados HOS
-            const hosCtx = document.getElementById('hosResults');
-            if (hosCtx) {
-                new Chart(hosCtx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Normal', 'Trinca', 'Desalinhamento'],
-                        datasets: [{
-                            label: 'Energia Total',
-                            data: [1.23, 4.67, 3.89],
-                            backgroundColor: ['#28a745', '#dc3545', '#ffc107']
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
-            }
-
-            // Gráfico dos resultados ML
-            const mlCtx = document.getElementById('mlResults');
-            if (mlCtx) {
-                new Chart(mlCtx, {
-                    type: 'radar',
-                    data: {
-                        labels: ['Acurácia', 'Precisão', 'Recall', 'F1-Score'],
-                        datasets: [{
-                            label: 'SVM',
-                            data: [94, 93, 94, 94],
-                            borderColor: '#667eea',
-                            backgroundColor: 'rgba(102, 126, 234, 0.2)'
-                        }, {
-                            label: 'XGBoost',
-                            data: [95, 94, 95, 95],
-                            borderColor: '#28a745',
-                            backgroundColor: 'rgba(40, 167, 69, 0.2)'
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: {
-                            r: {
-                                beginAtZero: true,
-                                max: 100
-                            }
-                        }
-                    }
-                });
-            }
-        });
-
         // WebSocket para controle remoto
         const socket = io();
         
@@ -830,5 +311,247 @@
             Reveal.slide(data.indexh, data.indexv);
         });
     </script>
+    
+    
+        <script>
+            // Configuração específica da apresentação
+            const presentationData = {
+  "title": "Defesa Final - Dissertação de Mestrado",
+  "subtitle": "Diagnóstico de Falhas em Máquinas Rotativas por Meio de Simulações Numéricas e Análise de Espectros de Ordem Superior",
+  "author": "Cristofer Antoni Souza Costa",
+  "advisor": "Prof. Dr. Aldemir Cavallini Jr.",
+  "program": "Pós-Graduação em Engenharia Mecânica - UFU",
+  "research_line": "Mecânica dos Sólidos e Vibrações",
+  "date": "2024",
+  "slides": [
+    {
+      "id": "title",
+      "type": "title",
+      "title": "Diagnóstico de Falhas em Máquinas Rotativas",
+      "subtitle": "por Meio de Simulações Numéricas e Análise de Espectros de Ordem Superior",
+      "content": {
+        "author": "Cristofer Antoni Souza Costa",
+        "advisor": "Prof. Dr. Aldemir Cavallini Jr.",
+        "program": "Programa de Pós-Graduação em Engenharia Mecânica - UFU",
+        "research_line": "Linha de Pesquisa: Mecânica dos Sólidos e Vibrações"
+      }
+    },
+    {
+      "id": "agenda",
+      "type": "content",
+      "title": "Agenda",
+      "content": {
+        "items": [
+          {
+            "title": "1. Introdução e Contextualização",
+            "description": "Problema, objetivos e justificativa"
+          },
+          {
+            "title": "2. Revisão de Literatura",
+            "description": "Fundamentos teóricos e estado da arte"
+          },
+          {
+            "title": "3. Metodologia",
+            "description": "Abordagem integrada proposta"
+          },
+          {
+            "title": "4. Resultados e Discussão",
+            "description": "Principais achados e validação"
+          },
+          {
+            "title": "5. Conclusões e Contribuições",
+            "description": "Síntese e perspectivas futuras"
+          }
+        ]
+      }
+    },
+    {
+      "id": "contextualizacao",
+      "type": "content",
+      "title": "Contextualização",
+      "content": {
+        "columns": [
+          {
+            "title": "Importância das Máquinas Rotativas",
+            "items": [
+              "Fundamentais em diversos setores industriais",
+              "Operação confiável essencial para eficiência",
+              "Falhas podem causar paradas não planejadas",
+              "Impacto significativo em custos de manutenção"
+            ]
+          },
+          {
+            "title": "Desafios Atuais",
+            "items": [
+              "Detecção precoce de falhas",
+              "Redução de custos de manutenção",
+              "Melhoria da confiabilidade",
+              "Automação do diagnóstico"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "problema",
+      "type": "content",
+      "title": "Problema de Pesquisa",
+      "content": {
+        "problem": "Como desenvolver uma metodologia eficaz para diagnóstico de falhas em máquinas rotativas utilizando simulações numéricas e análise de espectros de ordem superior?",
+        "gaps": [
+          "Falta de metodologias integradas",
+          "Dependência excessiva de dados experimentais",
+          "Limitações dos métodos convencionais",
+          "Necessidade de automação do diagnóstico"
+        ]
+      }
+    },
+    {
+      "id": "objetivos",
+      "type": "content",
+      "title": "Objetivos",
+      "content": {
+        "general": "Desenvolver uma metodologia baseada em simulações numéricas para diagnóstico de falhas em máquinas rotativas utilizando análise de espectros de ordem superior.",
+        "specific": [
+          "Desenvolver modelos numéricos utilizando ROSS",
+          "Aplicar técnicas HOS aos dados simulados",
+          "Validar resultados com literatura científica",
+          "Avaliar eficácia da metodologia proposta"
+        ]
+      }
+    },
+    {
+      "id": "metodologia",
+      "type": "content",
+      "title": "Metodologia Proposta",
+      "content": {
+        "steps": [
+          {
+            "id": 1,
+            "title": "Modelagem Numérica",
+            "description": "Desenvolvimento de modelos de elementos finitos utilizando ROSS"
+          },
+          {
+            "id": 2,
+            "title": "Análise HOS",
+            "description": "Aplicação de técnicas de espectros de ordem superior"
+          },
+          {
+            "id": 3,
+            "title": "Validação Física",
+            "description": "Comparação com resultados da literatura científica"
+          },
+          {
+            "id": 4,
+            "title": "Classificação ML",
+            "description": "Desenvolvimento de classificadores de aprendizado de máquina"
+          }
+        ]
+      }
+    },
+    {
+      "id": "resultados",
+      "type": "content",
+      "title": "Principais Resultados",
+      "content": {
+        "metrics": [
+          {
+            "value": "<3%",
+            "label": "Erro de Validação",
+            "description": "Comparação com dados experimentais"
+          },
+          {
+            "value": "95%",
+            "label": "Acurácia do Classificador",
+            "description": "XGBoost - melhor desempenho"
+          },
+          {
+            "value": "100%",
+            "label": "Cobertura de Falhas",
+            "description": "Trincas e desalinhamentos"
+          },
+          {
+            "value": "2048",
+            "label": "Hz Amostragem",
+            "description": "Frequência de aquisição"
+          }
+        ]
+      }
+    },
+    {
+      "id": "contribuicoes",
+      "type": "content",
+      "title": "Principais Contribuições",
+      "content": {
+        "methodological": [
+          "Framework integrado inédito",
+          "Validação sistemática rigorosa",
+          "Automação completa do diagnóstico",
+          "Redução da dependência experimental"
+        ],
+        "technical": [
+          "Modelos numéricos de alta fidelidade",
+          "Algoritmos HOS otimizados",
+          "Pipeline automatizado",
+          "Métricas quantitativas de validação"
+        ],
+        "practical": [
+          "Metodologia aplicável industrialmente",
+          "Redução de custos de desenvolvimento",
+          "Aceleração do treinamento de algoritmos",
+          "Facilitação da transferência tecnológica"
+        ]
+      }
+    },
+    {
+      "id": "conclusoes",
+      "type": "content",
+      "title": "Conclusões",
+      "content": {
+        "main_conclusion": "A metodologia proposta foi desenvolvida com sucesso, demonstrando viabilidade técnica, rigor científico e aplicabilidade prática.",
+        "achievements": [
+          "Framework integrado funcional",
+          "Validação com erro < 3%",
+          "Classificação com 95% de acurácia",
+          "Metodologia robusta e aplicável"
+        ],
+        "final_contribution": "Estabelecimento de uma base sólida para futuras pesquisas e aplicações práticas na área de diagnóstico de falhas em máquinas rotativas."
+      }
+    },
+    {
+      "id": "agradecimentos",
+      "type": "title",
+      "title": "Agradecimentos",
+      "content": {
+        "advisor": "Prof. Dr. Aldemir Cavallini Jr.",
+        "examiners": [
+          "Prof. Dr. [Nome do Examinador 1]",
+          "Prof. Dr. [Nome do Examinador 2]"
+        ],
+        "program": "Engenharia Mecânica - UFU",
+        "family": "Pelo apoio incondicional"
+      }
+    },
+    {
+      "id": "perguntas",
+      "type": "title",
+      "title": "Perguntas?",
+      "content": {
+        "message": "Estou à disposição para esclarecimentos",
+        "contact": {
+          "email": "cristofer.costa@ufu.br",
+          "phone": "(34) 99999-9999"
+        }
+      }
+    }
+  ]
+};
+            
+            // Configurar gráficos específicos
+            document.addEventListener('DOMContentLoaded', function() {
+                // Gráficos serão configurados aqui baseados nos dados
+                console.log('Dados da apresentação carregados:', presentationData);
+            });
+        </script>
 </body>
 </html>

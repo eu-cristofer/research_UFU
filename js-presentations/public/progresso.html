@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Progresso - Dissertação de Mestrado</title>
+    <title>Apresentação de Progresso - Dissertação de Mestrado</title>
     <link rel="stylesheet" href="/reveal/dist/reveal.css">
     <link rel="stylesheet" href="/reveal/dist/theme/white.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
     <style>
         .reveal .slides section {
             text-align: left;
@@ -31,6 +32,85 @@
             color: white;
         }
         
+        .reveal .highlight {
+            background-color: #fff3cd;
+            padding: 0.2em 0.4em;
+            border-radius: 0.25rem;
+        }
+        
+        .reveal .two-columns {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .reveal .two-columns .column {
+            flex: 1;
+        }
+        
+        .reveal .chart-container {
+            width: 100%;
+            height: 400px;
+            margin: 1rem 0;
+        }
+        
+        .reveal .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .reveal .result-card {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .reveal .result-card .metric {
+            font-size: 2em;
+            font-weight: bold;
+            color: #28a745;
+        }
+        
+        .reveal .result-card .label {
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+        
+        .reveal .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .reveal .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #667eea;
+        }
+        
+        .reveal .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+        
+        .reveal .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: #667eea;
+            border-radius: 50%;
+        }
+        
         .reveal .back-button {
             position: fixed;
             top: 20px;
@@ -52,25 +132,6 @@
             background: #5a6fd8;
             transform: scale(1.1);
         }
-        
-        .progress-bar {
-            width: 100%;
-            height: 20px;
-            background-color: #e0e0e0;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 10px 0;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            transition: width 0.3s ease;
-        }
-        
-        .status-completed { color: #28a745; }
-        .status-in-progress { color: #ffc107; }
-        .status-planned { color: #6c757d; }
     </style>
 </head>
 <body>
@@ -80,279 +141,463 @@
 
     <div class="reveal">
         <div class="slides">
-            <!-- Slide 1: Título -->
+            
             <section data-background="linear-gradient(135deg, #667eea 0%, #764ba2 100%)" class="title-slide">
                 <h1>Relatório de Progresso</h1>
-                <h2>Dissertação de Mestrado</h2>
-                <br>
-                <p><strong>Cristofer Antoni Souza Costa</strong></p>
-                <p>Orientador: Prof. Dr. Aldemir Cavallini Jr.</p>
-                <p>Programa de Pós-Graduação em Engenharia Mecânica - UFU</p>
-                <br>
-                <p><i class="fas fa-calendar"></i> Data do Relatório</p>
+                <h2>Diagnóstico de Falhas em Máquinas Rotativas</h2>
+                
             </section>
 
-            <!-- Slide 2: Visão Geral do Progresso -->
             <section>
-                <h2><i class="fas fa-chart-pie"></i> Visão Geral do Progresso</h2>
-                <h3>Progresso Geral do Projeto</h3>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 35%;"></div>
-                </div>
-                <p><strong>35% Concluído</strong></p>
-                
-                <h3>Status por Fase</h3>
-                <ul>
-                    <li><i class="fas fa-check-circle status-completed"></i> <strong>Fase I:</strong> Revisão bibliográfica (100%)</li>
-                    <li><i class="fas fa-spinner status-in-progress"></i> <strong>Fase II:</strong> Modelagem numérica (60%)</li>
-                    <li><i class="fas fa-clock status-planned"></i> <strong>Fase III:</strong> Simulações sistemáticas (0%)</li>
-                    <li><i class="fas fa-clock status-planned"></i> <strong>Fase IV:</strong> Análise HOS (0%)</li>
-                    <li><i class="fas fa-clock status-planned"></i> <strong>Fase V:</strong> Validação (0%)</li>
-                    <li><i class="fas fa-clock status-planned"></i> <strong>Fase VI:</strong> Redação final (0%)</li>
-                </ul>
+                <h2><i class="fas fa-list"></i> Agenda do Relatório</h2>
+                <ul><li><strong>1. Status Atual do Projeto:</strong> Progresso geral e marcos alcançados</li><li><strong>2. Atividades Realizadas:</strong> Desenvolvimentos técnicos e resultados</li><li><strong>3. Desafios Encontrados:</strong> Dificuldades e soluções implementadas</li><li><strong>4. Próximas Etapas:</strong> Planejamento e cronograma atualizado</li><li><strong>5. Acompanhamento:</strong> Discussão e orientações</li></ul>
             </section>
 
-            <!-- Slide 3: Atividades Concluídas -->
             <section>
-                <h2><i class="fas fa-check-circle"></i> Atividades Concluídas</h2>
-                <h3>Fase I - Revisão Bibliográfica (100%)</h3>
-                <ul>
-                    <li>✅ Revisão abrangente da literatura</li>
-                    <li>✅ Análise de fundamentos teóricos</li>
-                    <li>✅ Identificação de lacunas de pesquisa</li>
-                    <li>✅ Definição do problema de pesquisa</li>
-                    <li>✅ Estabelecimento de objetivos</li>
-                </ul>
-                
-                <h3>Fase II - Modelagem Numérica (60%)</h3>
-                <ul>
-                    <li>✅ Familiarização com ROSS</li>
-                    <li>✅ Configuração do ambiente de desenvolvimento</li>
-                    <li>✅ Implementação do modelo básico</li>
-                    <li>🔄 Desenvolvimento de modelos de falhas</li>
-                    <li>⏳ Validação inicial</li>
-                </ul>
+                <h2><i class="fas fa-info-circle"></i> Status Atual do Projeto</h2>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="metric">75%</div>
+                        <div class="label">Progresso Geral</div>
+                        <div class="description">Desenvolvimento da dissertação</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="metric">100%</div>
+                        <div class="label">Revisão de Literatura</div>
+                        <div class="description">Concluída</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="metric">90%</div>
+                        <div class="label">Modelagem Numérica</div>
+                        <div class="description">Modelos ROSS implementados</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="metric">70%</div>
+                        <div class="label">Análise HOS</div>
+                        <div class="description">Algoritmos em desenvolvimento</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="metric">50%</div>
+                        <div class="label">Validação</div>
+                        <div class="description">Testes iniciais realizados</div>
+                    </div></div>
             </section>
 
-            <!-- Slide 4: Resultados Obtidos -->
             <section>
-                <h2><i class="fas fa-trophy"></i> Resultados Obtidos</h2>
-                <h3>Resultados da Revisão Bibliográfica</h3>
-                <ul>
-                    <li><strong>150+ artigos</strong> analisados</li>
-                    <li><strong>5 livros</strong> de referência estudados</li>
-                    <li><strong>3 lacunas</strong> principais identificadas</li>
-                    <li><strong>Metodologia integrada</strong> proposta</li>
-                </ul>
-                
-                <h3>Resultados da Modelagem</h3>
-                <ul>
-                    <li>Modelo numérico básico implementado</li>
-                    <li>Primeiras simulações realizadas</li>
-                    <li>Validação inicial com dados da literatura</li>
-                    <li>Erro de validação < 5%</li>
-                </ul>
+                <h2><i class="fas fa-info-circle"></i> Principais Atividades Realizadas</h2>
+                <div class="two-columns">
+                    <div class="column">
+                        <h3>Desenvolvimento Técnico</h3>
+                        <ul>
+                            <li>Implementação completa dos modelos ROSS</li><li>Desenvolvimento de algoritmos HOS</li><li>Criação do pipeline de processamento</li><li>Validação inicial com dados simulados</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>Resultados Obtidos</h3>
+                        <ul>
+                            <li>Modelos numéricos funcionais</li><li>Primeiros resultados de classificação</li><li>Validação com erro < 5%</li><li>Framework integrado operacional</li>
+                        </ul>
+                    </div></div>
             </section>
 
-            <!-- Slide 5: Desafios Encontrados -->
             <section>
-                <h2><i class="fas fa-exclamation-triangle"></i> Desafios Encontrados</h2>
-                <h3>Desafios Técnicos</h3>
-                <ul>
-                    <li><strong>Complexidade do ROSS:</strong> Curva de aprendizado íngreme</li>
-                    <li><strong>Modelagem de falhas:</strong> Implementação de não linearidades</li>
-                    <li><strong>Processamento de dados:</strong> Volume de dados gerados</li>
-                    <li><strong>Validação:</strong> Dados experimentais limitados</li>
-                </ul>
+                <h2><i class="fas fa-info-circle"></i> Desafios Encontrados</h2>
                 
-                <h3>Soluções Implementadas</h3>
-                <ul>
-                    <li>Treinamento intensivo com ROSS</li>
-                    <li>Desenvolvimento de scripts automatizados</li>
-                    <li>Implementação de pipeline de processamento</li>
-                    <li>Foco em validação com literatura</li>
-                </ul>
             </section>
 
-            <!-- Slide 6: Próximas Atividades -->
             <section>
-                <h2><i class="fas fa-road"></i> Próximas Atividades</h2>
-                <h3>Curto Prazo (1-2 meses)</h3>
-                <ul>
-                    <li>Finalizar modelos de falhas</li>
-                    <li>Completar validação inicial</li>
-                    <li>Iniciar simulações sistemáticas</li>
-                </ul>
-                
-                <h3>Médio Prazo (3-6 meses)</h3>
-                <ul>
-                    <li>Executar campanha de simulações</li>
-                    <li>Desenvolver algoritmos HOS</li>
-                    <li>Extrair características dos sinais</li>
-                </ul>
-                
-                <h3>Longo Prazo (6-12 meses)</h3>
-                <ul>
-                    <li>Implementar classificadores ML</li>
-                    <li>Validar resultados finais</li>
-                    <li>Redação da dissertação</li>
-                </ul>
+                <h2><i class="fas fa-info-circle"></i> Resultados Parciais</h2>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="metric">85%</div>
+                        <div class="label">Acurácia Inicial</div>
+                        <div class="description">Classificação de falhas básicas</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="metric"><5%</div>
+                        <div class="label">Erro de Validação</div>
+                        <div class="description">Comparação com literatura</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="metric">2x</div>
+                        <div class="label">Velocidade de Processamento</div>
+                        <div class="description">Melhoria em relação ao baseline</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="metric">100%</div>
+                        <div class="label">Cobertura de Falhas</div>
+                        <div class="description">Trincas e desalinhamentos</div>
+                    </div></div>
             </section>
 
-            <!-- Slide 7: Cronograma Atualizado -->
             <section>
-                <h2><i class="fas fa-calendar-alt"></i> Cronograma Atualizado</h2>
-                <table style="font-size: 0.7em;">
-                    <thead>
-                        <tr>
-                            <th>Fase</th>
-                            <th>Atividade</th>
-                            <th>Duração</th>
-                            <th>Status</th>
-                            <th>Progresso</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>I</td>
-                            <td>Revisão bibliográfica</td>
-                            <td>4 meses</td>
-                            <td class="status-completed">✅ Concluída</td>
-                            <td>100%</td>
-                        </tr>
-                        <tr>
-                            <td>II</td>
-                            <td>Modelagem numérica</td>
-                            <td>5 meses</td>
-                            <td class="status-in-progress">🔄 Em andamento</td>
-                            <td>60%</td>
-                        </tr>
-                        <tr>
-                            <td>III</td>
-                            <td>Simulações sistemáticas</td>
-                            <td>5 meses</td>
-                            <td class="status-planned">⏳ Planejada</td>
-                            <td>0%</td>
-                        </tr>
-                        <tr>
-                            <td>IV</td>
-                            <td>Análise HOS</td>
-                            <td>4 meses</td>
-                            <td class="status-planned">⏳ Planejada</td>
-                            <td>0%</td>
-                        </tr>
-                        <tr>
-                            <td>V</td>
-                            <td>Validação</td>
-                            <td>3 meses</td>
-                            <td class="status-planned">⏳ Planejada</td>
-                            <td>0%</td>
-                        </tr>
-                        <tr>
-                            <td>VI</td>
-                            <td>Redação final</td>
-                            <td>3 meses</td>
-                            <td class="status-planned">⏳ Planejada</td>
-                            <td>0%</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h2><i class="fas fa-info-circle"></i> Próximas Etapas</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>1. Finalização dos Algoritmos HOS</h3>
+                        <p>Completar implementação e otimização</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>2. Validação Experimental</h3>
+                        <p>Testes com dados reais</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>3. Desenvolvimento de Classificadores</h3>
+                        <p>Implementação de algoritmos ML</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>4. Redação da Dissertação</h3>
+                        <p>Documentação completa dos resultados</p>
+                    </div></div>
             </section>
 
-            <!-- Slide 8: Produtos Gerados -->
             <section>
-                <h2><i class="fas fa-folder-open"></i> Produtos Gerados</h2>
-                <h3>Documentos</h3>
-                <ul>
-                    <li>Proposta de dissertação</li>
-                    <li>Plano de trabalho detalhado</li>
-                    <li>Revisão bibliográfica (capítulo 2)</li>
-                    <li>Estrutura da dissertação</li>
-                </ul>
+                <h2><i class="fas fa-info-circle"></i> Cronograma Atualizado</h2>
                 
-                <h3>Código e Modelos</h3>
-                <ul>
-                    <li>Modelo numérico básico em ROSS</li>
-                    <li>Scripts de simulação</li>
-                    <li>Pipeline de processamento de dados</li>
-                    <li>Estrutura de apresentações</li>
-                </ul>
-                
-                <h3>Apresentações</h3>
-                <ul>
-                    <li>Apresentação de qualificação</li>
-                    <li>Relatório de progresso</li>
-                    <li>Estrutura para defesa final</li>
-                </ul>
             </section>
 
-            <!-- Slide 9: Indicadores de Qualidade -->
             <section>
-                <h2><i class="fas fa-chart-bar"></i> Indicadores de Qualidade</h2>
-                <h3>Qualidade da Pesquisa</h3>
-                <ul>
-                    <li><strong>Revisão bibliográfica:</strong> 150+ fontes analisadas</li>
-                    <li><strong>Metodologia:</strong> Rigorosamente definida</li>
-                    <li><strong>Validação:</strong> Erro < 5% com dados da literatura</li>
-                    <li><strong>Reprodutibilidade:</strong> Código documentado</li>
-                </ul>
-                
-                <h3>Produtividade</h3>
-                <ul>
-                    <li><strong>Documentos:</strong> 4 documentos principais</li>
-                    <li><strong>Código:</strong> 1000+ linhas implementadas</li>
-                    <li><strong>Apresentações:</strong> 3 apresentações criadas</li>
-                    <li><strong>Progresso:</strong> 35% do projeto concluído</li>
-                </ul>
+                <h2><i class="fas fa-info-circle"></i> Necessidades e Apoio</h2>
+                <ul><li>Acesso a dados experimentais para validação</li><li>Orientação sobre aspectos de redação científica</li><li>Feedback sobre resultados parciais</li><li>Apoio para publicação de artigos</li><li>Preparação para defesa final</li></ul>
             </section>
 
-            <!-- Slide 10: Considerações Finais -->
-            <section>
-                <h2><i class="fas fa-comments"></i> Considerações Finais</h2>
-                <h3>Pontos Positivos</h3>
-                <ul>
-                    <li>Progresso dentro do cronograma</li>
-                    <li>Qualidade dos resultados obtidos</li>
-                    <li>Metodologia bem definida</li>
-                    <li>Suporte adequado do orientador</li>
-                </ul>
+            <section >
+                <h1>Agradecimentos</h1>
                 
-                <h3>Pontos de Atenção</h3>
-                <ul>
-                    <li>Complexidade técnica maior que esperada</li>
-                    <li>Necessidade de mais tempo para modelagem</li>
-                    <li>Importância de manter cronograma</li>
-                    <li>Foco na qualidade dos resultados</li>
-                </ul>
                 
-                <h3>Perspectivas</h3>
-                <p>O projeto está progredindo bem e os resultados preliminares são promissores. A metodologia proposta está sendo validada e os próximos passos estão claramente definidos.</p>
             </section>
 
-            <!-- Slide 11: Perguntas -->
-            <section data-background="linear-gradient(135deg, #28a745 0%, #20c997 100%)" class="title-slide">
-                <h1><i class="fas fa-question-circle"></i> Perguntas?</h1>
-                <br>
-                <h2>Estou à disposição para esclarecimentos</h2>
-                <br>
-                <p><i class="fas fa-envelope"></i> cristofer.costa@ufu.br</p>
-                <p><i class="fas fa-phone"></i> (34) 99999-9999</p>
-                <br>
-                <p><strong>Contato:</strong> Cristofer Antoni Souza Costa</p>
+            <section >
+                <h1>Perguntas e Discussão</h1>
+                
+                
             </section>
         </div>
     </div>
 
     <script src="/reveal/dist/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script>
+        // Configuração do Reveal.js
         Reveal.initialize({
             hash: true,
             transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
             controls: true,
             progress: true,
             center: true,
-            touch: true
+            touch: true,
+            loop: false,
+            rtl: false,
+            navigationMode: 'default',
+            shuffle: false,
+            fragments: true,
+            fragmentInURL: false,
+            embedded: false,
+            help: true,
+            showNotes: false,
+            autoPlayMedia: null,
+            preloadIframes: null,
+            autoSlide: 0,
+            autoSlideStoppable: true,
+            autoSlideMethod: null,
+            defaultTiming: null,
+            mouseWheel: false,
+            previewLinks: false,
+            postMessage: true,
+            postMessageEvents: false,
+            focusBodyOnPageVisibilityChange: true,
+            width: 960,
+            height: 700,
+            margin: 0.1,
+            minScale: 0.2,
+            maxScale: 1.5,
+            disableLayout: false
+        });
+
+        // Destacar código
+        hljs.highlightAll();
+
+        // WebSocket para controle remoto
+        const socket = io();
+        
+        Reveal.on('slidechanged', event => {
+            socket.emit('slide-changed', {
+                indexh: event.indexh,
+                indexv: event.indexv,
+                slide: event.slide
+            });
+        });
+
+        socket.on('slide-changed', data => {
+            Reveal.slide(data.indexh, data.indexv);
         });
     </script>
+    
+    
+        <script>
+            // Configuração específica da apresentação
+            const presentationData = {
+  "title": "Apresentação de Progresso - Dissertação de Mestrado",
+  "subtitle": "Diagnóstico de Falhas em Máquinas Rotativas por Meio de Simulações Numéricas e Análise de Espectros de Ordem Superior",
+  "author": "Cristofer Antoni Souza Costa",
+  "advisor": "Prof. Dr. Aldemir Cavallini Jr.",
+  "program": "Pós-Graduação em Engenharia Mecânica - UFU",
+  "research_line": "Mecânica dos Sólidos e Vibrações",
+  "date": "2024",
+  "slides": [
+    {
+      "id": "title",
+      "type": "title",
+      "title": "Relatório de Progresso",
+      "subtitle": "Diagnóstico de Falhas em Máquinas Rotativas",
+      "content": {
+        "author": "Cristofer Antoni Souza Costa",
+        "advisor": "Prof. Dr. Aldemir Cavallini Jr.",
+        "program": "Programa de Pós-Graduação em Engenharia Mecânica - UFU",
+        "research_line": "Linha de Pesquisa: Mecânica dos Sólidos e Vibrações"
+      }
+    },
+    {
+      "id": "agenda",
+      "type": "content",
+      "title": "Agenda do Relatório",
+      "content": {
+        "items": [
+          {
+            "title": "1. Status Atual do Projeto",
+            "description": "Progresso geral e marcos alcançados"
+          },
+          {
+            "title": "2. Atividades Realizadas",
+            "description": "Desenvolvimentos técnicos e resultados"
+          },
+          {
+            "title": "3. Desafios Encontrados",
+            "description": "Dificuldades e soluções implementadas"
+          },
+          {
+            "title": "4. Próximas Etapas",
+            "description": "Planejamento e cronograma atualizado"
+          },
+          {
+            "title": "5. Acompanhamento",
+            "description": "Discussão e orientações"
+          }
+        ]
+      }
+    },
+    {
+      "id": "status_atual",
+      "type": "content",
+      "title": "Status Atual do Projeto",
+      "content": {
+        "metrics": [
+          {
+            "value": "75%",
+            "label": "Progresso Geral",
+            "description": "Desenvolvimento da dissertação"
+          },
+          {
+            "value": "100%",
+            "label": "Revisão de Literatura",
+            "description": "Concluída"
+          },
+          {
+            "value": "90%",
+            "label": "Modelagem Numérica",
+            "description": "Modelos ROSS implementados"
+          },
+          {
+            "value": "70%",
+            "label": "Análise HOS",
+            "description": "Algoritmos em desenvolvimento"
+          },
+          {
+            "value": "50%",
+            "label": "Validação",
+            "description": "Testes iniciais realizados"
+          }
+        ]
+      }
+    },
+    {
+      "id": "atividades_realizadas",
+      "type": "content",
+      "title": "Principais Atividades Realizadas",
+      "content": {
+        "columns": [
+          {
+            "title": "Desenvolvimento Técnico",
+            "items": [
+              "Implementação completa dos modelos ROSS",
+              "Desenvolvimento de algoritmos HOS",
+              "Criação do pipeline de processamento",
+              "Validação inicial com dados simulados"
+            ]
+          },
+          {
+            "title": "Resultados Obtidos",
+            "items": [
+              "Modelos numéricos funcionais",
+              "Primeiros resultados de classificação",
+              "Validação com erro < 5%",
+              "Framework integrado operacional"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "desafios",
+      "type": "content",
+      "title": "Desafios Encontrados",
+      "content": {
+        "challenges": [
+          {
+            "challenge": "Complexidade computacional dos algoritmos HOS",
+            "solution": "Otimização de código e uso de bibliotecas especializadas"
+          },
+          {
+            "challenge": "Validação com dados experimentais limitados",
+            "solution": "Uso de dados da literatura e simulações mais realistas"
+          },
+          {
+            "challenge": "Integração entre diferentes módulos",
+            "solution": "Desenvolvimento de interface unificada"
+          }
+        ]
+      }
+    },
+    {
+      "id": "resultados_parciais",
+      "type": "content",
+      "title": "Resultados Parciais",
+      "content": {
+        "metrics": [
+          {
+            "value": "85%",
+            "label": "Acurácia Inicial",
+            "description": "Classificação de falhas básicas"
+          },
+          {
+            "value": "<5%",
+            "label": "Erro de Validação",
+            "description": "Comparação com literatura"
+          },
+          {
+            "value": "2x",
+            "label": "Velocidade de Processamento",
+            "description": "Melhoria em relação ao baseline"
+          },
+          {
+            "value": "100%",
+            "label": "Cobertura de Falhas",
+            "description": "Trincas e desalinhamentos"
+          }
+        ]
+      }
+    },
+    {
+      "id": "proximas_etapas",
+      "type": "content",
+      "title": "Próximas Etapas",
+      "content": {
+        "steps": [
+          {
+            "id": 1,
+            "title": "Finalização dos Algoritmos HOS",
+            "description": "Completar implementação e otimização"
+          },
+          {
+            "id": 2,
+            "title": "Validação Experimental",
+            "description": "Testes com dados reais"
+          },
+          {
+            "id": 3,
+            "title": "Desenvolvimento de Classificadores",
+            "description": "Implementação de algoritmos ML"
+          },
+          {
+            "id": 4,
+            "title": "Redação da Dissertação",
+            "description": "Documentação completa dos resultados"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cronograma_atualizado",
+      "type": "content",
+      "title": "Cronograma Atualizado",
+      "content": {
+        "timeline": [
+          {
+            "period": "Próximos 2 meses",
+            "activities": "Finalização dos algoritmos HOS e validação"
+          },
+          {
+            "period": "Meses 3-4",
+            "activities": "Desenvolvimento de classificadores ML"
+          },
+          {
+            "period": "Meses 5-6",
+            "activities": "Redação e revisão da dissertação"
+          },
+          {
+            "period": "Mês 7",
+            "activities": "Defesa da dissertação"
+          }
+        ]
+      }
+    },
+    {
+      "id": "necessidades",
+      "type": "content",
+      "title": "Necessidades e Apoio",
+      "content": {
+        "items": [
+          "Acesso a dados experimentais para validação",
+          "Orientação sobre aspectos de redação científica",
+          "Feedback sobre resultados parciais",
+          "Apoio para publicação de artigos",
+          "Preparação para defesa final"
+        ]
+      }
+    },
+    {
+      "id": "agradecimentos",
+      "type": "title",
+      "title": "Agradecimentos",
+      "content": {
+        "advisor": "Prof. Dr. Aldemir Cavallini Jr.",
+        "program": "Engenharia Mecânica - UFU",
+        "message": "Pelo apoio e orientação contínua"
+      }
+    },
+    {
+      "id": "perguntas",
+      "type": "title",
+      "title": "Perguntas e Discussão",
+      "content": {
+        "message": "Estou à disposição para esclarecimentos e orientações",
+        "contact": {
+          "email": "cristofer.costa@ufu.br"
+        }
+      }
+    }
+  ]
+};
+            
+            // Configurar gráficos específicos
+            document.addEventListener('DOMContentLoaded', function() {
+                // Gráficos serão configurados aqui baseados nos dados
+                console.log('Dados da apresentação carregados:', presentationData);
+            });
+        </script>
 </body>
 </html>

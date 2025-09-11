@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/reveal/dist/reveal.css">
     <link rel="stylesheet" href="/reveal/dist/theme/white.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
     <style>
         .reveal .slides section {
             text-align: left;
@@ -29,6 +30,85 @@
         .reveal .title-slide h2,
         .reveal .title-slide p {
             color: white;
+        }
+        
+        .reveal .highlight {
+            background-color: #fff3cd;
+            padding: 0.2em 0.4em;
+            border-radius: 0.25rem;
+        }
+        
+        .reveal .two-columns {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .reveal .two-columns .column {
+            flex: 1;
+        }
+        
+        .reveal .chart-container {
+            width: 100%;
+            height: 400px;
+            margin: 1rem 0;
+        }
+        
+        .reveal .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .reveal .result-card {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .reveal .result-card .metric {
+            font-size: 2em;
+            font-weight: bold;
+            color: #28a745;
+        }
+        
+        .reveal .result-card .label {
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+        
+        .reveal .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .reveal .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #667eea;
+        }
+        
+        .reveal .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+        
+        .reveal .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: #667eea;
+            border-radius: 50%;
         }
         
         .reveal .back-button {
@@ -61,229 +141,414 @@
 
     <div class="reveal">
         <div class="slides">
-            <!-- Slide 1: Título -->
+            
             <section data-background="linear-gradient(135deg, #667eea 0%, #764ba2 100%)" class="title-slide">
-                <h1>Qualificação de Mestrado</h1>
+                <h1>Projeto de Dissertação</h1>
                 <h2>Diagnóstico de Falhas em Máquinas Rotativas</h2>
-                <br>
-                <p><strong>Cristofer Antoni Souza Costa</strong></p>
-                <p>Orientador: Prof. Dr. Aldemir Cavallini Jr.</p>
-                <p>Programa de Pós-Graduação em Engenharia Mecânica - UFU</p>
-            </section>
-
-            <!-- Slide 2: Agenda -->
-            <section>
-                <h2><i class="fas fa-list"></i> Agenda</h2>
-                <ul>
-                    <li>1. Apresentação do Projeto</li>
-                    <li>2. Justificativa e Objetivos</li>
-                    <li>3. Revisão de Literatura</li>
-                    <li>4. Metodologia Proposta</li>
-                    <li>5. Cronograma de Execução</li>
-                    <li>6. Resultados Preliminares</li>
-                    <li>7. Próximos Passos</li>
-                </ul>
-            </section>
-
-            <!-- Slide 3: Apresentação do Projeto -->
-            <section>
-                <h2><i class="fas fa-project-diagram"></i> Apresentação do Projeto</h2>
-                <h3>Título</h3>
-                <p><strong>Diagnóstico de Falhas em Máquinas Rotativas por Meio de Simulações Numéricas e Análise de Espectros de Ordem Superior</strong></p>
                 
-                <h3>Linha de Pesquisa</h3>
-                <p>Mecânica dos Sólidos e Vibrações / Dinâmica de Sistemas Mecânicos</p>
-                
-                <h3>Duração</h3>
-                <p>24 meses (2023-2025)</p>
             </section>
 
-            <!-- Slide 4: Justificativa -->
             <section>
-                <h2><i class="fas fa-lightbulb"></i> Justificativa</h2>
-                <ul>
-                    <li><strong>Importância:</strong> Máquinas rotativas são fundamentais na indústria</li>
-                    <li><strong>Desafio:</strong> Detecção precoce de falhas é crucial</li>
-                    <li><strong>Limitação:</strong> Métodos convencionais têm limitações</li>
-                    <li><strong>Oportunidade:</strong> HOS oferece nova perspectiva</li>
-                    <li><strong>Inovação:</strong> Abordagem por simulação reduz dependência experimental</li>
-                </ul>
+                <h2><i class="fas fa-list"></i> Agenda da Qualificação</h2>
+                <ul><li><strong>1. Apresentação do Projeto:</strong> Problema, objetivos e justificativa</li><li><strong>2. Revisão de Literatura:</strong> Estado da arte e fundamentação teórica</li><li><strong>3. Metodologia Proposta:</strong> Abordagem e cronograma de execução</li><li><strong>4. Resultados Preliminares:</strong> Primeiros desenvolvimentos e validações</li><li><strong>5. Cronograma e Próximos Passos:</strong> Planejamento para conclusão da dissertação</li></ul>
             </section>
 
-            <!-- Slide 5: Objetivos -->
             <section>
-                <h2><i class="fas fa-target"></i> Objetivos</h2>
-                <h3>Objetivo Geral</h3>
-                <p>Desenvolver metodologia baseada em simulações numéricas para diagnóstico de falhas em máquinas rotativas utilizando análise de espectros de ordem superior.</p>
-                
-                <h3>Objetivos Específicos</h3>
-                <ol>
-                    <li>Desenvolver modelos numéricos utilizando ROSS</li>
-                    <li>Aplicar técnicas HOS aos dados simulados</li>
-                    <li>Validar resultados com literatura científica</li>
-                    <li>Avaliar eficácia da metodologia proposta</li>
-                </ol>
+                <h2><i class="fas fa-industry"></i> Contextualização do Problema</h2>
+                <div class="two-columns">
+                    <div class="column">
+                        <h3>Relevância Industrial</h3>
+                        <ul>
+                            <li>Máquinas rotativas são críticas na indústria</li><li>Falhas causam paradas não planejadas</li><li>Custos elevados de manutenção</li><li>Necessidade de diagnóstico precoce</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>Desafios Técnicos</h3>
+                        <ul>
+                            <li>Limitações dos métodos convencionais</li><li>Dependência de dados experimentais</li><li>Falta de automação no diagnóstico</li><li>Necessidade de maior precisão</li>
+                        </ul>
+                    </div></div>
             </section>
 
-            <!-- Slide 6: Revisão de Literatura -->
             <section>
-                <h2><i class="fas fa-book"></i> Revisão de Literatura</h2>
-                <h3>Áreas de Conhecimento</h3>
-                <ul>
-                    <li><strong>Dinâmica de Rotores:</strong> Friswell et al. (2010)</li>
-                    <li><strong>Análise de Vibrações:</strong> Randall (2011)</li>
-                    <li><strong>Espectros de Ordem Superior:</strong> Nikias & Petropulu (1993)</li>
-                    <li><strong>Diagnóstico de Falhas:</strong> Lei et al. (2020)</li>
-                </ul>
+                <h2><i class="fas fa-question-circle"></i> Problema de Pesquisa</h2>
                 
-                <h3>Lacunas Identificadas</h3>
-                <ul>
-                    <li>Falta de metodologias integradas</li>
-                    <li>Dependência excessiva de dados experimentais</li>
-                    <li>Necessidade de automação do diagnóstico</li>
-                </ul>
             </section>
 
-            <!-- Slide 7: Metodologia -->
+            <section>
+                <h2><i class="fas fa-target"></i> Objetivos da Pesquisa</h2>
+                
+            </section>
+
             <section>
                 <h2><i class="fas fa-cogs"></i> Metodologia Proposta</h2>
-                <h3>Abordagem Integrada</h3>
-                <ol>
-                    <li><strong>Modelagem Numérica:</strong> ROSS + elementos finitos</li>
-                    <li><strong>Análise HOS:</strong> Bi-espectro e tri-espectro</li>
-                    <li><strong>Validação Física:</strong> Comparação com literatura</li>
-                    <li><strong>Classificação ML:</strong> Automação do diagnóstico</li>
-                </ol>
-                
-                <h3>Ferramentas</h3>
-                <ul>
-                    <li>ROSS (Rotordynamic Open-Source Software)</li>
-                    <li>Python + bibliotecas científicas</li>
-                    <li>Scikit-learn para ML</li>
-                </ul>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>1. Revisão de Literatura</h3>
+                        <p>Análise do estado da arte em diagnóstico de falhas</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>2. Modelagem Numérica</h3>
+                        <p>Desenvolvimento de modelos com ROSS</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>3. Análise HOS</h3>
+                        <p>Implementação de técnicas de espectros de ordem superior</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>4. Validação e Classificação</h3>
+                        <p>Validação física e desenvolvimento de classificadores ML</p>
+                    </div></div>
             </section>
 
-            <!-- Slide 8: Cronograma -->
             <section>
-                <h2><i class="fas fa-calendar"></i> Cronograma de Execução</h2>
-                <table style="font-size: 0.8em;">
-                    <thead>
-                        <tr>
-                            <th>Fase</th>
-                            <th>Atividade</th>
-                            <th>Duração</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>I</td>
-                            <td>Revisão bibliográfica + familiarização ROSS</td>
-                            <td>4 meses</td>
-                            <td>✅ Concluída</td>
-                        </tr>
-                        <tr>
-                            <td>II</td>
-                            <td>Modelagem numérica e validação básica</td>
-                            <td>5 meses</td>
-                            <td>🔄 Em andamento</td>
-                        </tr>
-                        <tr>
-                            <td>III</td>
-                            <td>Simulações sistemáticas</td>
-                            <td>5 meses</td>
-                            <td>⏳ Planejada</td>
-                        </tr>
-                        <tr>
-                            <td>IV</td>
-                            <td>Implementação HOS e análise</td>
-                            <td>4 meses</td>
-                            <td>⏳ Planejada</td>
-                        </tr>
-                        <tr>
-                            <td>V</td>
-                            <td>Validação e comparações</td>
-                            <td>3 meses</td>
-                            <td>⏳ Planejada</td>
-                        </tr>
-                        <tr>
-                            <td>VI</td>
-                            <td>Redação final e defesa</td>
-                            <td>3 meses</td>
-                            <td>⏳ Planejada</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h2><i class="fas fa-info-circle"></i> Resultados Preliminares</h2>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="metric">80%</div>
+                        <div class="label">Progresso da Revisão</div>
+                        <div class="description">Literatura analisada</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="metric">60%</div>
+                        <div class="label">Modelos Desenvolvidos</div>
+                        <div class="description">Implementação ROSS</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="metric">40%</div>
+                        <div class="label">Análise HOS</div>
+                        <div class="description">Algoritmos implementados</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="metric">20%</div>
+                        <div class="label">Validação</div>
+                        <div class="description">Testes iniciais</div>
+                    </div></div>
             </section>
 
-            <!-- Slide 9: Resultados Preliminares -->
             <section>
-                <h2><i class="fas fa-chart-line"></i> Resultados Preliminares</h2>
-                <h3>Atividades Concluídas</h3>
-                <ul>
-                    <li>✅ Revisão bibliográfica abrangente</li>
-                    <li>✅ Familiarização com ROSS</li>
-                    <li>✅ Definição da metodologia</li>
-                    <li>✅ Configuração do ambiente de desenvolvimento</li>
-                </ul>
+                <h2><i class="fas fa-info-circle"></i> Cronograma de Execução</h2>
                 
-                <h3>Resultados Iniciais</h3>
-                <ul>
-                    <li>Modelo numérico básico implementado</li>
-                    <li>Primeiras simulações realizadas</li>
-                    <li>Validação inicial com dados da literatura</li>
-                </ul>
             </section>
 
-            <!-- Slide 10: Próximos Passos -->
             <section>
-                <h2><i class="fas fa-road"></i> Próximos Passos</h2>
-                <h3>Curto Prazo (3 meses)</h3>
-                <ul>
-                    <li>Finalizar modelagem numérica</li>
-                    <li>Implementar modelos de falhas</li>
-                    <li>Executar simulações sistemáticas</li>
-                </ul>
-                
-                <h3>Médio Prazo (6 meses)</h3>
-                <ul>
-                    <li>Desenvolver algoritmos HOS</li>
-                    <li>Extrair características dos sinais</li>
-                    <li>Validar com literatura</li>
-                </ul>
-                
-                <h3>Longo Prazo (12 meses)</h3>
-                <ul>
-                    <li>Implementar classificadores ML</li>
-                    <li>Redação da dissertação</li>
-                    <li>Preparação para defesa</li>
-                </ul>
+                <h2><i class="fas fa-info-circle"></i> Próximos Passos</h2>
+                <ul><li>Finalização da revisão de literatura</li><li>Completar desenvolvimento dos modelos ROSS</li><li>Implementar algoritmos HOS completos</li><li>Iniciar validação experimental</li><li>Desenvolver classificadores de ML</li></ul>
             </section>
 
-            <!-- Slide 11: Perguntas -->
-            <section data-background="linear-gradient(135deg, #28a745 0%, #20c997 100%)" class="title-slide">
-                <h1><i class="fas fa-question-circle"></i> Perguntas?</h1>
-                <br>
-                <h2>Estou à disposição para esclarecimentos</h2>
-                <br>
-                <p><i class="fas fa-envelope"></i> cristofer.costa@ufu.br</p>
-                <p><i class="fas fa-phone"></i> (34) 99999-9999</p>
-                <br>
-                <p><strong>Contato:</strong> Cristofer Antoni Souza Costa</p>
+            <section >
+                <h1>Agradecimentos</h1>
+                
+                
+            </section>
+
+            <section >
+                <h1>Perguntas?</h1>
+                
+                
             </section>
         </div>
     </div>
 
     <script src="/reveal/dist/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script>
+        // Configuração do Reveal.js
         Reveal.initialize({
             hash: true,
             transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
             controls: true,
             progress: true,
             center: true,
-            touch: true
+            touch: true,
+            loop: false,
+            rtl: false,
+            navigationMode: 'default',
+            shuffle: false,
+            fragments: true,
+            fragmentInURL: false,
+            embedded: false,
+            help: true,
+            showNotes: false,
+            autoPlayMedia: null,
+            preloadIframes: null,
+            autoSlide: 0,
+            autoSlideStoppable: true,
+            autoSlideMethod: null,
+            defaultTiming: null,
+            mouseWheel: false,
+            previewLinks: false,
+            postMessage: true,
+            postMessageEvents: false,
+            focusBodyOnPageVisibilityChange: true,
+            width: 960,
+            height: 700,
+            margin: 0.1,
+            minScale: 0.2,
+            maxScale: 1.5,
+            disableLayout: false
+        });
+
+        // Destacar código
+        hljs.highlightAll();
+
+        // WebSocket para controle remoto
+        const socket = io();
+        
+        Reveal.on('slidechanged', event => {
+            socket.emit('slide-changed', {
+                indexh: event.indexh,
+                indexv: event.indexv,
+                slide: event.slide
+            });
+        });
+
+        socket.on('slide-changed', data => {
+            Reveal.slide(data.indexh, data.indexv);
         });
     </script>
+    
+    
+        <script>
+            // Configuração específica da apresentação
+            const presentationData = {
+  "title": "Qualificação - Dissertação de Mestrado",
+  "subtitle": "Diagnóstico de Falhas em Máquinas Rotativas por Meio de Simulações Numéricas e Análise de Espectros de Ordem Superior",
+  "author": "Cristofer Antoni Souza Costa",
+  "advisor": "Prof. Dr. Aldemir Cavallini Jr.",
+  "program": "Pós-Graduação em Engenharia Mecânica - UFU",
+  "research_line": "Mecânica dos Sólidos e Vibrações",
+  "date": "2024",
+  "slides": [
+    {
+      "id": "title",
+      "type": "title",
+      "title": "Projeto de Dissertação",
+      "subtitle": "Diagnóstico de Falhas em Máquinas Rotativas",
+      "content": {
+        "author": "Cristofer Antoni Souza Costa",
+        "advisor": "Prof. Dr. Aldemir Cavallini Jr.",
+        "program": "Programa de Pós-Graduação em Engenharia Mecânica - UFU",
+        "research_line": "Linha de Pesquisa: Mecânica dos Sólidos e Vibrações"
+      }
+    },
+    {
+      "id": "agenda",
+      "type": "content",
+      "title": "Agenda da Qualificação",
+      "content": {
+        "items": [
+          {
+            "title": "1. Apresentação do Projeto",
+            "description": "Problema, objetivos e justificativa"
+          },
+          {
+            "title": "2. Revisão de Literatura",
+            "description": "Estado da arte e fundamentação teórica"
+          },
+          {
+            "title": "3. Metodologia Proposta",
+            "description": "Abordagem e cronograma de execução"
+          },
+          {
+            "title": "4. Resultados Preliminares",
+            "description": "Primeiros desenvolvimentos e validações"
+          },
+          {
+            "title": "5. Cronograma e Próximos Passos",
+            "description": "Planejamento para conclusão da dissertação"
+          }
+        ]
+      }
+    },
+    {
+      "id": "contextualizacao",
+      "type": "content",
+      "title": "Contextualização do Problema",
+      "content": {
+        "columns": [
+          {
+            "title": "Relevância Industrial",
+            "items": [
+              "Máquinas rotativas são críticas na indústria",
+              "Falhas causam paradas não planejadas",
+              "Custos elevados de manutenção",
+              "Necessidade de diagnóstico precoce"
+            ]
+          },
+          {
+            "title": "Desafios Técnicos",
+            "items": [
+              "Limitações dos métodos convencionais",
+              "Dependência de dados experimentais",
+              "Falta de automação no diagnóstico",
+              "Necessidade de maior precisão"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "problema",
+      "type": "content",
+      "title": "Problema de Pesquisa",
+      "content": {
+        "problem": "Como desenvolver uma metodologia eficaz para diagnóstico de falhas em máquinas rotativas utilizando simulações numéricas e análise de espectros de ordem superior?",
+        "gaps": [
+          "Falta de metodologias integradas",
+          "Dependência excessiva de dados experimentais",
+          "Limitações dos métodos convencionais",
+          "Necessidade de automação do diagnóstico"
+        ]
+      }
+    },
+    {
+      "id": "objetivos",
+      "type": "content",
+      "title": "Objetivos da Pesquisa",
+      "content": {
+        "general": "Desenvolver uma metodologia baseada em simulações numéricas para diagnóstico de falhas em máquinas rotativas utilizando análise de espectros de ordem superior.",
+        "specific": [
+          "Desenvolver modelos numéricos utilizando ROSS",
+          "Aplicar técnicas HOS aos dados simulados",
+          "Validar resultados com literatura científica",
+          "Avaliar eficácia da metodologia proposta"
+        ]
+      }
+    },
+    {
+      "id": "metodologia",
+      "type": "content",
+      "title": "Metodologia Proposta",
+      "content": {
+        "steps": [
+          {
+            "id": 1,
+            "title": "Revisão de Literatura",
+            "description": "Análise do estado da arte em diagnóstico de falhas"
+          },
+          {
+            "id": 2,
+            "title": "Modelagem Numérica",
+            "description": "Desenvolvimento de modelos com ROSS"
+          },
+          {
+            "id": 3,
+            "title": "Análise HOS",
+            "description": "Implementação de técnicas de espectros de ordem superior"
+          },
+          {
+            "id": 4,
+            "title": "Validação e Classificação",
+            "description": "Validação física e desenvolvimento de classificadores ML"
+          }
+        ]
+      }
+    },
+    {
+      "id": "resultados_preliminares",
+      "type": "content",
+      "title": "Resultados Preliminares",
+      "content": {
+        "metrics": [
+          {
+            "value": "80%",
+            "label": "Progresso da Revisão",
+            "description": "Literatura analisada"
+          },
+          {
+            "value": "60%",
+            "label": "Modelos Desenvolvidos",
+            "description": "Implementação ROSS"
+          },
+          {
+            "value": "40%",
+            "label": "Análise HOS",
+            "description": "Algoritmos implementados"
+          },
+          {
+            "value": "20%",
+            "label": "Validação",
+            "description": "Testes iniciais"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cronograma",
+      "type": "content",
+      "title": "Cronograma de Execução",
+      "content": {
+        "timeline": [
+          {
+            "period": "Meses 1-6",
+            "activities": "Revisão de literatura e fundamentação teórica"
+          },
+          {
+            "period": "Meses 7-12",
+            "activities": "Desenvolvimento dos modelos numéricos"
+          },
+          {
+            "period": "Meses 13-18",
+            "activities": "Implementação das técnicas HOS"
+          },
+          {
+            "period": "Meses 19-24",
+            "activities": "Validação e classificação ML"
+          }
+        ]
+      }
+    },
+    {
+      "id": "proximos_passos",
+      "type": "content",
+      "title": "Próximos Passos",
+      "content": {
+        "items": [
+          "Finalização da revisão de literatura",
+          "Completar desenvolvimento dos modelos ROSS",
+          "Implementar algoritmos HOS completos",
+          "Iniciar validação experimental",
+          "Desenvolver classificadores de ML"
+        ]
+      }
+    },
+    {
+      "id": "agradecimentos",
+      "type": "title",
+      "title": "Agradecimentos",
+      "content": {
+        "advisor": "Prof. Dr. Aldemir Cavallini Jr.",
+        "committee": [
+          "Prof. Dr. [Nome do Examinador 1]",
+          "Prof. Dr. [Nome do Examinador 2]"
+        ],
+        "program": "Engenharia Mecânica - UFU"
+      }
+    },
+    {
+      "id": "perguntas",
+      "type": "title",
+      "title": "Perguntas?",
+      "content": {
+        "message": "Estou à disposição para esclarecimentos",
+        "contact": {
+          "email": "cristofer.costa@ufu.br"
+        }
+      }
+    }
+  ]
+};
+            
+            // Configurar gráficos específicos
+            document.addEventListener('DOMContentLoaded', function() {
+                // Gráficos serão configurados aqui baseados nos dados
+                console.log('Dados da apresentação carregados:', presentationData);
+            });
+        </script>
 </body>
 </html>

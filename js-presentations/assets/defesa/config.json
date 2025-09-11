@@ -1,0 +1,231 @@
+{
+  "title": "Defesa Final - Dissertação de Mestrado",
+  "subtitle": "Diagnóstico de Falhas em Máquinas Rotativas por Meio de Simulações Numéricas e Análise de Espectros de Ordem Superior",
+  "author": "Cristofer Antoni Souza Costa",
+  "advisor": "Prof. Dr. Aldemir Cavallini Jr.",
+  "program": "Pós-Graduação em Engenharia Mecânica - UFU",
+  "research_line": "Mecânica dos Sólidos e Vibrações",
+  "date": "2024",
+  "slides": [
+    {
+      "id": "title",
+      "type": "title",
+      "title": "Diagnóstico de Falhas em Máquinas Rotativas",
+      "subtitle": "por Meio de Simulações Numéricas e Análise de Espectros de Ordem Superior",
+      "content": {
+        "author": "Cristofer Antoni Souza Costa",
+        "advisor": "Prof. Dr. Aldemir Cavallini Jr.",
+        "program": "Programa de Pós-Graduação em Engenharia Mecânica - UFU",
+        "research_line": "Linha de Pesquisa: Mecânica dos Sólidos e Vibrações"
+      }
+    },
+    {
+      "id": "agenda",
+      "type": "content",
+      "title": "Agenda",
+      "content": {
+        "items": [
+          {
+            "title": "1. Introdução e Contextualização",
+            "description": "Problema, objetivos e justificativa"
+          },
+          {
+            "title": "2. Revisão de Literatura",
+            "description": "Fundamentos teóricos e estado da arte"
+          },
+          {
+            "title": "3. Metodologia",
+            "description": "Abordagem integrada proposta"
+          },
+          {
+            "title": "4. Resultados e Discussão",
+            "description": "Principais achados e validação"
+          },
+          {
+            "title": "5. Conclusões e Contribuições",
+            "description": "Síntese e perspectivas futuras"
+          }
+        ]
+      }
+    },
+    {
+      "id": "contextualizacao",
+      "type": "content",
+      "title": "Contextualização",
+      "content": {
+        "columns": [
+          {
+            "title": "Importância das Máquinas Rotativas",
+            "items": [
+              "Fundamentais em diversos setores industriais",
+              "Operação confiável essencial para eficiência",
+              "Falhas podem causar paradas não planejadas",
+              "Impacto significativo em custos de manutenção"
+            ]
+          },
+          {
+            "title": "Desafios Atuais",
+            "items": [
+              "Detecção precoce de falhas",
+              "Redução de custos de manutenção",
+              "Melhoria da confiabilidade",
+              "Automação do diagnóstico"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "problema",
+      "type": "content",
+      "title": "Problema de Pesquisa",
+      "content": {
+        "problem": "Como desenvolver uma metodologia eficaz para diagnóstico de falhas em máquinas rotativas utilizando simulações numéricas e análise de espectros de ordem superior?",
+        "gaps": [
+          "Falta de metodologias integradas",
+          "Dependência excessiva de dados experimentais",
+          "Limitações dos métodos convencionais",
+          "Necessidade de automação do diagnóstico"
+        ]
+      }
+    },
+    {
+      "id": "objetivos",
+      "type": "content",
+      "title": "Objetivos",
+      "content": {
+        "general": "Desenvolver uma metodologia baseada em simulações numéricas para diagnóstico de falhas em máquinas rotativas utilizando análise de espectros de ordem superior.",
+        "specific": [
+          "Desenvolver modelos numéricos utilizando ROSS",
+          "Aplicar técnicas HOS aos dados simulados",
+          "Validar resultados com literatura científica",
+          "Avaliar eficácia da metodologia proposta"
+        ]
+      }
+    },
+    {
+      "id": "metodologia",
+      "type": "content",
+      "title": "Metodologia Proposta",
+      "content": {
+        "steps": [
+          {
+            "id": 1,
+            "title": "Modelagem Numérica",
+            "description": "Desenvolvimento de modelos de elementos finitos utilizando ROSS"
+          },
+          {
+            "id": 2,
+            "title": "Análise HOS",
+            "description": "Aplicação de técnicas de espectros de ordem superior"
+          },
+          {
+            "id": 3,
+            "title": "Validação Física",
+            "description": "Comparação com resultados da literatura científica"
+          },
+          {
+            "id": 4,
+            "title": "Classificação ML",
+            "description": "Desenvolvimento de classificadores de aprendizado de máquina"
+          }
+        ]
+      }
+    },
+    {
+      "id": "resultados",
+      "type": "content",
+      "title": "Principais Resultados",
+      "content": {
+        "metrics": [
+          {
+            "value": "<3%",
+            "label": "Erro de Validação",
+            "description": "Comparação com dados experimentais"
+          },
+          {
+            "value": "95%",
+            "label": "Acurácia do Classificador",
+            "description": "XGBoost - melhor desempenho"
+          },
+          {
+            "value": "100%",
+            "label": "Cobertura de Falhas",
+            "description": "Trincas e desalinhamentos"
+          },
+          {
+            "value": "2048",
+            "label": "Hz Amostragem",
+            "description": "Frequência de aquisição"
+          }
+        ]
+      }
+    },
+    {
+      "id": "contribuicoes",
+      "type": "content",
+      "title": "Principais Contribuições",
+      "content": {
+        "methodological": [
+          "Framework integrado inédito",
+          "Validação sistemática rigorosa",
+          "Automação completa do diagnóstico",
+          "Redução da dependência experimental"
+        ],
+        "technical": [
+          "Modelos numéricos de alta fidelidade",
+          "Algoritmos HOS otimizados",
+          "Pipeline automatizado",
+          "Métricas quantitativas de validação"
+        ],
+        "practical": [
+          "Metodologia aplicável industrialmente",
+          "Redução de custos de desenvolvimento",
+          "Aceleração do treinamento de algoritmos",
+          "Facilitação da transferência tecnológica"
+        ]
+      }
+    },
+    {
+      "id": "conclusoes",
+      "type": "content",
+      "title": "Conclusões",
+      "content": {
+        "main_conclusion": "A metodologia proposta foi desenvolvida com sucesso, demonstrando viabilidade técnica, rigor científico e aplicabilidade prática.",
+        "achievements": [
+          "Framework integrado funcional",
+          "Validação com erro < 3%",
+          "Classificação com 95% de acurácia",
+          "Metodologia robusta e aplicável"
+        ],
+        "final_contribution": "Estabelecimento de uma base sólida para futuras pesquisas e aplicações práticas na área de diagnóstico de falhas em máquinas rotativas."
+      }
+    },
+    {
+      "id": "agradecimentos",
+      "type": "title",
+      "title": "Agradecimentos",
+      "content": {
+        "advisor": "Prof. Dr. Aldemir Cavallini Jr.",
+        "examiners": [
+          "Prof. Dr. [Nome do Examinador 1]",
+          "Prof. Dr. [Nome do Examinador 2]"
+        ],
+        "program": "Engenharia Mecânica - UFU",
+        "family": "Pelo apoio incondicional"
+      }
+    },
+    {
+      "id": "perguntas",
+      "type": "title",
+      "title": "Perguntas?",
+      "content": {
+        "message": "Estou à disposição para esclarecimentos",
+        "contact": {
+          "email": "cristofer.costa@ufu.br",
+          "phone": "(34) 99999-9999"
+        }
+      }
+    }
+  ]
+}
