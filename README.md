@@ -1,187 +1,350 @@
-# Dissertação de Mestrado - Diagnóstico de Falhas em Máquinas Rotativas
+# React Presentation Framework
 
-Este repositório contém a estrutura completa para desenvolvimento da dissertação de mestrado sobre **Diagnóstico de Falhas em Máquinas Rotativas por Meio de Simulações Numéricas e Análise de Espectros de Ordem Superior**.
+A modern, component-based presentation framework built with React, designed specifically for academic and professional presentations. This framework offers superior component reusability, easy content management, responsive design, and multiple export capabilities.
 
-## 📋 Informações do Projeto
+## 🚀 Features
 
-- **Autor:** Cristofer Antoni Souza Costa
-- **Orientador:** Prof. Dr. Aldemir Cavallini Jr.
-- **Programa:** Pós-Graduação em Engenharia Mecânica - UFU
-- **Linha de Pesquisa:** Mecânica dos Sólidos e Vibrações / Dinâmica de Sistemas Mecânicos
+### ✨ Core Features
+- **Component-Based Architecture**: Reusable slide components for consistent design
+- **Interactive Elements**: Smooth animations and transitions using Framer Motion
+- **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
+- **Multiple Themes**: Light, Dark, and Academic themes with easy switching
+- **Export Capabilities**: Export to PDF, HTML, and PowerPoint formats
+- **Keyboard Navigation**: Full keyboard support for presentation control
+- **Content Management**: JSON-based content configuration for easy editing
 
-## 🎯 Objetivo
+### 🎨 Design Features
+- **Modern UI**: Clean, professional design with Tailwind CSS
+- **Smooth Animations**: Framer Motion powered transitions
+- **Customizable Themes**: Easy theme switching and customization
+- **Typography**: Professional fonts and text styling
+- **Visual Elements**: Icons, highlights, and visual indicators
 
-Desenvolver uma metodologia integrada para diagnóstico de falhas em máquinas rotativas, combinando:
-- Simulação numérica utilizando ROSS
-- Análise de Espectros de Ordem Superior (HOS)
-- Validação física com literatura científica
-- Classificação automática via Aprendizado de Máquina
+### 🛠️ Technical Features
+- **React 18**: Latest React features and performance optimizations
+- **Vite**: Fast development and build process
+- **TypeScript Ready**: Full TypeScript support (optional)
+- **Hot Reload**: Instant development feedback
+- **Modern Build**: Optimized production builds
 
-## 📁 Estrutura do Projeto
+## 📦 Installation
 
+1. **Clone or download the framework**
+   ```bash
+   git clone <repository-url>
+   cd react-presentation-framework
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to `http://localhost:3000`
+
+## 🎯 Quick Start
+
+### 1. Edit Your Content
+
+Edit the presentation content in `src/data/presentationData.js`:
+
+```javascript
+export const presentationData = {
+  title: "Your Presentation Title",
+  author: "Your Name",
+  slides: [
+    {
+      type: "title",
+      title: "Welcome to My Presentation",
+      subtitle: "A brief description of what you'll cover",
+      author: "Your Name",
+      advisor: "Your Advisor",
+      program: "Your Program"
+    },
+    {
+      type: "content",
+      title: "Main Topic",
+      content: [
+        {
+          type: "list",
+          items: [
+            "First important point",
+            "Second important point",
+            "Third important point"
+          ]
+        }
+      ]
+    }
+    // Add more slides...
+  ]
+}
 ```
-📦 Projeto Dissertação
-├── 📄 00_proposta_de_dissertação.md     # Proposta inicial
-├── 📄 01_plano_de_trabalho.md           # Plano de trabalho detalhado
-├── 📄 02_plano_de_dissertação.md        # Estrutura da dissertação
-├── 📄 README.md                         # Este arquivo
-├── 📄 GUIA_COMPILACAO.md               # Guia de compilação
-├── 📁 latex-dissertation/              # Dissertação em LaTeX
-│   ├── 📄 main.tex                     # Arquivo principal
-│   ├── 📄 Makefile                     # Script de compilação
-│   ├── 📁 chapters/                    # Capítulos
-│   ├── 📁 frontmatter/                 # Elementos pré-textuais
-│   ├── 📁 backmatter/                  # Elementos pós-textuais
-│   ├── 📁 bibliography/                # Bibliografia
-│   ├── 📁 figures/                     # Figuras
-│   ├── 📁 tables/                      # Tabelas
-│   └── 📁 styles/                      # Estilos
-└── 📁 js-presentations/                # Apresentações em JavaScript
-    ├── 📄 package.json                 # Configuração Node.js
-    ├── 📁 src/                         # Código fonte
-    ├── 📁 public/                      # Arquivos públicos
-    ├── 📁 slides/                      # Dados das apresentações
-    ├── 📁 scripts/                     # Scripts utilitários
-    └── 📁 assets/                      # Recursos
+
+### 2. Customize Themes
+
+Themes are defined in `src/App.jsx`. You can modify existing themes or create new ones:
+
+```javascript
+const themes = {
+  light: {
+    name: 'Light',
+    icon: Sun,
+    classes: 'bg-white text-gray-900'
+  },
+  // Add your custom theme
+  custom: {
+    name: 'Custom',
+    icon: Palette,
+    classes: 'bg-purple-50 text-purple-900'
+  }
+}
 ```
 
-## 🚀 Início Rápido
-
-### 1. Compilar a Dissertação em LaTeX
+### 3. Build for Production
 
 ```bash
-# Navegar para o diretório LaTeX
-cd latex-dissertation
-
-# Instalar dependências (se necessário)
-# Windows: Instalar MiKTeX
-# Linux: sudo apt install texlive-full make
-# macOS: brew install --cask mactex
-
-# Compilar a dissertação
-make
-
-# Visualizar o PDF
-make view
+npm run build
 ```
 
-### 2. Executar as Apresentações em JavaScript
+## 📝 Slide Types
 
+### Title Slide
+```javascript
+{
+  type: "title",
+  title: "Your Title",
+  subtitle: "Your Subtitle",
+  author: "Author Name",
+  advisor: "Advisor Name",
+  program: "Program Name",
+  researchLine: "Research Line"
+}
+```
+
+### Content Slide
+```javascript
+{
+  type: "content",
+  title: "Slide Title",
+  content: [
+    {
+      type: "list",
+      items: ["Item 1", "Item 2", "Item 3"]
+    },
+    {
+      type: "nested-list",
+      items: [
+        {
+          text: "Main point",
+          subItems: ["Sub-point 1", "Sub-point 2"]
+        }
+      ]
+    },
+    {
+      type: "box",
+      icon: "💡",
+      title: "Tip",
+      content: "Important information"
+    }
+  ]
+}
+```
+
+### Methodology Slide
+```javascript
+{
+  type: "methodology",
+  title: "Methodology",
+  steps: [
+    {
+      title: "Step 1",
+      description: "Description of step 1",
+      items: ["Detail 1", "Detail 2"]
+    }
+  ]
+}
+```
+
+### Objectives Slide
+```javascript
+{
+  type: "objectives",
+  title: "Objectives",
+  generalObjective: "Main objective",
+  specificObjectives: [
+    "Specific objective 1",
+    "Specific objective 2"
+  ]
+}
+```
+
+### Research Line Slide
+```javascript
+{
+  type: "research-line",
+  title: "Research Line",
+  researchLine: "Research line name",
+  concentrationArea: "Area of concentration",
+  focus: "Research focus",
+  application: "Application area",
+  tools: ["Tool 1", "Tool 2", "Tool 3"]
+}
+```
+
+## 🎮 Controls
+
+### Keyboard Shortcuts
+- **Arrow Keys** or **Space**: Navigate slides
+- **Home**: Go to first slide
+- **End**: Go to last slide
+- **F**: Toggle fullscreen
+- **C**: Toggle controls visibility
+- **ESC**: Exit fullscreen
+
+### Mouse Controls
+- **Navigation buttons**: Previous/Next slide
+- **Theme selector**: Switch between themes
+- **Export buttons**: Export to different formats
+
+## 📤 Export Options
+
+### PDF Export
 ```bash
-# Navegar para o diretório de apresentações
-cd js-presentations
-
-# Instalar dependências
-npm install
-
-# Iniciar o servidor
-npm start
-
-# Acessar no navegador
-# http://localhost:3000
+npm run export-pdf
 ```
 
-## 📚 Documentação
+### HTML Export
+```bash
+npm run export-html
+```
 
-- **[Guia de Compilação](GUIA_COMPILACAO.md)** - Instruções detalhadas para compilar LaTeX e JavaScript
-- **[Proposta de Dissertação](00_proposta_de_dissertação.md)** - Proposta inicial do projeto
-- **[Plano de Trabalho](01_plano_de_trabalho.md)** - Plano detalhado de execução
-- **[Plano de Dissertação](02_plano_de_dissertação.md)** - Estrutura da dissertação
+### PowerPoint Export
+Use the export button in the presentation interface.
 
-## 🛠️ Tecnologias Utilizadas
+## 🎨 Customization
 
-### LaTeX
-- **Distribuição:** MiKTeX/TeX Live
-- **Classe:** memoir
-- **Compilador:** pdflatex
-- **Bibliografia:** bibtex
-- **Build:** make
+### Styling
+- Modify `src/styles/index.css` for global styles
+- Use Tailwind CSS classes for component styling
+- Customize themes in `src/App.jsx`
 
-### JavaScript
-- **Runtime:** Node.js 16+
-- **Framework:** Express.js
-- **Apresentações:** Reveal.js
-- **Gráficos:** Chart.js
-- **Visualização:** D3.js
-- **Build:** npm/webpack
+### Components
+- Create new slide types in `src/components/slides/`
+- Add new components in `src/components/`
+- Extend functionality with custom hooks
 
-## 📊 Metodologia
+### Content Management
+- Edit `src/data/presentationData.js` for content
+- Create multiple presentation files
+- Use external data sources (APIs, databases)
 
-A metodologia proposta é desenvolvida em quatro etapas principais:
+## 🏗️ Project Structure
 
-1. **Modelagem Numérica**
-   - Desenvolvimento de modelos de elementos finitos
-   - Simulação de sistemas rotativos com falhas
-   - Geração de dataset sintético
+```
+react-presentation-framework/
+├── src/
+│   ├── components/
+│   │   └── slides/          # Slide components
+│   ├── hooks/               # Custom React hooks
+│   ├── data/                # Presentation data
+│   ├── styles/              # CSS and styling
+│   ├── utils/               # Utility functions
+│   ├── App.jsx              # Main application
+│   └── main.jsx             # Application entry point
+├── scripts/                 # Export scripts
+├── public/                  # Static assets
+├── dist/                    # Built application
+└── package.json             # Dependencies and scripts
+```
 
-2. **Análise HOS**
-   - Cálculo de bi-espectros e tri-espectros
-   - Extração de características não lineares
-   - Identificação de padrões característicos
+## 🔧 Development
 
-3. **Validação Física**
-   - Comparação com literatura científica
-   - Análise de sensibilidade
-   - Verificação de consistência física
+### Adding New Slide Types
 
-4. **Classificação ML**
-   - Treinamento de classificadores
-   - Avaliação de desempenho
-   - Automação do diagnóstico
+1. Create a new component in `src/components/slides/`
+2. Add the component to `src/App.jsx`
+3. Update the slide type handling in the render function
+4. Add documentation for the new slide type
 
-## 🎯 Resultados Esperados
+### Creating Custom Themes
 
-- **Validação:** Erro < 3% em comparação com dados experimentais
-- **Classificação:** Acurácia > 90% na identificação de falhas
-- **Robustez:** Desempenho mantido com até 10% de ruído
-- **Aplicabilidade:** Metodologia transferível para sistemas industriais
+1. Define the theme in `src/App.jsx`
+2. Add theme-specific styles in `src/styles/index.css`
+3. Test the theme across different slide types
 
-## 📈 Cronograma
+### Extending Export Functionality
 
-| Fase | Atividade | Duração | Status |
-|------|-----------|---------|--------|
-| I | Revisão bibliográfica + familiarização ROSS | 4 meses | ✅ |
-| II | Modelagem numérica e validação básica | 5 meses | 🔄 |
-| III | Simulações sistemáticas | 5 meses | ⏳ |
-| IV | Implementação HOS e análise | 4 meses | ⏳ |
-| V | Validação e comparações | 3 meses | ⏳ |
-| VI | Redação final e defesa | 3 meses | ⏳ |
+1. Add new export functions in `src/hooks/useExport.js`
+2. Create export scripts in `scripts/`
+3. Add export buttons to the UI
 
-## 🤝 Contribuições
+## 📱 Responsive Design
 
-Este é um projeto acadêmico individual, mas sugestões e melhorias são bem-vindas:
+The framework is fully responsive and works on:
+- **Desktop**: Full feature set with all controls
+- **Tablet**: Optimized layout with touch controls
+- **Mobile**: Simplified interface for small screens
 
-1. Fork o projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
+## 🎯 Best Practices
 
-## 📝 Licença
+### Content Organization
+- Keep slides focused on single topics
+- Use consistent formatting and styling
+- Include visual elements to support text
+- Test readability on different screen sizes
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+### Performance
+- Optimize images and assets
+- Use lazy loading for large presentations
+- Minimize animations on slower devices
+- Test export functionality regularly
 
-## 📞 Contato
+### Accessibility
+- Use semantic HTML elements
+- Provide alt text for images
+- Ensure good color contrast
+- Test with screen readers
 
-- **Autor:** Cristofer Antoni Souza Costa
-- **Email:** cristofer.costa@ufu.br
-- **Orientador:** Prof. Dr. Aldemir Cavallini Jr.
-- **Instituição:** Universidade Federal de Uberlândia (UFU)
+## 🐛 Troubleshooting
 
-## 🙏 Agradecimentos
+### Common Issues
 
-- Prof. Dr. Aldemir Cavallini Jr. (Orientador)
-- Programa de Pós-Graduação em Engenharia Mecânica - UFU
-- Comunidade científica da área de dinâmica de rotores
-- Desenvolvedores das ferramentas utilizadas (ROSS, Reveal.js, etc.)
+**Build Errors**
+- Ensure all dependencies are installed
+- Check for syntax errors in components
+- Verify import paths are correct
 
-## 📚 Referências Principais
+**Export Issues**
+- Check that the build is complete
+- Verify export scripts have proper permissions
+- Test with smaller presentations first
 
-- Friswell, M. I., et al. (2010). *Dynamics of Rotating Machines*. Cambridge University Press.
-- Nikias, C. L., & Petropulu, A. P. (1993). *Higher-Order Spectra Analysis*. Prentice Hall.
-- Randall, R. B. (2011). *Vibration-based condition monitoring*. John Wiley & Sons.
-- Lei, Y., et al. (2020). Machinery health prognostics: A systematic review. *Mechanical Systems and Signal Processing*.
+**Styling Issues**
+- Clear browser cache
+- Check Tailwind CSS configuration
+- Verify custom styles don't conflict
+
+## 📄 License
+
+MIT License - feel free to use this framework for your academic and professional presentations.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit issues, feature requests, or pull requests.
+
+## 📞 Support
+
+For support and questions:
+- Create an issue in the repository
+- Check the documentation
+- Review the example presentations
 
 ---
 
-**Desenvolvido com ❤️ para o avanço da ciência e tecnologia em diagnóstico de falhas em máquinas rotativas.**
+**Happy Presenting! 🎉**

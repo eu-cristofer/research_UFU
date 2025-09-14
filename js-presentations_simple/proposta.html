@@ -1,0 +1,290 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Proposta de Dissertação - Diagnóstico de Falhas em Máquinas Rotativas</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css">
+		
+		<style>
+			/* === BASIC LAYOUT === */
+			.reveal .slides section {
+				text-align: left;
+			}
+			
+			/* === HEADING STYLES === */
+			.reveal h1, .reveal h2, .reveal h3 {
+				text-align: center;
+				color: #2c3e50;
+			}
+			
+			/* Main title size - you can change this */
+			.reveal h1 {
+				font-size: 2.2em; /* Try: 1.8em (smaller) or 3em (larger) */
+			}
+			
+			/* Section headings size */
+			.reveal h2 {
+				font-size: 1.8em; /* Try: 1.5em (smaller) or 2.2em (larger) */
+			}
+			
+			/* Subsection headings size */
+			.reveal h3 {
+				font-size: 1.4em; /* Try: 1.2em (smaller) or 1.6em (larger) */
+			}
+			
+			/* === TITLE SLIDE STYLES === */
+			.reveal .title-slide {
+				text-align: center;
+			}
+			.reveal .title-slide h1 {
+				color: #e74c3c;
+				font-size: 2.5em; /* Main title - try: 2em or 3em */
+			}
+			.reveal .title-slide h2 {
+				color: #34495e;
+				font-size: 1.2em; /* Subtitle - try: 1em or 1.5em */
+				margin-top: 30px;
+			}
+			.reveal .author-info {
+				margin-top: 50px;
+				font-size: 0.9em; /* Author info - try: 0.8em or 1.1em */
+				color: #7f8c8d;
+			}
+			
+			/* === TEXT SIZES === */
+			.reveal p {
+				font-size: 0.9em; /* Paragraph text - try: 0.8em or 1.1em */
+			}
+			
+			.reveal li {
+				font-size: 0.85em; /* List items - try: 0.75em or 1em */
+			}
+			/* === SPACING AND LAYOUT === */
+			.reveal ul {
+				margin-left: 0;
+				margin-top: 20px; /* Space above lists - try: 10px or 30px */
+			}
+			.reveal li {
+				margin-bottom: 15px; /* Space between list items - try: 10px or 20px */
+				line-height: 1.4; /* Line spacing - try: 1.2 (tighter) or 1.6 (looser) */
+			}
+			
+			/* Space between sections */
+			.reveal .slides section {
+				padding: 20px; /* Slide padding - try: 10px or 40px */
+			}
+			
+			/* Space between paragraphs */
+			.reveal p {
+				margin-bottom: 20px; /* Space between paragraphs - try: 10px or 30px */
+			}
+			/* === COLOR CUSTOMIZATION === */
+			.reveal .highlight {
+				background-color: #f39c12; /* Orange highlight - try: #e74c3c (red), #27ae60 (green), #3498db (blue) */
+				color: white;
+				padding: 2px 8px;
+				border-radius: 3px;
+			}
+			.reveal .methodology-step {
+				background-color: #ecf0f1; /* Light gray background - try: #f8f9fa (lighter), #e9ecef (darker) */
+				padding: 15px; /* Box padding - try: 10px or 20px */
+				margin: 10px 0; /* Box margins - try: 5px 0 or 15px 0 */
+				border-left: 4px solid #3498db; /* Blue left border - try: #e74c3c (red), #27ae60 (green) */
+			}
+			.reveal .step-number {
+				font-weight: bold;
+				color: #2980b9; /* Blue text - try: #e74c3c (red), #27ae60 (green), #8e44ad (purple) */
+			}
+			
+			/* === ADDITIONAL STYLING OPTIONS === */
+			
+			/* Change overall background color */
+			.reveal {
+				background-color: #ffffff; /* White background - try: #f8f9fa (light gray), #f0f0f0 (gray) */
+			}
+			
+			/* Change slide background */
+			.reveal .slides section {
+				background-color: transparent; /* Transparent - try: #ffffff (white), #f8f9fa (light gray) */
+			}
+			
+			/* Custom button/box styles */
+			.reveal .custom-box {
+				background-color: #3498db;
+				color: white;
+				padding: 15px;
+				border-radius: 8px;
+				margin: 10px 0;
+			}
+			
+			/* Custom text colors */
+			.reveal .text-primary { color: #2c3e50; } /* Dark blue */
+			.reveal .text-success { color: #27ae60; } /* Green */
+			.reveal .text-warning { color: #f39c12; } /* Orange */
+			.reveal .text-danger { color: #e74c3c; } /* Red */
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- Slide 1: Title -->
+				<section class="title-slide">
+					<h1>Proposta de Dissertação de Mestrado</h1>
+					<p>Diagnóstico de Falhas em Máquinas Rotativas por Meio de Simulações Numéricas e Análise de Espectros de Ordem Superior</p>
+					
+					<div class="author-info">
+						<p><strong>Proponente:</strong> Cristofer Antoni Souza Costa</p>
+						<p><strong>Orientador:</strong> Aldemir Cavallini Jr.</p>
+						<p><strong>Programa:</strong> Engenharia Mecânica (POSMEC)</p>
+						<p><strong>Linha de Pesquisa:</strong> Mecânica dos Sólidos e Vibrações / Dinâmica de Sistemas Mecânicos</p>
+					</div>
+				</section>
+
+				<!-- Slide 2: Context -->
+				<section>
+					<h2>Contexto e Justificativa</h2>
+					<ul>
+						<li>Máquinas rotativas são <span class="highlight">fundamentais</span> em diversos setores industriais</li>
+						<li>Operação confiável é <span class="highlight">essencial</span> para eficiência e segurança</li>
+						<li>Detecção precoce de falhas é <span class="highlight">crucial</span> para:
+							<ul>
+								<li>Evitar paradas não planejadas</li>
+								<li>Reduzir custos de manutenção</li>
+							</ul>
+						</li>
+						<li>Falhas típicas: <span class="text-danger"><strong>trincas</strong></span> e <span class="text-warning"><strong>desalinhamentos</strong></span></li>
+					</ul>
+					
+					<!-- Example of custom box -->
+					<div class="custom-box">
+						<strong>💡 Dica:</strong> Use as classes de cor para destacar informações importantes!
+					</div>
+				</section>
+
+				<!-- Slide 3: Problem Statement -->
+				<section>
+					<h2>Problema de Pesquisa</h2>
+					<ul>
+						<li>Análise de espectros de ordem superior (HOS) oferece abordagem promissora</li>
+						<li>Inclui <strong>bi-espectro</strong> e <strong>tri-espectro</strong></li>
+						<li>Identifica assinaturas não lineares associadas a falhas</li>
+						<li><span class="highlight">Desafios atuais:</span>
+							<ul>
+								<li>Complexidade dos fenômenos envolvidos</li>
+								<li>Necessidade de dados experimentais extensivos</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<!-- Slide 4: Objectives -->
+				<section>
+					<h2>Objetivos</h2>
+					<h3>Objetivo Geral</h3>
+					<p>Desenvolver uma metodologia baseada em simulações numéricas para o diagnóstico de falhas em máquinas rotativas, utilizando análise de espectros de ordem superior (HOS).</p>
+					
+					<h3>Objetivos Específicos</h3>
+					<ul>
+						<li>Desenvolver modelos numéricos de elementos finitos</li>
+						<li>Aplicar técnicas de HOS aos dados simulados</li>
+						<li>Identificar padrões característicos de falhas</li>
+						<li>Validar metodologia com dados da literatura</li>
+					</ul>
+				</section>
+
+				<!-- Slide 5: Methodology -->
+				<section>
+					<h2>Metodologia</h2>
+					
+					<div class="methodology-step">
+						<p><span class="step-number">1. Modelagem Numérica</span></p>
+						<ul>
+							<li>Desenvolvimento de modelos de elementos finitos</li>
+							<li>Utilização da ferramenta <strong>ROSS</strong></li>
+							<li>Simulação do comportamento dinâmico de eixos rotativos</li>
+							<li>Condições: normais e com falhas específicas</li>
+						</ul>
+					</div>
+
+					<div class="methodology-step">
+						<p><span class="step-number">2. Análise de Espectros de Ordem Superior</span></p>
+						<ul>
+							<li>Aplicação de técnicas de HOS aos dados simulados</li>
+							<li>Identificação de padrões característicos</li>
+							<li>Diferenciação entre condições normais e falhas</li>
+						</ul>
+					</div>
+
+					<div class="methodology-step">
+						<p><span class="step-number">3. Validação e Avaliação</span></p>
+						<ul>
+							<li>Comparação com dados da literatura</li>
+							<li>Avaliação da eficácia da metodologia</li>
+						</ul>
+					</div>
+				</section>
+
+				<!-- Slide 6: Expected Contributions -->
+				<section>
+					<h2>Contribuições Esperadas</h2>
+					<ul>
+						<li><strong>Aprimoramento</strong> das técnicas de diagnóstico de falhas em máquinas rotativas</li>
+						<li><strong>Alternativa baseada em simulação</strong> que pode:
+							<ul>
+								<li>Complementar experimentos físicos</li>
+								<li>Reduzir dependência de experimentos físicos</li>
+							</ul>
+						</li>
+						<li><strong>Alinhamento</strong> com melhores práticas e referências atuais na área</li>
+						<li><strong>Metodologia robusta</strong> para identificação de falhas específicas</li>
+					</ul>
+				</section>
+
+				<!-- Slide 7: Research Line -->
+				<section>
+					<h2>Linha de Pesquisa</h2>
+					<h3>Mecânica dos Sólidos e Vibrações / Dinâmica de Sistemas Mecânicos</h3>
+					
+					<ul>
+						<li><strong>Área de Concentração:</strong> Engenharia Mecânica</li>
+						<li><strong>Foco:</strong> Comportamento dinâmico de sistemas rotativos</li>
+						<li><strong>Aplicação:</strong> Diagnóstico e monitoramento de máquinas</li>
+						<li><strong>Ferramentas:</strong> 
+							<ul>
+								<li>Elementos finitos (ROSS)</li>
+								<li>Análise espectral avançada (HOS)</li>
+								<li>Processamento de sinais</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<!-- Slide 8: Thank You -->
+				<section class="title-slide">
+					<h1>Obrigado!</h1>
+					<h2>Perguntas e Discussões</h2>
+					
+					<div class="author-info">
+						<p><strong>Cristofer Antoni Souza Costa</strong></p>
+						<p>Programa de Pós-Graduação em Engenharia Mecânica</p>
+						<p>Universidade Federal de Uberlândia</p>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				transition: 'slide',
+				transitionSpeed: 'default',
+				backgroundTransition: 'fade',
+				plugins: []
+			});
+		</script>
+	</body>
+</html>
