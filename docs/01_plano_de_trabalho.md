@@ -1,9 +1,10 @@
 # Proposta de Plano de Trabalho de Mestrado
 
-**Título Provisório:** Diagnóstico e Classificação Automática de Falhas em Máquinas Rotativas por Meio de um Framework Híbrido de Simulação Numérica, Espectros de Ordem Superior e Aprendizado de Máquina
+**Título Provisório:** Diagnóstico (e Classificação?) de Falhas em Máquinas Rotativas por Meio de Simulações Numéricas e Análise de Espectros de Ordem Superior (e Aprendizado de Máquina)
 
 **Programa de Pós-Graduação:** Engenharia Mecânica (POSMEC) - UFU
-**Candidato(a):** [Seu Nome Aqui]
+
+**Candidato(a):** Cristofer Antoni Souza Costa
 
 ---
 
