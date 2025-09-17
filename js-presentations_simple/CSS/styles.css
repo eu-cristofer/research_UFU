@@ -1,0 +1,257 @@
+/* ========================================
+   PRESENTATION STYLES - EXTERNAL CSS FILE
+   ======================================== */
+
+/* === BASIC LAYOUT === */
+.reveal .slides section {
+	text-align: left;
+}
+
+/* Fixed title for sections with has-fixed-title class */
+.reveal .has-fixed-title h2 {
+	position: absolute;
+	top: 20px;
+	left: 50%;
+	transform: translateX(-50%) !important;
+	width: 100%;
+	margin: 0;
+	z-index: 10;
+	transition: none !important;
+	animation: none !important;
+}
+
+/* === HEADING STYLES === */
+.reveal h1, .reveal h2, .reveal h3 {
+	text-align: center;
+	color: #2c3e50;
+}
+
+/* Main title size - you can change this */
+.reveal h1 {
+	font-size: 2.2em; /* Try: 1.8em (smaller) or 3em (larger) */
+}
+
+/* Section headings size */
+.reveal h2 {
+	font-size: 1.5em; /* Try: 1.5em (smaller) or 2.2em (larger) */
+}
+
+/* Subsection headings size */
+.reveal h3 {
+	font-size: 0.8em; /* Try: 1.2em (smaller) or 1.6em (larger) */
+}
+
+/* === TITLE SLIDE STYLES === */
+.reveal .title-slide {
+	text-align: center;
+}
+.reveal .title-slide h1 {
+	color: #e74c3c;
+	font-size: 1.8em; /* Main title - try: 2em or 3em */
+}
+.reveal .title-slide h2 {
+	color: #34495e;
+	font-size: 1.em; /* Subtitle - try: 1em or 1.5em */
+	margin-top: 30px;
+}
+.reveal .author-info {
+	margin-top: 50px;
+	font-size: 0.75em; /* Author info - try: 0.8em or 1.1em */
+	color: #7f8c8d;
+}
+
+/* === TEXT SIZES === */
+.reveal p {
+	font-size: 0.75em; /* Paragraph text - try: 0.8em or 1.1em */
+}
+
+.reveal li {
+	font-size: 0.75em; /* List items - try: 0.75em or 1em */
+}
+
+/* === SPACING AND LAYOUT === */
+.reveal ul {
+	margin-left: 0;
+	margin-top: 20px; /* Space above lists - try: 10px or 30px */
+}
+.reveal li {
+	margin-bottom: 15px; /* Space between list items - try: 10px or 20px */
+	line-height: 1.4; /* Line spacing - try: 1.2 (tighter) or 1.6 (looser) */
+}
+
+/* Space between sections */
+.reveal .slides section {
+	padding: 20px; /* Slide padding - try: 10px or 40px */
+}
+
+/* Space between paragraphs */
+.reveal p {
+	margin-bottom: 20px; /* Space between paragraphs - try: 10px or 30px */
+}
+
+/* === COLOR CUSTOMIZATION === */
+.reveal .highlight {
+	background-color: #f39c12; /* Orange highlight - try: #e74c3c (red), #27ae60 (green), #3498db (blue) */
+	color: white;
+	padding: 2px 8px;
+	border-radius: 3px;
+}
+.reveal .methodology-step {
+	background-color: #ecf0f1; /* Light gray background - try: #f8f9fa (lighter), #e9ecef (darker) */
+	padding: 15px; /* Box padding - try: 10px or 20px */
+	margin: 10px 0; /* Box margins - try: 5px 0 or 15px 0 */
+	border-left: 4px solid #3498db; /* Blue left border - try: #e74c3c (red), #27ae60 (green) */
+}
+.reveal .step-number {
+	font-weight: bold;
+	color: #2980b9; /* Blue text - try: #e74c3c (red), #27ae60 (green), #8e44ad (purple) */
+}
+
+/* === ADDITIONAL STYLING OPTIONS === */
+
+/* Change overall background color */
+.reveal {
+	background-color: #ffffff; /* White background - try: #f8f9fa (light gray), #f0f0f0 (gray) */
+}
+
+/* Change slide background */
+.reveal .slides section {
+	background-color: transparent; /* Transparent - try: #ffffff (white), #f8f9fa (light gray) */
+}
+
+/* Custom button/box styles */
+.reveal .custom-box {
+	background-color: #3498db;
+	color: white;
+	padding: 15px;
+	border-radius: 8px;
+	margin: 10px 0;
+	font-size: 0.75em; /* Add this line - try: 0.9em, 1em, 1.1em, 1.2em */;
+}
+
+/* Custom text colors */
+.reveal .text-primary { color: #2c3e50; } /* Dark blue */
+.reveal .text-success { color: #27ae60; } /* Green */
+.reveal .text-warning { color: #f39c12; } /* Orange */
+.reveal .text-danger { color: #e74c3c; } /* Red */
+
+/* === ADVANCED STYLING OPTIONS === */
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+	.reveal h1 {
+		font-size: 1.8em; /* Smaller titles on mobile */
+	}
+	.reveal h2 {
+		font-size: 1.5em; /* Smaller section titles on mobile */
+	}
+	.reveal .slides section {
+		padding: 15px; /* Less padding on mobile */
+	}
+}
+
+/* Smooth transitions */
+.reveal .custom-box {
+	transition: all 0.3s ease;
+}
+.reveal .custom-box:hover {
+	transform: scale(1.02);
+	box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* Enhanced methodology steps */
+.reveal .methodology-step {
+	transition: all 0.3s ease;
+	border-radius: 5px;
+}
+.reveal .methodology-step:hover {
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	transform: translateX(5px);
+}
+
+/* Highlight animation */
+.reveal .highlight {
+	transition: all 0.2s ease;
+}
+.reveal .highlight:hover {
+	background-color: #e67e22;
+	transform: scale(1.05);
+}
+
+/* === THEME VARIATIONS === */
+
+/* Alternative theme: Dark mode */
+.reveal.dark-theme {
+	background-color: #2c3e50;
+	color: #ecf0f1;
+}
+.reveal.dark-theme .slides section {
+	background-color: #34495e;
+	color: #ecf0f1;
+}
+.reveal.dark-theme h1, 
+.reveal.dark-theme h2, 
+.reveal.dark-theme h3 {
+	color: #ecf0f1;
+}
+
+/* Alternative theme: Green theme */
+.reveal.green-theme h1, 
+.reveal.green-theme h2, 
+.reveal.green-theme h3 {
+	color: #27ae60;
+}
+.reveal.green-theme .highlight {
+	background-color: #2ecc71;
+}
+.reveal.green-theme .methodology-step {
+	border-left-color: #27ae60;
+}
+.reveal.green-theme .step-number {
+	color: #27ae60;
+}
+
+/* Alternative theme: Purple theme */
+.reveal.purple-theme h1, 
+.reveal.purple-theme h2, 
+.reveal.purple-theme h3 {
+	color: #8e44ad;
+}
+.reveal.purple-theme .highlight {
+	background-color: #9b59b6;
+}
+.reveal.purple-theme .methodology-step {
+	border-left-color: #8e44ad;
+}
+.reveal.purple-theme .step-number {
+	color: #8e44ad;
+}
+
+/* === UTILITY CLASSES === */
+
+/* Text alignment */
+.reveal .text-left { text-align: left; }
+.reveal .text-center { text-align: center; }
+.reveal .text-right { text-align: right; }
+
+/* Font weights */
+.reveal .font-light { font-weight: 300; }
+.reveal .font-normal { font-weight: 400; }
+.reveal .font-bold { font-weight: 700; }
+
+/* Margins and padding */
+.reveal .mt-10 { margin-top: 10px; }
+.reveal .mt-20 { margin-top: 20px; }
+.reveal .mt-30 { margin-top: 30px; }
+.reveal .mb-10 { margin-bottom: 10px; }
+.reveal .mb-20 { margin-bottom: 20px; }
+.reveal .mb-30 { margin-bottom: 30px; }
+
+.reveal .p-10 { padding: 10px; }
+.reveal .p-15 { padding: 15px; }
+.reveal .p-20 { padding: 20px; }
+
+/* Border styles */
+.reveal .border { border: 1px solid #ddd; }
+.reveal .border-radius { border-radius: 5px; }
+.reveal .shadow { box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
