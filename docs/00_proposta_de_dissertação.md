@@ -6,16 +6,16 @@
 
 **Proponente**: Cristofer Antoni Souza Costa
 
-**Orientador**: Aldemir Cavallini Jr.
+**Orientador**: Aldemir Aparecido Cavallini Junior
 
 
 ## Título (provisório)  
 **Diagnóstico de Falhas em Máquinas Rotativas por Meio de Simulações Numéricas e Análise de Espectros de Ordem Superior**
 
 ## Proposta de Plano de tabalho
-As máquinas rotativas desempenham um papel fundamental em diversos setores industriais, sendo sua operação confiável essencial para a eficiência e segurança dos processos. A detecção precoce de falhas, como trincas ou desalinhamentos, é crucial para evitar paradas não planejadas e reduzir custos de manutenção.
+As máquinas rotativas desempenham um papel fundamental em diversos setores industriais, sendo sua operação confiável essencial para a eficiência e segurança dos processos. A detecção precoce de falhas, como trincas ou desalinhamentos, é crucial para evitar paradas não planejadas e reduzir custos de manutenção. Nesse cenário, o monitoramento e a análise de dados de vibração se configuram como as principais ferramentas para este fim[@muszynska_rotordynamics_2005].
 
-A análise de espectros de ordem superior (Higher-Order Spectra - HOS), incluindo bi-espectro e tri-espectro, oferece uma abordagem promissora para identificar assinaturas não lineares associadas a diferentes tipos de falhas. No entanto, a aplicação prática dessas técnicas muitas vezes enfrenta desafios devido à complexidade dos fenômenos envolvidos e à necessidade de dados experimentais extensivos [@sinha_higher_2007].
+Tipicamente, a detecção consiste em identificar a falha por meio de alguma resposta característica do comportamento do eixo em operação permanente ou transiente (aceleraçao, desaceleração). Nesse sentido, a  análise de espectros de ordem superior (Higher-Order Spectra - HOS), incluindo bi-espectro e tri-espectro, oferece uma abordagem promissora para identificar assinaturas não lineares associadas a diferentes tipos de falhas. No entanto, a aplicação prática dessas técnicas muitas vezes enfrenta desafios devido à complexidade dos fenômenos envolvidos e à necessidade de dados experimentais extensivos [@sinha_higher_2007].
 
 Este projeto de mestrado propõe o desenvolvimento de uma metodologia baseada em simulações numéricas para o diagnóstico de falhas em máquinas rotativas, utilizando a análise de HOS. O estudo será conduzido conforme as seguintes etapas:
 
