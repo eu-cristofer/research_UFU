@@ -227,6 +227,89 @@
       "notes": "Modelo de trincas implementado, trabalhando no desalinhamento"
     }
   ],
+  "indicators": {
+    "quantitative": [
+      {
+        "id": "articles_read",
+        "name": "Número de artigos lidos e resumidos",
+        "target": 50,
+        "current": 0,
+        "unit": "artigos"
+      },
+      {
+        "id": "ross_models",
+        "name": "Modelos ROSS implementados e validados",
+        "target": 5,
+        "current": 1,
+        "unit": "modelos"
+      },
+      {
+        "id": "simulation_cases",
+        "name": "Casos de simulação executados",
+        "target": 100,
+        "current": 0,
+        "unit": "casos"
+      },
+      {
+        "id": "hos_algorithms",
+        "name": "Algoritmos HOS implementados",
+        "target": 3,
+        "current": 0,
+        "unit": "algoritmos"
+      },
+      {
+        "id": "literature_comparisons",
+        "name": "Comparações com literatura realizadas",
+        "target": 10,
+        "current": 1,
+        "unit": "comparações"
+      }
+    ],
+    "qualitative": [
+      {
+        "id": "theory_understanding",
+        "name": "Compreensão dos fundamentos teóricos",
+        "level": "Iniciante",
+        "score": 3,
+        "notes": "Bom entendimento de dinâmica de rotores, aprofundando em HOS."
+      },
+      {
+        "id": "ross_skill",
+        "name": "Habilidade na modelagem com ROSS",
+        "level": "Intermediário",
+        "score": 4,
+        "notes": "Capaz de criar modelos básicos e adicionar falhas."
+      },
+      {
+        "id": "hos_interpretation",
+        "name": "Capacidade de interpretar resultados HOS",
+        "level": "Iniciante",
+        "score": 2,
+        "notes": "Ainda na fase de implementação."
+      },
+      {
+        "id": "validation_quality",
+        "name": "Qualidade da validação com literatura",
+        "level": "Bom",
+        "score": 4,
+        "notes": "Primeira validação teve erro < 5%."
+      },
+      {
+        "id": "methodology_robustness",
+        "name": "Robustez da metodologia desenvolvida",
+        "level": "Em desenvolvimento",
+        "score": 3,
+        "notes": "Metodologia definida, mas sujeita a ajustes."
+      },
+      {
+        "id": "writing_quality",
+        "name": "Qualidade da escrita científica",
+        "level": "Bom",
+        "score": 4,
+        "notes": "Textos iniciais bem avaliados."
+      }
+    ]
+  },
   "metrics": {
     "total_phases": 6,
     "completed_phases": 1,

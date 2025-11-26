@@ -76,6 +76,37 @@ class ReportGenerator {
            .text(`Tempo Total Gasto: ${metrics.total_time_spent} horas`, 50, yPosition + 60);
         
         yPosition += 100;
+
+        // Indicadores de Progresso
+        if (this.projectData.indicators) {
+             if (yPosition > 600) {
+                doc.addPage();
+                yPosition = 50;
+             }
+             
+            doc.fontSize(16).text('Indicadores de Progresso', 50, yPosition);
+            yPosition += 30;
+
+            // Quantitativos
+            doc.fontSize(14).text('Quantitativos', 50, yPosition);
+            yPosition += 25;
+            this.projectData.indicators.quantitative.forEach(ind => {
+                doc.fontSize(12).text(`• ${ind.name}: ${ind.current}/${ind.target} ${ind.unit}`, 70, yPosition);
+                yPosition += 20;
+            });
+
+            yPosition += 20;
+
+            // Qualitativos
+            doc.fontSize(14).text('Qualitativos', 50, yPosition);
+            yPosition += 25;
+            this.projectData.indicators.qualitative.forEach(ind => {
+                doc.fontSize(12).text(`• ${ind.name}: ${ind.level} (Score: ${ind.score}/5)`, 70, yPosition);
+                yPosition += 20;
+            });
+            
+            yPosition += 50;
+        }
         
         // Fases do projeto
         doc.fontSize(16).text('Fases do Projeto', 50, yPosition);
@@ -141,6 +172,7 @@ class ReportGenerator {
             phases: this.projectData.phases,
             activities: this.projectData.activities,
             risks: this.projectData.risks,
+            indicators: this.projectData.indicators,
             generatedAt: moment().format('DD/MM/YYYY HH:mm')
         });
         
@@ -293,6 +325,32 @@ class ReportGenerator {
         <p><strong>Autor:</strong> {{project.author}} | <strong>Orientador:</strong> {{project.advisor}}</p>
         <p><strong>Programa:</strong> {{project.program}}</p>
         <p><strong>Gerado em:</strong> {{generatedAt}}</p>
+    </div>
+
+        <div class="section">
+        <h2>Indicadores de Progresso</h2>
+        
+        <h3>Quantitativos</h3>
+        <div class="metrics">
+            {{#each indicators.quantitative}}
+            <div class="metric">
+                <div class="metric-value">{{current}}/{{target}}</div>
+                <div>{{name}}</div>
+                <small>{{unit}}</small>
+            </div>
+            {{/each}}
+        </div>
+
+        <h3>Qualitativos</h3>
+        <div class="metrics">
+            {{#each indicators.qualitative}}
+            <div class="metric">
+                <div class="metric-value">{{score}}/5</div>
+                <div>{{name}}</div>
+                <small>{{level}}</small>
+            </div>
+            {{/each}}
+        </div>
     </div>
 
     <div class="section">

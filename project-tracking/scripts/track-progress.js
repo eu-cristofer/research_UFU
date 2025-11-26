@@ -48,6 +48,7 @@ class ProgressTracker {
         console.log('5. Registrar tempo gasto');
         console.log('6. Ver próximos marcos');
         console.log('7. Ver riscos');
+        console.log('8. Atualizar indicadores');
         console.log('0. Sair');
         console.log('==========================================');
         
@@ -254,6 +255,90 @@ class ProgressTracker {
         });
     }
 
+    async updateIndicators() {
+        console.log('\n📊 Atualizar Indicadores');
+        console.log('========================');
+        console.log('1. Indicadores Quantitativos');
+        console.log('2. Indicadores Qualitativos');
+        
+        const typeChoice = await this.askQuestion('\nEscolha o tipo de indicador (1-2): ');
+        
+        if (typeChoice === '1') {
+            await this.updateQuantitativeIndicators();
+        } else if (typeChoice === '2') {
+            await this.updateQualitativeIndicators();
+        } else {
+            console.log('❌ Opção inválida!');
+        }
+    }
+
+    async updateQuantitativeIndicators() {
+        if (!this.projectData.indicators || !this.projectData.indicators.quantitative) {
+            console.log('❌ Dados de indicadores não encontrados. Verifique project-data.json.');
+            return;
+        }
+
+        const indicators = this.projectData.indicators.quantitative;
+        
+        console.log('\n🔢 Indicadores Quantitativos:');
+        indicators.forEach((ind, index) => {
+            console.log(`${index + 1}. ${ind.name}: ${ind.current}/${ind.target} ${ind.unit}`);
+        });
+        
+        const index = await this.askQuestion('\nEscolha o número do indicador para atualizar (0 para voltar): ');
+        if (index === '0') return;
+
+        const indicator = indicators[parseInt(index) - 1];
+        
+        if (!indicator) {
+            console.log('❌ Indicador não encontrado!');
+            return;
+        }
+        
+        const newValue = await this.askQuestion(`Novo valor atual para "${indicator.name}" (Atual: ${indicator.current}): `);
+        
+        if (newValue !== '') {
+            indicator.current = parseInt(newValue);
+            this.saveProjectData();
+            console.log(`✅ Indicador "${indicator.name}" atualizado para ${indicator.current} ${indicator.unit}!`);
+        }
+    }
+
+    async updateQualitativeIndicators() {
+        if (!this.projectData.indicators || !this.projectData.indicators.qualitative) {
+             console.log('❌ Dados de indicadores não encontrados. Verifique project-data.json.');
+             return;
+        }
+
+        const indicators = this.projectData.indicators.qualitative;
+        
+        console.log('\n📝 Indicadores Qualitativos:');
+        indicators.forEach((ind, index) => {
+            console.log(`${index + 1}. ${ind.name}: ${ind.level} (Score: ${ind.score}/5)`);
+        });
+        
+        const index = await this.askQuestion('\nEscolha o número do indicador para atualizar (0 para voltar): ');
+        if (index === '0') return;
+
+        const indicator = indicators[parseInt(index) - 1];
+        
+        if (!indicator) {
+            console.log('❌ Indicador não encontrado!');
+            return;
+        }
+        
+        const newLevel = await this.askQuestion(`Novo nível (Atual: ${indicator.level}): `);
+        const newScore = await this.askQuestion(`Novo score 1-5 (Atual: ${indicator.score}): `);
+        const newNotes = await this.askQuestion(`Novas notas (Atual: ${indicator.notes}): `);
+        
+        if (newLevel) indicator.level = newLevel;
+        if (newScore) indicator.score = parseInt(newScore);
+        if (newNotes) indicator.notes = newNotes;
+        
+        this.saveProjectData();
+        console.log(`✅ Indicador "${indicator.name}" atualizado!`);
+    }
+
     updateMetrics() {
         const phases = this.projectData.phases;
         const activities = this.projectData.activities;
@@ -319,6 +404,9 @@ class ProgressTracker {
                     break;
                 case '7':
                     await this.showRisks();
+                    break;
+                case '8':
+                    await this.updateIndicators();
                     break;
                 case '0':
                     console.log('👋 Até logo!');

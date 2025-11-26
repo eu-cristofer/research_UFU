@@ -1,6 +1,8 @@
 # Proposta de Trabalho - Mestrado
 
-Este diretório contém os arquivos relacionados à proposta de trabalho para o programa de mestrado em Engenharia Mecânica (POSMEC) da UFU.
+Este diretório contém os arquivos relacionados à proposta de trabalho para a inscrição no mestrado do programa pós-gradução em Engenharia Mecânica (POSMEC) da UFU.
+
+Documento enviado anexado em **31/11/2025**.
 
 ## 📋 Conteúdo
 
