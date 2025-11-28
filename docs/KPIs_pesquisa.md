@@ -66,3 +66,4 @@ Estes indicadores monitoram a saúde do projeto, prazos e eficiência, alinhados
 
 **Observação**: A revisão destes KPIs deve ser feita mensalmente durante a reunião de *Revisão Estratégica*, conforme definido nos procedimentos do projeto.
 
+

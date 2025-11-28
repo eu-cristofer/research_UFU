@@ -100,3 +100,4 @@ Sugestão de estrutura para a seção "Fundamentos de Processamento de Sinais" n
     *   Suposição de linearidade e estacionariedade.
     *   A "cegueira" da PSD para acoplamentos de fase (introdução ao problema que HOS resolve).
 
+
