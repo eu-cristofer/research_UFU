@@ -1,0 +1,33 @@
+name: research
+# To create the environment, run:
+#   mamba env create -f environment.yml
+# To update the environment, run:
+#   mamba env update -f environment.yml
+
+dependencies:
+  # Core language
+  - python=3.12
+
+  # Base scientific stack
+  - numpy<=2.3
+  - pandas
+  - scipy
+  - pint
+
+  # Plotting & visualization
+  - matplotlib
+  - plotly
+  - pandoc
+
+  # Jupyter ecosystem
+  - ipykernel
+  - ipython
+  - jupyter
+  - nbconvert
+  - nb_conda_kernels
+
+  # Excel I/O
+  - xlrd
+
+  # Pip for PyPI installs
+  - pip
