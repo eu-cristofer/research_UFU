@@ -555,13 +555,13 @@ graph TD
 
 ### Phase 2: Model Development
 
-- [ ] Build baseline healthy rotor model in ROSS (shaft + disc + bearings)
-- [ ] Validate baseline model: compare natural frequencies with published data
-- [ ] Validate unbalance response against known solutions
-- [ ] Implement breathing crack model (time-varying stiffness matrix)
-- [ ] Verify crack model: check 2X and 3X harmonics appear in PSD
-- [ ] Implement misalignment forcing model
-- [ ] Verify misalignment model: check expected harmonic pattern
+- [✓] Build baseline healthy rotor model in ROSS (shaft + disc + bearings)
+- [✓] Validate baseline model: compare natural frequencies with published data
+- [ ] Validate unbalance response against known solutions (Bode)
+- [✓] Implement breathing crack model (time-varying stiffness matrix)
+- [✓] Verify crack model: check 2X and 3X harmonics appear in PSD
+- [✓] Implement misalignment forcing model
+- [✓] Verify misalignment model: check expected harmonic pattern
 - [ ] Document all model parameters (geometry, material, bearing coefficients)
 
 ### Phase 3: Simulation Campaign
