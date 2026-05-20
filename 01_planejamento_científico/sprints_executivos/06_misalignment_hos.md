@@ -3,7 +3,7 @@
 > **Effort:** 1 week.
 > **Blocks:** Sprint 07.
 > **Unblocked by:** Sprints 00, 01, 02, 03, 05 (Sprint 05's `indicators()` helper is reused verbatim).
-> **Artefacts produced:** `02_simula/09_misalignment_hos_750_900.ipynb`, PNGs in `02_simula/results/figures/sprint_06/`, `reports/sinha_misalignment_side_by_side.pdf`, an Execution Log appended to this file.
+> **Artefacts produced:** `01_rotordynamic_simulation/09_misalignment_hos_750_900.ipynb`, PNGs in `01_rotordynamic_simulation/results/figures/sprint_06/`, `reports/sinha_misalignment_side_by_side.pdf`, an Execution Log appended to this file.
 
 ## Why this sprint matters for the thesis
 
@@ -24,7 +24,7 @@ The features to match (from Sinha §4 "Discussion"):
 
 ## Work items
 
-### 1. `02_simula/09_misalignment_hos_750_900.ipynb`
+### 1. `01_rotordynamic_simulation/09_misalignment_hos_750_900.ipynb`
 
 Reuse the Sprint 05 structure. The only material differences are the condition label (`"misalignment"`) and the exit criteria (topology, not amplitude).
 
@@ -221,4 +221,4 @@ assert ok900, f"extra tri-spectrum component at 900 RPM: {diag900}"
 - Sinha (2007) §3.2 "Fault 2: Misaligned Shaft" (rig: 1 mm vertical, 0.5 mm horizontal bearing-pedestal misalignment); §4 "Discussion" on B13/B31 and T111; Figs. 4, 6, 8.
 - Sinha §5 closing paragraph: "Similar simulation for the misaligned shaft could not be done" — the gap this sprint addresses.
 - Xia, Y., Pang, J., Yang, L., Zhao, Q., & Yang, X. (2019). Study on vibration response and orbits of misaligned rigid rotors connected by hexangular flexible coupling. *Applied Acoustics* — the model behind ROSS's flex coupling.
-- Existing misalignment code to inherit from: `02_simula/04_sinha_fault_analysis.ipynb` `simulate_misalignment()` helper (already computes `run_misalignment` with the correct parameters).
+- Existing misalignment code to inherit from: `01_rotordynamic_simulation/04_sinha_fault_analysis.ipynb` `simulate_misalignment()` helper (already computes `run_misalignment` with the correct parameters).

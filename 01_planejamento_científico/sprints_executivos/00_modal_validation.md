@@ -1,7 +1,7 @@
 # Sprint 00 — Modal FE validation against Sinha (2007)
 
 > **Effort:** half a day, **blocking** for every downstream sprint.
-> **Artefact produced:** a short notebook `02_simula/00a_modal_check.ipynb` (or appended cells in `01_sinha_rotor_modal.ipynb`) plus an updated docstring in `constants.py`.
+> **Artefact produced:** a short notebook `01_rotordynamic_simulation/00a_modal_check.ipynb` (or appended cells in `01_sinha_rotor_modal.ipynb`) plus an updated docstring in `constants.py`.
 
 ## Why this sprint exists
 
@@ -21,13 +21,13 @@ Cristofer's `00_sinha_rotor.ipynb` calibrates the ROSS bearing stiffness `kxx` v
 
 ## Prerequisites
 
-- `02_simula/sinha_rotor.toml` exists and loads. Regenerate it by running `00_sinha_rotor.ipynb` if not.
-- `02_simula/constants.py` still exports `BEARING_*_NODE`, `DISK_NODE`, `CRACK_NODE`, `PROBE_NODE`.
+- `01_rotordynamic_simulation/sinha_rotor.toml` exists and loads. Regenerate it by running `00_sinha_rotor.ipynb` if not.
+- `01_rotordynamic_simulation/constants.py` still exports `BEARING_*_NODE`, `DISK_NODE`, `CRACK_NODE`, `PROBE_NODE`.
 - Sinha (2007) PDF accessible at `99_references/Sinha - 2007 - ...pdf` for reviewer cross-checks.
 
 ## Work items
 
-1. **Create `02_simula/00a_modal_check.ipynb`** (a ~5-cell notebook).
+1. **Create `01_rotordynamic_simulation/00a_modal_check.ipynb`** (a ~5-cell notebook).
 2. **Cell A — load and assert intact frequencies.**
    ```python
    import numpy as np, ross as rs
@@ -90,4 +90,4 @@ Cristofer's `00_sinha_rotor.ipynb` calibrates the ROSS bearing stiffness `kxx` v
 
 - Sinha, J. K. (2007). *Higher Order Spectra for Crack and Misalignment Identification in the Shaft of a Rotating Machine.* Structural Health Monitoring 6(4), 325–334. §3 and §5. `99_references/`.
 - Ewins, D. J. (2000). *Modal Testing: Theory, Practice and Application.* 2nd ed. — cited by Sinha [31] for the impulse-response method that produced 27.50 Hz.
-- Current rotor: `02_simula/sinha_rotor.toml`, built and calibrated in `00_sinha_rotor.ipynb`.
+- Current rotor: `01_rotordynamic_simulation/sinha_rotor.toml`, built and calibrated in `00_sinha_rotor.ipynb`.

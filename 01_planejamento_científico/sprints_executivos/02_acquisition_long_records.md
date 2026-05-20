@@ -3,7 +3,7 @@
 > **Effort:** 3 days.
 > **Blocks:** Sprints 04, 05, 06, 07.
 > **Unblocked by:** Sprint 01 (`bispectrum` must be callable).
-> **Artefacts produced:** extended `constants.py`, `02_simula/run_campaign.py`, `02_simula/results/campaign.h5`, two integration-test cells appended to `06_hos_validation.ipynb`.
+> **Artefacts produced:** extended `constants.py`, `01_rotordynamic_simulation/run_campaign.py`, `01_rotordynamic_simulation/results/campaign.h5`, two integration-test cells appended to `06_hos_validation.ipynb`.
 
 ## Why this sprint exists
 
@@ -21,7 +21,7 @@ In parallel, this sprint fixes **audit H1** (the mis-paired healthy baseline at 
 
 ## Work items
 
-### 1. Extend `02_simula/constants.py`
+### 1. Extend `01_rotordynamic_simulation/constants.py`
 
 Add these constants, keeping `__all__` alphabetical and adding provenance paragraphs to the module docstring:
 
@@ -50,16 +50,16 @@ T_SHORT  = T
 
 Keep the old `DT` / `T` names available (as aliases if needed) so `01_sinha_rotor_modal.ipynb`, `02_sinha_unbalance_phase_crack.ipynb`, `03_sinha_crack_model_comparison.ipynb`, `04_sinha_fault_analysis.ipynb` continue to run unmodified.
 
-### 2. `02_simula/run_campaign.py` — the driver
+### 2. `01_rotordynamic_simulation/run_campaign.py` — the driver
 
 A standalone script (no Jupyter needed) that builds the Sprint-05/06 dataset.
 
 ```python
 """Sinha-matched simulation campaign.
 
-Run with:  python -m 02_simula.run_campaign
+Run with:  python -m 01_rotordynamic_simulation.run_campaign
 
-Writes 02_simula/results/campaign.h5 with one group per case.
+Writes 01_rotordynamic_simulation/results/campaign.h5 with one group per case.
 """
 from __future__ import annotations
 import argparse, datetime, hashlib, os, sys, uuid
@@ -182,7 +182,7 @@ def _write_case(h5: h5py.File, case: dict) -> str:
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="results/campaign.h5",
-                    help="HDF5 path relative to 02_simula/")
+                    help="HDF5 path relative to 01_rotordynamic_simulation/")
     ap.add_argument("--conditions", nargs="+", default=CONDITIONS)
     ap.add_argument("--speeds", nargs="+", type=int, default=SPEEDS_RPM)
     ap.add_argument("--seed", type=int, default=2026)
@@ -260,7 +260,7 @@ assert abs(snr_measured - 40) < 1.0, f"SNR = {snr_measured:.2f} dB, want 40"
 
 - [ ] `constants.py` exports `DT_SIM`, `T_LONG`, `FS_ACQ_EXP`, `FS_ACQ_FE`, `AA_CUTOFF`, `SNR_DB` with the values above; `__all__` updated; docstring provenance paragraph added.
 - [ ] Notebooks 01–04 still run (no breakage from the `DT` / `T` rename if you keep aliases).
-- [ ] `python 02_simula/run_campaign.py` completes in < 4 h and writes 7 groups to `results/campaign.h5`.
+- [ ] `python 01_rotordynamic_simulation/run_campaign.py` completes in < 4 h and writes 7 groups to `results/campaign.h5`.
 - [ ] Test D: B11 at 650 rpm lands within ±1 bin of (10.83, 10.83) Hz.
 - [ ] Test E: injected noise is within ±1 dB of 40 dB SNR on the probe signal.
 - [ ] Audit H1 closed — `04_sinha_fault_analysis.ipynb`'s hand-rolled `cases` list deleted (or refactored to load from `campaign.h5`).
@@ -281,5 +281,5 @@ assert abs(snr_measured - 40) < 1.0, f"SNR = {snr_measured:.2f} dB, want 40"
 ## References
 
 - Sinha (2007) §3 (DAQ: fs=2560 Hz, AA=1 kHz), §5 (FE: dt=1/10000 s, LP=1 kHz, downsample to 1 kHz, SNR=40 dB).
-- Audit: `02_simula/05_synthesis.ipynb` §3.1 C2, C3, C4 (record length, fs, speed-grid) and §3.2 H1 (baseline pairing).
+- Audit: `01_rotordynamic_simulation/05_synthesis.ipynb` §3.1 C2, C3, C4 (record length, fs, speed-grid) and §3.2 H1 (baseline pairing).
 - ROSS APIs: `rs.Rotor.run_crack`, `rs.Rotor.run_misalignment`, `rs.Rotor.run_time_response` — see existing usage in notebooks 02, 03, 04.

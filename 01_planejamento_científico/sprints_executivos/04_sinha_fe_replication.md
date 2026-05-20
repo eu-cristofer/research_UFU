@@ -3,7 +3,7 @@
 > **Effort:** 3–5 days.
 > **Blocks:** Sprint 07.
 > **Unblocked by:** Sprints 00, 01, 02, 03.
-> **Artefacts produced:** `02_simula/07_sinha_fig10_replication.ipynb`, PNGs in `02_simula/results/figures/sprint_04/`, a one-page summary appended to `02_simula/sprints/04_sinha_fe_replication.md` (this file) after execution.
+> **Artefacts produced:** `01_rotordynamic_simulation/07_sinha_fig10_replication.ipynb`, PNGs in `01_rotordynamic_simulation/results/figures/sprint_04/`, a one-page summary appended to `01_rotordynamic_simulation/sprints/04_sinha_fe_replication.md` (this file) after execution.
 
 ## Why this sprint exists
 
@@ -39,7 +39,7 @@ Note that Sinha's downsample target is **1 kHz**, not 2560 Hz. For this sprint o
 
 ## Work items
 
-### 1. Create `02_simula/07_sinha_fig10_replication.ipynb`
+### 1. Create `01_rotordynamic_simulation/07_sinha_fig10_replication.ipynb`
 
 Outline of cells:
 
@@ -185,4 +185,4 @@ Once the notebook runs clean, add a short "Execution Log" section to the bottom 
 
 - Sinha (2007), §5 "Finite Element Simulation"; Figs. 9, 10. `99_references/`.
 - Kim & Powers (1979) — normalization; already cited in Sprint 01.
-- Cristofer's prior art: `02_simula/03_sinha_crack_model_comparison.ipynb` §"Stiffness Variation Over One Revolution" shows that Mayes' `(1 − cos θ) / 2` stiffness profile is implemented correctly in ROSS and matches Sinha's formula. Reuse its sanity-plot logic if useful.
+- Cristofer's prior art: `01_rotordynamic_simulation/03_sinha_crack_model_comparison.ipynb` §"Stiffness Variation Over One Revolution" shows that Mayes' `(1 − cos θ) / 2` stiffness profile is implemented correctly in ROSS and matches Sinha's formula. Reuse its sanity-plot logic if useful.

@@ -3,7 +3,7 @@
 > **Effort:** 2 days.
 > **Blocks:** Sprints 04, 05, 06 (every HOS amplitude claim depends on damping and modal truncation).
 > **Unblocked by:** Sprints 00, 01, 02.
-> **Artefacts produced:** a damping-tuned `02_simula/sinha_rotor.toml` (previous copy saved as `sinha_rotor_pre_damping.toml`), a short `02_simula/00b_damping_check.ipynb`, and a convergence table in Markdown at `02_simula/sprints/03_convergence_table.md`.
+> **Artefacts produced:** a damping-tuned `01_rotordynamic_simulation/sinha_rotor.toml` (previous copy saved as `sinha_rotor_pre_damping.toml`), a short `01_rotordynamic_simulation/00b_damping_check.ipynb`, and a convergence table in Markdown at `01_rotordynamic_simulation/sprints/03_convergence_table.md`.
 
 ## Why this sprint exists
 
@@ -21,7 +21,7 @@ Separately, the **audit H4** flags that every downstream `run_crack` / `run_misa
 
 ### 1. Damping calibration — `tune_damping`
 
-Add to `02_simula/00_sinha_rotor.ipynb` (or a small helper script `tune_damping.py`) a Brent-method fit, exactly mirroring the `tune_kxx` pattern:
+Add to `01_rotordynamic_simulation/00_sinha_rotor.ipynb` (or a small helper script `tune_damping.py`) a Brent-method fit, exactly mirroring the `tune_kxx` pattern:
 
 ```python
 from scipy.optimize import brentq
@@ -116,7 +116,7 @@ for n, _, B22, _ in rows:
     print(f"num_modes={n}  Δ|B22| vs 36-mode = {rel*100:.2f}%")
 ```
 
-Commit the printed table to `02_simula/sprints/03_convergence_table.md`. Decide:
+Commit the printed table to `01_rotordynamic_simulation/sprints/03_convergence_table.md`. Decide:
 
 - If `num_modes=12` is within 5 % of `num_modes=36` on every column, **keep** `num_modes=12` as the project default (saves ≈ 3 × runtime).
 - If not, raise the default to the first `num_modes` that *is* within 5 %. Record the new default as `NUM_MODES` in `constants.py` and update `run_campaign.py`.
@@ -126,8 +126,8 @@ Commit the printed table to `02_simula/sprints/03_convergence_table.md`. Decide:
 Damping calibration changes every time series. Delete the old HDF5, re-run:
 
 ```bash
-rm 02_simula/results/campaign.h5
-python 02_simula/run_campaign.py
+rm 01_rotordynamic_simulation/results/campaign.h5
+python 01_rotordynamic_simulation/run_campaign.py
 ```
 
 Re-assert Sprint 02 Tests D and E on the new file.
@@ -137,7 +137,7 @@ Re-assert Sprint 02 Tests D and E on the new file.
 - [ ] `sinha_rotor.toml` re-saved with `|ζ₁ − 0.003| ≤ 5e-4`.
 - [ ] `sinha_rotor_pre_damping.toml` exists alongside (traceability).
 - [ ] Sprint 00's Cell A assertion (`|f1 − 27.50| ≤ 0.05`) still passes.
-- [ ] Convergence table at `02_simula/sprints/03_convergence_table.md` lists `(n_modes, |B11|, |B22|, |B12|)` for `n_modes ∈ {12, 24, 36}`.
+- [ ] Convergence table at `01_rotordynamic_simulation/sprints/03_convergence_table.md` lists `(n_modes, |B11|, |B22|, |B12|)` for `n_modes ∈ {12, 24, 36}`.
 - [ ] `NUM_MODES` exported from `constants.py` at the chosen default (with justification in docstring).
 - [ ] `run_campaign.py` uses `NUM_MODES` (not hardcoded 12) and re-runs clean on the damping-tuned rotor.
 
@@ -156,5 +156,5 @@ Re-assert Sprint 02 Tests D and E on the new file.
 ## References
 
 - Sinha (2007) §5, paragraph "The stiffness proportional damping matrix was also included in the model using experimentally measured modal damping of 0.3 % at the first mode."
-- Audit: `02_simula/05_synthesis.ipynb` §3.2 H4 (modal truncation), §3.3 M5 (steady-state heuristic is downstream of damping).
-- Existing pattern: `02_simula/00_sinha_rotor.ipynb` — `tune_kxx` via `brentq` (clone verbatim for `tune_damping`).
+- Audit: `01_rotordynamic_simulation/05_synthesis.ipynb` §3.2 H4 (modal truncation), §3.3 M5 (steady-state heuristic is downstream of damping).
+- Existing pattern: `01_rotordynamic_simulation/00_sinha_rotor.ipynb` — `tune_kxx` via `brentq` (clone verbatim for `tune_damping`).

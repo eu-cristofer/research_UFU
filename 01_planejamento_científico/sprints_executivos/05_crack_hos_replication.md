@@ -3,7 +3,7 @@
 > **Effort:** 1 week.
 > **Blocks:** Sprint 07.
 > **Unblocked by:** Sprints 00, 01, 02, 03 (Sprint 04 helpful but not strictly required).
-> **Artefacts produced:** `02_simula/08_crack_hos_650_750.ipynb`, PNGs in `02_simula/results/figures/sprint_05/`, `reports/sinha_crack_side_by_side.pdf`, an Execution Log appended to this file.
+> **Artefacts produced:** `01_rotordynamic_simulation/08_crack_hos_650_750.ipynb`, PNGs in `01_rotordynamic_simulation/results/figures/sprint_05/`, `reports/sinha_crack_side_by_side.pdf`, an Execution Log appended to this file.
 
 ## Why this sprint exists
 
@@ -23,7 +23,7 @@ The claim the thesis needs to back is: **ROSS + Sinha-matched HOS can reproduce 
 
 ## Work items
 
-### 1. `02_simula/08_crack_hos_650_750.ipynb`
+### 1. `01_rotordynamic_simulation/08_crack_hos_650_750.ipynb`
 
 Outline:
 
@@ -226,4 +226,4 @@ Once the notebook runs clean, append:
 - Sinha (2007) §3.1 "Fault 1: Cracked Shaft" (rig description, speeds), Figs. 2, 3, 5, 7.
 - Sinha §4 "Discussion" paragraphs on B22 and T222 (the two scalar targets).
 - Campaign driver and HDF5 contract: Sprint 02.
-- Crack-model ground truth: `02_simula/03_sinha_crack_model_comparison.ipynb` (proves Mayes in ROSS matches Sinha's `(1−cosθ)Δk/2`).
+- Crack-model ground truth: `01_rotordynamic_simulation/03_sinha_crack_model_comparison.ipynb` (proves Mayes in ROSS matches Sinha's `(1−cosθ)Δk/2`).

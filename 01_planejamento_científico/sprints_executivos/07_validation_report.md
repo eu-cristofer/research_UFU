@@ -3,7 +3,7 @@
 > **Effort:** 3–5 days.
 > **Blocks:** nothing (final sprint).
 > **Unblocked by:** Sprints 00–06.
-> **Artefacts produced:** `02_simula/results/validation_matrix.csv`, `reports/sinha_validation_figures.pdf`, `01_article/03_methods_draft.md`.
+> **Artefacts produced:** `01_rotordynamic_simulation/results/validation_matrix.csv`, `reports/sinha_validation_figures.pdf`, `01_article/03_methods_draft.md`.
 
 ## Why this sprint exists
 
@@ -18,7 +18,7 @@ The validation matrix is the artefact a thesis advisor or a journal reviewer can
 
 ## Work items
 
-### 1. Build `02_simula/results/validation_matrix.csv`
+### 1. Build `01_rotordynamic_simulation/results/validation_matrix.csv`
 
 10 rows, one per claim. Columns:
 
@@ -36,7 +36,7 @@ The validation matrix is the artefact a thesis advisor or a journal reviewer can
 Script it:
 
 ```python
-# 02_simula/build_validation_matrix.py
+# 01_rotordynamic_simulation/build_validation_matrix.py
 import csv
 from pathlib import Path
 
@@ -155,7 +155,7 @@ Recommended layout (one sheet per paired panel):
 Script it with `matplotlib.backends.backend_pdf.PdfPages`:
 
 ```python
-# 02_simula/build_validation_deck.py
+# 01_rotordynamic_simulation/build_validation_deck.py
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 from pathlib import Path
@@ -210,7 +210,7 @@ Three sections, aiming for 3–4 pages of thesis prose. Skeleton:
 - Material: steel with `E = 211 GPa, G_s = 81.1 GPa, ρ = 7810 kg/m³`.
 - Element type: ROSS `ShaftElement`, 6-DOF-per-node beam with shear, rotary inertia, and gyroscopic terms enabled.
 - Bearing calibration: isotropic `kxx = kyy = k_opt`, with `k_opt` found by Brent's method on the residual `f1(k) − 27.50 Hz`, where 27.50 Hz is Sinha's experimental first bending frequency (§3). The calibrated value is reported in Table M1.
-- Damping: stiffness-proportional, tuned so `ζ₁ = 0.3 %` at the first mode, matching Sinha §5. Method `tune_damping` (see `02_simula/sprints/03_damping_and_modal_truncation.md`).
+- Damping: stiffness-proportional, tuned so `ζ₁ = 0.3 %` at the first mode, matching Sinha §5. Method `tune_damping` (see `01_rotordynamic_simulation/sprints/03_damping_and_modal_truncation.md`).
 - Modal-truncation order: `NUM_MODES`, convergence-tested in Sprint 03 against a 36-mode reference.
 
 ## 3.2 Fault models
@@ -270,4 +270,4 @@ Leave placeholders where specific numbers should land after Sprint 07's matrix i
 - Xia, Y. et al. (2019). Misaligned flexible coupling force model. *Applied Acoustics.*
 - Mayes, I. W. & Davies, W. G. R. (1984). Transverse-crack breathing model. *ASME JVASRD* 106.
 - Plan: `/Users/cristofer/.claude/plans/great-job-based-on-curious-music.md`.
-- Audit: `02_simula/05_synthesis.ipynb` (the source of the 10 falsifiable claims and their numeric exit criteria).
+- Audit: `01_rotordynamic_simulation/05_synthesis.ipynb` (the source of the 10 falsifiable claims and their numeric exit criteria).

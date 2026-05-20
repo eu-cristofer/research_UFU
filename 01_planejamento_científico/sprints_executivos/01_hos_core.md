@@ -3,7 +3,7 @@
 > **Effort:** 5 days.
 > **Blocks:** Sprints 02, 04, 05, 06, 07.
 > **Unblocked by:** Sprint 00.
-> **Artefacts produced:** `02_simula/signal_utils.py`, `02_simula/plot_utils.py`, `02_simula/06_hos_validation.ipynb`.
+> **Artefacts produced:** `01_rotordynamic_simulation/signal_utils.py`, `01_rotordynamic_simulation/plot_utils.py`, `01_rotordynamic_simulation/06_hos_validation.ipynb`.
 
 ## Why this sprint exists
 
@@ -24,7 +24,7 @@ Equally important: without a trusted estimator, the long-record acquisition spri
 
 ## Deliverables
 
-### 1. `02_simula/signal_utils.py`
+### 1. `01_rotordynamic_simulation/signal_utils.py`
 
 Module-level docstring must state the normalization convention (Kim & Powers 1979) and reference Sinha Eqs. (2), (3) with the exact indexing used here. Functions:
 
@@ -102,7 +102,7 @@ def add_awgn(x, snr_db: float, rng=None) -> np.ndarray:
 
 **Constants** to pull from `constants.py` inside `bispectrum` / `trispectrum`: `SINHA_HOS_DF_HZ = 1.25`, `SINHA_HOS_N_SEGMENTS = 50`, `SINHA_HOS_OVERLAP = 0.5`. These are the Sinha §3.3 settings and must be the default when no explicit `nfft`/`noverlap` is passed.
 
-### 2. `02_simula/plot_utils.py`
+### 2. `01_rotordynamic_simulation/plot_utils.py`
 
 Sinha-convention visualizers (mirror Figs. 5, 6, 7, 8, 10):
 
@@ -117,7 +117,7 @@ def plot_trispectrum_balls(T_dict, freqs, fmax_hz=35.0, amp_min=0.10):
     diameter scales with amplitude. Matches Sinha Figs. 7, 8, 10(b)."""
 ```
 
-### 3. `02_simula/06_hos_validation.ipynb`
+### 3. `01_rotordynamic_simulation/06_hos_validation.ipynb`
 
 A validation notebook with **two falsifiable unit tests** that decide whether the HOS core is trustworthy.
 
@@ -192,4 +192,4 @@ The negative test is the one that catches broken implementations. A common bug i
 - Sinha (2007), §2.1–2.2 (HOS definitions), §3.3 (estimator settings). `99_references/`.
 - Kim, Y. C., & Powers, E. J. (1979). Digital Bispectral Analysis and Its Applications to Nonlinear Wave Interactions. *IEEE Trans. Plasma Science* 7(2), 120–131. The normalization convention.
 - Collis, W. B., White, P. R., & Hammond, J. K. (1998). Higher-order spectra: the bispectrum and trispectrum. *MSSP* 12(3), 375–394. Cited by Sinha as [23]; the reference implementation textbook.
-- Existing audit: `02_simula/05_synthesis.ipynb` §3.2 (H2, H3), §4.1 Step 2, §4.1 Step 2 Appendix.
+- Existing audit: `01_rotordynamic_simulation/05_synthesis.ipynb` §3.2 (H2, H3), §4.1 Step 2, §4.1 Step 2 Appendix.
