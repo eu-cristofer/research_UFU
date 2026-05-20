@@ -4,12 +4,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Master's thesis (POSMEC / UFU) on fault diagnosis in rotating machines by combining open-source FEM rotordynamics (the ROSS library) with Higher-Order Spectra (bispectrum / trispectrum / bicoherence). The target study reproduces Sinha (2007) numerically and extends it into a parametric campaign over shaft cracks and misalignment. The authoritative planning documents live in `01_article/` — start there when a task's scope or motivation is unclear:
+Master's thesis (POSMEC / UFU) on fault diagnosis in rotating machines by combining open-source FEM rotordynamics (the ROSS library) with Higher-Order Spectra (bispectrum / trispectrum / bicoherence). The target study reproduces Sinha (2007) numerically and extends it into a parametric campaign over shaft cracks and misalignment.
 
-- `01_article/02_executive_summary.md` — one-page framing of the research.
-- `01_article/01_publication_roadmap.md` — full gap analysis, go/no-go gates, timeline.
-- `01_article/03_ross_agent_prompt.md` — detailed spec of the go/no-go feasibility experiment.
-- `01_article/04_rk4_working_plan.md` — revised plan that adds experimental validation on the Bently Nevada RK4 rig.
+Planning lives in two parallel hubs — check both when a task's scope or motivation is unclear:
+
+- `01_planejamento_científico/` — English-language scientific plan.
+  - `conceitual/02_executive_summary.md` — one-page framing of the research.
+  - `conceitual/01_publication_roadmap.md` — full gap analysis, go/no-go gates, timeline.
+  - `conceitual/03_ross_agent_prompt.md` — spec of the go/no-go feasibility experiment.
+  - `conceitual/04_rk4_working_plan.md` — revised plan that adds experimental validation on the Bently Nevada RK4 rig.
+  - `sprints_executivos/` — the **active execution plan**. Sprints 00 → 07 each have purpose / prerequisites / work items / exit criteria; order is `00 → 01 → 02 → 03 → (04 ∥ 05 ∥ 06) → 07`. `sci_tasks.md` is the checkbox tracker.
+- `02_planejamento_da_pesquisa/` — Portuguese (pt-BR) research-planning hub: `00_planejamento_global.md`, `01_plano_de_escrita.md`, `02_metodologia_cientifica.md`, `03_cronograma_execucao.md`, `04_indicadores_progresso.md`. This is the language the thesis itself is written in; edits here should stay in pt-BR.
 
 ## Environment
 
@@ -27,9 +32,10 @@ Notebooks set `pio.renderers.default = "notebook"` for inline Plotly — launch 
 
 The notebooks form an ordered pipeline and **share state through files, not imports**:
 
-1. `00_sinha_rotor.ipynb` — builds the Sinha rotor geometry in ROSS, validates the first bending frequency (~27.5 Hz), and **writes `sinha_rotor.toml`** via `rotor.save("sinha_rotor.toml")`.
+1. `00_sinha_rotor.ipynb` — builds the Sinha rotor geometry in ROSS, calibrates bearing stiffness via `scipy.optimize.brentq` to match the first bending frequency (~27.5 Hz), and **writes `sinha_rotor.toml`** via `rotor.save("sinha_rotor.toml")`.
 2. `01_sinha_rotor_modal.ipynb`, `02_sinha_unbalance_phase_crack.ipynb`, `03_sinha_crack_model_comparison.ipynb`, `04_sinha_fault_analysis.ipynb` — all begin with `rotor = rs.Rotor.load("sinha_rotor.toml")` and `from constants import *`.
-3. `01_unbalance.ipynb` is an auxiliary single-topic notebook (currently untracked).
+3. `05_synthesis.ipynb` — engineering audit of `02_simula/` against the publication roadmap (current state, hardcoded parameters, error/best-practice review, gap-analysis). Read this first when orienting on what is built vs. what is still missing; it is the source for the sprint plan in `01_planejamento_científico/sprints_executivos/`.
+4. `01_unbalance.ipynb` is an auxiliary single-topic notebook (currently untracked).
 
 Consequences:
 - If `00_sinha_rotor.ipynb` has not been run in the current working copy, downstream notebooks will fail with `FileNotFoundError` on `sinha_rotor.toml`. Run 00 first (or regenerate the TOML) when modifying the rotor geometry.
@@ -51,9 +57,11 @@ ROSS values that carry units are stored as `pint` quantities via `ross.Q_(...)`.
 
 Self-contained pdflatex + bibtex build, with a `Makefile`. Common targets: `make` (full build with bibliography), `make quick` (one pdflatex pass), `make clean`, `make view` (macOS `open`). The document is Portuguese (pt-BR) and ABNT-styled; keep that when editing `.tex`.
 
-## References and tutorials
+## References and literature
 
-- `99_references/` — source papers (currently Sinha 2007). Cite these when editing Methods-related text; the bibliography is in `00_proposta_de_trabalho/references.bib`.
+- `99_references/` — source PDFs: Sinha (2007) (target paper), Lalanne & Ferraris (1998) (rotordynamics textbook), Timbó et al. (2020) (ROSS paper), Faulkner (2005). Cite these when editing Methods-related text; the bibliography is in `00_proposta_de_trabalho/references.bib`.
+- `03_literature_review/` — long-form review notes (e.g., `FFT.md` is an English peer-reviewed-audit pass on the Fourier-to-FFT-to-PSD narrative; `FFT_pt-BR.md` is the pt-BR translation; `FFT_audit.md` is the line-level findings log). Produced with the `academic-research` skill — preserve that convention (verified citations, APA-style) when extending.
+- `04_mindmaps/` — research-question mind maps in Markdown.
 - `tutorials/pandoc_tutorial/` — unrelated pandoc sandbox; do not pull it into simulation code.
 
 ## Conventions learned from the repo
