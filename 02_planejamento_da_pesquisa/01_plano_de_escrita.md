@@ -13,10 +13,12 @@
 - Justificativa para a abordagem proposta
 
 ### 1.3 Questões Norteadoras e Objetivos
-- Questões norteadoras principais (Q1-Q5)
-- Questões exploratórias (Q6-Q7)
-- Objetivo geral e específicos
-- Mapeamento questões-objetivos
+- Questão central (espectros de ordem superior são capazes de distinguir
+  assinaturas não lineares de trinca e desalinhamento?)
+- Desmembramento em nove questões norteadoras (Q1–Q9), conforme
+  `00_planejamento_global.md` §4.2
+- Objetivo geral e específicos (3.1 a 3.6)
+- Mapeamento questões-objetivos (tabela §4.3 do planejamento global)
 
 ### 1.4 Justificativa
 - Relevância científica e prática
@@ -26,7 +28,7 @@
 ### 1.5 Escopo e Delimitações
 - Tipos de falhas abordadas (trincas, desalinhamentos)
 - Ferramenta de simulação (ROSS)
-- Técnicas de análise (HOS: bi-espectro e tri-espectro)
+- Técnicas de análise (HOS: bi-espectro, bicoerência e tri-espectro)
 - Limitações do estudo
 
 ### 1.6 Organização da Dissertação
@@ -105,7 +107,7 @@
   - Pré-processamento dos dados
   - Armazenamento e organização
 
-### 3.5 Processamento de Sinais e Análise HOS (Respondendo Q2 e Q3)
+### 3.5 Processamento de Sinais e Análise HOS (Respondendo Q3 e Q4)
 
 #### 3.5.1 Pré-processamento de Sinais
 - Filtragem e condicionamento
@@ -127,16 +129,20 @@
 - Métricas quantitativas
 - Análise comparativa entre condições
 
-### 3.6 Estratégia de Validação (Respondendo Q4)
-- Critérios de validação estabelecidos
-- Fontes de dados para comparação
+### 3.6 Estratégia de Validação (Respondendo Q2 e Q8)
+- Critérios de validação estabelecidos (topologia espectral, picos
+  em (1X,1X) e (1X,2X), bifase em frequências-chave)
+- Fontes de dados para comparação (Sinha, 2007 e demais referências)
 - Métodos de comparação (qualitativa e quantitativa)
 - Análise crítica de resultados
+- Discussão do alcance da abordagem numérica open source frente a
+  estudos experimentais (Q8)
 
-### 3.7 Análise de Robustez (Respondendo Q7)
-- Análise de sensibilidade dos parâmetros
-- Efeito de ruído e incertezas
-- Variação com condições operacionais
+### 3.7 Análise de Sensibilidade e Robustez (Respondendo Q6 e Q9)
+- Análise de sensibilidade dos indicadores HOS à severidade da falha
+  e à velocidade de rotação (Q6)
+- Efeito de ruído e incertezas paramétricas (Q9)
+- Variação com condições operacionais (rotação, amortecimento)
 - Avaliação de limites de aplicabilidade
 
 ## 4 Capítulo 4: Resultados e Discussão
@@ -165,28 +171,32 @@
 - Variação com severidade da falha
 - Influência das condições operacionais
 
-### 4.3 Validação com Literatura
-- Comparação qualitativa com resultados experimentais
+### 4.3 Validação com Literatura (Respondendo Q2 e Q8)
+- Comparação qualitativa com resultados experimentais (Sinha, 2007)
 - Comparação quantitativa de indicadores
 - Discussão de concordâncias e discordâncias
 - Análise crítica das diferenças
+- Discussão do alcance da abordagem numérica open source frente a
+  bancadas experimentais (Q8)
 
-### 4.4 Análise de Robustez e Sensibilidade
-- Efeito de variações paramétricas
+### 4.4 Análise de Robustez e Sensibilidade (Respondendo Q6 e Q9)
+- Efeito de variações paramétricas (severidade da falha, rotação,
+  amortecimento) — Q6
 - Sensibilidade a condições operacionais
-- Robustez frente a ruído
+- Robustez frente a ruído e incertezas (Q9)
 - Limites de aplicabilidade
 
 ### 4.5 Discussão Geral
-- **Respondendo Q5 (Complementaridade)**:
-  - Vantagens da abordagem simulada
-  - Limitações identificadas
-  - Situações de aplicabilidade prática
-  - Contribuições para a área
+- **Respondendo Q5 (Indicadores escalares mais robustos)**:
+  - Ranking dos indicadores HOS (BPR, BCS, BE, bifase) por
+    capacidade discriminativa
+  - Robustez em diferentes regimes operacionais
+  - Recomendações de uso prático
 
-- **Respondendo Q6 (Full Spectrum - se investigado)**:
-  - Resultados exploratórios
-  - Potencial de aplicação
+- **Respondendo Q7 (HOS × PSD)**:
+  - Ganho de discriminação dos indicadores HOS em relação aos
+    indicadores tradicionais baseados em PSD
+  - Situações em que HOS supera (ou não) a análise PSD
 
 - Síntese das principais descobertas
 - Implicações teóricas e práticas
