@@ -12,7 +12,7 @@
 
 Máquinas rotativas, como turbinas, compressores, bombas e geradores, estão presentes em setores estratégicos da indústria e sua indisponibilidade pode gerar perdas técnicas, econômicas e operacionais significativas. Entre as falhas mais relevantes nesse tipo de sistema, destacam-se as trincas em eixo e o desalinhamento, ambas capazes de produzir respostas dinâmicas não lineares e de difícil distinção quando se utilizam apenas técnicas clássicas de análise de vibrações.
 
-A densidade espectral de potência (PSD), amplamente empregada no monitoramento de condição, é baseada em estatísticas de segunda ordem e, por isso, possui limitações para identificar acoplamentos de fase, interações não lineares e características não gaussianas do sinal. Nesse contexto, os espectros de ordem superior, em especial o bispectro e medidas derivadas como a bicoerência, surgem como alternativas promissoras para diferenciar assinaturas vibracionais associadas a diferentes tipos de falha.
+A densidade espectral de potência (PSD), amplamente empregada no monitoramento de condição, é baseada em estatísticas de segunda ordem e, por isso, possui limitações para identificar acoplamentos de fase, interações não lineares e características não gaussianas do sinal. Nesse contexto, os espectros de ordem superior, em especial o bi-espectro, a bicoerência e o tri-espectro, surgem como alternativas promissoras para diferenciar assinaturas vibracionais associadas a diferentes tipos de falha.
 
 Ao mesmo tempo, estudos experimentais nessa área costumam depender de bancadas específicas, com alto custo, baixa flexibilidade paramétrica e dificuldade de reprodução. Assim, propõe-se uma abordagem baseada em simulações numéricas com a biblioteca `ROSS`, buscando construir um fluxo reprodutível para geração de sinais, extração de indicadores por espectros de ordem superior e análise comparativa entre condições saudáveis e defeituosas.
 
@@ -45,9 +45,10 @@ Desenvolver e avaliar uma metodologia computacional, baseada em simulações num
 - Implementar o modelo de forçamento por desalinhamento com excitação harmônica em 1X, 2X e 3X.
 - Validar os modelos desenvolvidos comparando frequências naturais e resposta ao desbalanceamento com dados publicados na literatura.
 
-### 3.3 Campanha de Simulação Paramétrica
+### 3.3 Campanha de Simulação Paramétrica (Phase 2)
 
-- Projetar um estudo paramétrico sistemático (Planejamento de Experimentos) cobrindo:
+- **Fase 1 (Validação):** Validar a baseline do pipeline numérico contra resultados experimentais da literatura (e.g., Sinha, 2007) avaliando a topologia dos espectros e a reprodução de características chave.
+- **Fase 2 (DoE):** Somente após a validação bem-sucedida (Fase 1), projetar um estudo paramétrico sistemático (Planejamento de Experimentos) cobrindo:
   - Razão de profundidade da trinca (a/D = 0,0 a 0,5)
   - Ângulo de desalinhamento (0,0° a 2,0°)
   - Velocidade de rotação (0,5× a 1,5× velocidade crítica)
