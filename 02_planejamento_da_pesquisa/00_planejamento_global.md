@@ -30,6 +30,19 @@ Desenvolver e avaliar uma metodologia computacional, baseada em simulações num
 
 ## 3. Objetivos Específicos
 
+Abaixo é apresentado o fluxograma das etapas da pesquisa, relacionando os objetivos específicos e os *gates* de aprovação:
+
+```mermaid
+flowchart TB
+    O1[3.1 Revisão da Literatura] --> O2[3.2 Modelagem Numérica e Validação]
+    O2 --> O3A{3.3 Fase 1: Validação<br>da Baseline}
+    O3A -- "Aprovado" --> O3B[3.3 Fase 2: Simulação<br>Paramétrica DoE]
+    O3A -- "Revisar" --> O2
+    O3B --> O4[3.4 Análise de Espectros<br>de Ordem Superior]
+    O4 --> O5[3.5 Diagnóstico de Falhas e<br>Análise de Sensibilidade]
+    O5 --> O6[3.6 Validação Contra Literatura<br>e Reprodutibilidade]
+```
+
 ### 3.1 Revisão da Literatura
 
    - Realizar uma revisão bibliográfica aprofundada sobre:
