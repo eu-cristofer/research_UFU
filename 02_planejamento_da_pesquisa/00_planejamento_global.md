@@ -41,7 +41,7 @@ Desenvolver e avaliar uma metodologia computacional, baseada em simulações num
 ### 3.2 Modelagem Numérica e Validação
 
 - Construir modelos de elementos finitos de um sistema rotor-mancal utilizando a biblioteca ROSS, incluindo efeitos giroscópicos, rigidez e amortecimento dos mancais.
-- Implementar o modelo de trinca respirante com rigidez variável no tempo (modelo Mayes-Davies ou chaveamento de rigidez).
+- Implementar o modelo de trinca respirante com rigidez variável no tempo (modelo Mayes-Davies e Gash).
 - Implementar o modelo de forçamento por desalinhamento com excitação harmônica em 1X, 2X e 3X.
 - Validar os modelos desenvolvidos comparando frequências naturais e resposta ao desbalanceamento com dados publicados na literatura.
 
@@ -88,17 +88,17 @@ Os espectros de ordem superior aplicados a sinais obtidos por simulações numé
 
 Os padrões HOS numéricos são consistentes com resultados experimentais publicados (Sinha, 2007)?
 
-1. Quais características dinâmicas não lineares produzidas por trinca e desalinhamento podem ser identificadas por espectros de ordem superior?
+2. Quais características dinâmicas não lineares produzidas por trinca e desalinhamento podem ser identificadas por espectros de ordem superior?
 
-2. Em que medida o bispectro e a bicoerência conseguem distinguir falhas com conteúdo espectral semelhante na PSD?
+3. Em que medida o bispectro e a bicoerência conseguem distinguir falhas com conteúdo espectral semelhante na PSD?
 
-3. Quais indicadores escalares apresentam maior robustez para classificação entre rotor saudável, trincado e desalinhado?
+4. Quais indicadores escalares apresentam maior robustez para classificação entre rotor saudável, trincado e desalinhado?
 
-4. Como a severidade da falha e a velocidade de rotação influenciam os padrões bispectrais observados?
+5. Como a severidade da falha e a velocidade de rotação influenciam os padrões bispectrais observados?
 
 Os indicadores HOS superam indicadores tradicionais (PSD) na discriminação de falhas com assinaturas frequenciais similares?
 
-5. Até que ponto uma abordagem numérica com ferramentas open source pode fornecer resultados comparáveis aos reportados em estudos experimentais da literatura?
+6. Até que ponto uma abordagem numérica com ferramentas open source pode fornecer resultados comparáveis aos reportados em estudos experimentais da literatura?
 
 A metodologia proposta é robusta o suficiente para diferentes configurações de parâmetros e níveis de ruído?
 
