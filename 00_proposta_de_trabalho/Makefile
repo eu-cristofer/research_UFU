@@ -2,10 +2,20 @@
 # Usage: make [target]
 
 # Variables
-TEX_FILE = 00_proposta_de_trabalho
-PDF_FILE = $(TEX_FILE).pdf
-BIB_FILE = references.bib
+# --- Document identity -------------------------------------------------------
+# DATE drives the name of the final, versioned PDF (e.g. 2026.05.22_proposta_de_trabalho.pdf).
+# Bump DATE for each new revision. The LaTeX source keeps a stable, dot-free
+# name (00_proposta_de_trabalho.tex) so pdflatex/bibtex jobname and .aux
+# resolution stay reliable.
+DATE     = 2026.05.22
+DOCNAME  = proposta_de_trabalho
+TEX_FILE = 00_$(DOCNAME)
 MAIN_TEX = $(TEX_FILE).tex
+BIB_FILE = references.bib
+
+# BUILD_PDF is the raw pdflatex output; PDF_FILE is the dated artifact we ship.
+BUILD_PDF = $(TEX_FILE).pdf
+PDF_FILE  = $(DATE)_$(DOCNAME).pdf
 
 # Compiler settings
 LATEX = pdflatex
@@ -16,7 +26,7 @@ LATEX_FLAGS = -interaction=nonstopmode -file-line-error
 .PHONY: all
 all: $(PDF_FILE)
 
-# Main compilation target: builds the final PDF from LaTeX source and bibliography.
+# Main compilation target: builds the final dated PDF from LaTeX source and bibliography.
 $(PDF_FILE): $(MAIN_TEX) $(BIB_FILE)
 	@echo "Compiling LaTeX document..."
 	$(LATEX) $(LATEX_FLAGS) $(MAIN_TEX)  		# First pdflatex run (generates .aux and other files).
@@ -26,6 +36,7 @@ $(PDF_FILE): $(MAIN_TEX) $(BIB_FILE)
 		$(LATEX) $(LATEX_FLAGS) $(MAIN_TEX); \
 		$(LATEX) $(LATEX_FLAGS) $(MAIN_TEX); \
 	fi
+	@mv -f $(BUILD_PDF) $(PDF_FILE)            # Rename raw output to the dated artifact.
 	@echo "Compilation complete: $(PDF_FILE)" # Notify about completion and output PDF name.
 
 # Quick compilation (without bibliography)
@@ -33,13 +44,14 @@ $(PDF_FILE): $(MAIN_TEX) $(BIB_FILE)
 quick: $(MAIN_TEX)
 	@echo "Quick compilation (no bibliography)..."
 	$(LATEX) $(LATEX_FLAGS) $(MAIN_TEX)
+	@mv -f $(BUILD_PDF) $(PDF_FILE)
 	@echo "Quick compilation complete: $(PDF_FILE)"
 
-# Clean auxiliary files
+# Clean auxiliary files (keeps the dated PDF, drops the raw build PDF)
 .PHONY: clean
 clean:
 	@echo "Cleaning auxiliary files..."
-	rm -f *.aux *.log *.out *.toc *.lof *.lot *.bbl *.blg *.fdb_latexmk *.fls *.synctex.gz
+	rm -f *.aux *.log *.out *.toc *.lof *.lot *.bbl *.blg *.fdb_latexmk *.fls *.synctex.gz $(BUILD_PDF)
 	@echo "Clean complete"
 
 # Clean everything including PDF
@@ -106,8 +118,8 @@ help:
 	@echo "Available targets:"
 	@echo "  all          - Compile the document with bibliography (default)"
 	@echo "  quick        - Quick compilation without bibliography"
-	@echo "  clean        - Remove auxiliary files"
-	@echo "  distclean    - Remove all generated files including PDF"
+	@echo "  clean        - Remove auxiliary files (and the raw build PDF)"
+	@echo "  distclean    - Remove all generated files including the dated PDF"
 	@echo "  view         - Open PDF in default viewer (macOS)"
 	@echo "  view-linux   - Open PDF in default viewer (Linux)"
 	@echo "  check        - Check for LaTeX errors"
@@ -115,6 +127,9 @@ help:
 	@echo "  watch        - Auto-recompile on file changes"
 	@echo "  watch-manual - Manual recompile mode"
 	@echo "  help         - Show this help message"
+	@echo ""
+	@echo "Output PDF: $(PDF_FILE)"
+	@echo "Bump the DATE variable at the top of this Makefile for a new revision."
 	@echo ""
 	@echo "Usage examples:"
 	@echo "  make          # Compile with bibliography"
